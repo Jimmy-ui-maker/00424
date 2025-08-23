@@ -1,0 +1,87 @@
+@import "bootstrap-icons";
+
+:root {
+  --bg: #e0e5ec; /* light gray background */
+  --radius: 1.25rem;
+  --shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+}
+*{
+  font-family: "Arial";
+}
+html,
+body {
+  height: 100%;
+  
+}
+body {
+  background: var(--bg);
+  
+}
+.small a{
+  text-decoration: none;
+   border-radius: 8px;
+  padding: 5px;
+  box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+}
+
+.bg-body {
+  background: var(--bg);
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+textarea {
+  background: transparent;
+  border: none !important; /* Force remove Bootstrap border */
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff;
+  width: 100%;
+  margin-bottom: 10px;
+  outline: none; /* Optional: removes focus outline */
+}
+/* Soft, consistent shadow & radius for all major UI pieces */
+.soft-shadow {
+  box-shadow: var(--shadow) !important;
+}
+.soft-card {
+  border-radius: var(--radius);
+  box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+}
+
+/* Make Bootstrap components match the style */
+.card,
+.btn,
+.form-select,
+.navbar,
+.dropdown-menu,
+.list-group-item,
+.table {
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+.navbar {
+  z-index: 1000;
+  background: var(--bg);
+}
+.navbar a{
+  color: #191818;
+}
+
+.section {
+  margin-top: 1rem;
+}
+
+/* Utilities */
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/* Improve focus outline visibility */
+:focus-visible {
+  outline: 2px dashed #0d6efd;
+  outline-offset: 2px;
+}
