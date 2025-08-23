@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="col-12 col-md-5">
             <div className="ratio ratio-1x1 rounded-4 overflow-hidden soft-shadow">
               <img
-                src="/jimi.jpg"
+                src="/imgs/jimi.jpg"
                 alt="Avatar"
                 className="w-100 h-100 object-fit-cover"
               />
