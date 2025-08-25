@@ -113,7 +113,7 @@ export const teams = [
     name: "Abdullahi Ashiru",
     role: "Senior Software Engineer",
     img: "/teams/ashiru.jpg",
-    desc: "CEO at CLoudsoft Consulting Limited. Building Team Members & training students",
+    desc: "CEO at Cloudsoft Consulting Limited. Building Team Members & training students",
     email: "cloudsoftconsultingltd@gmail.com",
     contact: "+234 906 530 6495",
     facebook: "https://facebook.com/",
