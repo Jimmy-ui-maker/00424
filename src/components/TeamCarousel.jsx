@@ -1,17 +1,38 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { teams } from "@/lib/data";
 import TeamCard from "./TeamCard";
 
 export default function TeamCarousel() {
-  // chunk into groups of 3 for each slide
+  const [chunkSize, setChunkSize] = useState(3);
+
+  useEffect(() => {
+    const updateChunkSize = () => {
+      if (window.innerWidth < 768) {
+        setChunkSize(1); // Small screens
+      } else {
+        setChunkSize(3); // Medium+ screens
+      }
+    };
+
+    updateChunkSize(); // initial run
+    window.addEventListener("resize", updateChunkSize);
+    return () => window.removeEventListener("resize", updateChunkSize);
+  }, []);
+
+  // chunk the array
   const chunked = [];
-  for (let i = 0; i < teams.length; i += 3) {
-    chunked.push(teams.slice(i, i + 3));
+  for (let i = 0; i < teams.length; i += chunkSize) {
+    chunked.push(teams.slice(i, i + chunkSize));
   }
 
   return (
-    <div id="teamCarousel" className="carousel team-card slide" data-bs-ride="carousel">
+    <div
+      id="teamCarousel"
+      className="carousel team-card slide"
+      data-bs-ride="carousel"
+    >
       <div className="carousel-inner">
         {chunked.map((group, index) => (
           <div
