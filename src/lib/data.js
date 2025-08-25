@@ -149,7 +149,7 @@ export const teams = [
     name: "Aisha Sukola",
     role: "Data Analyst",
     img: "/teams/aisha.jpg",
-    desc: "Designs sleek and user-friendly interfaces with attention to detail.",
+    desc: "Designs and analize new projects from clients.",
     email: "aisha@gmail.com",
     contact: "+2348153197521",
     facebook: "https://facebook.com/",
