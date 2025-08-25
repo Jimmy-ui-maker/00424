@@ -30,16 +30,11 @@ export default function ContactPage() {
       <SectionTitle title="Contact" subtitle="Let’s build something great" />
       <div className="soft-card p-4">
         <form onSubmit={onSubmit} className="row g-3">
-          <div className="col-12 col-md-6 gap-2">
+          <div className="col-12 col-md-6 ">
             <p className="">Get In Touch</p>
             <hr />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-              minus doloremque, sequi porro unde voluptatem nemo possimus saepe
-              sapiente quisquam! Nisi delectus cum quia odio magnam quae
-              eligendi illum ab consequatur minus ad facilis est ratione at fuga
-              repudiandae enim suscipit fugit veniam et, dolorem aliquam. Facere
-              ex eum pariatur.
+              
             </p>
             <div className=" d-flex flex-row gap-4 ">
               <i className=" bi bi-envelope-at display-4 text-primary"></i>
@@ -52,7 +47,7 @@ export default function ContactPage() {
               <i className=" bi bi-telephone display-4 text-primary"></i>
               <div className=" d-flex flex-column">
                 <h4 className=" pb-0"> Contact</h4>
-                <p className=" pt-0" >+234 701 228 016</p>
+                <p className=" pt-0" >+234 701 022 8016</p>
               </div>
             </div>
           </div>

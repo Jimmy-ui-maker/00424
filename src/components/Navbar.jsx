@@ -33,6 +33,11 @@ export default function Navbar() {
                 Projects
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/teams">
+                Teams
+              </a>
+            </li>
 
             <li className="nav-item">
               <a className="nav-link" href="/contact">

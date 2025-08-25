@@ -3,7 +3,8 @@ import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import ProjectCard from "@/components/ProjectCard";
 import ServiceCard from "@/components/ServiceCard";
-import { projects, services } from "@/lib/data";
+import { projects, services, teams } from "@/lib/data";
+import TeamCarousel from "@/components/TeamCarousel";
 
 export default function HomePage() {
   return (
@@ -12,7 +13,7 @@ export default function HomePage() {
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle title="About me" subtitle="A quick intro" />
-          <Link className="btn btn-primary soft-shadow" href="/projects">
+          <Link className="btn btn-primary soft-shadow" href="/about">
             Read more
           </Link>
         </div>
@@ -46,6 +47,16 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="section mt-4">
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <SectionTitle
+            title="Meet the Team"
+            subtitle="Brilliant minds behind the work"
+          />
+        </div>
+        <TeamCarousel />
       </section>
 
       <section className="section mt-4">

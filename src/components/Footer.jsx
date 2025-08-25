@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="small d-flex gap-3">
             <a href="https://jimiyaks3@gmail.com">Email</a>
             <a
-              href="https://github.com/Jimmy-ui-maker"
+              href="https://github.com/"
               target="_blank"
               rel="noreferrer"
             >
