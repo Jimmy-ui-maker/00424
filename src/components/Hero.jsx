@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="section">
+    <section className="section ">
       <div className="soft-card p-4 p-md-5">
         <div className="row align-items-center g-4">
           <div className="col-12 col-md-7">

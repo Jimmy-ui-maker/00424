@@ -6,11 +6,14 @@ import ServiceCard from "@/components/ServiceCard";
 import { projects, services, teams } from "@/lib/data";
 import TeamCarousel from "@/components/TeamCarousel";
 import FAQS from "@/components/FAQS";
+import ContactPage from "@/components/Contact";
 
 export default function HomePage() {
   return (
     <>
+      {/**Hero Section */}
       <Hero />
+      {/**About Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle title="About me" subtitle="A quick intro" />
@@ -31,35 +34,7 @@ export default function HomePage() {
           </p>
         </div>
       </section>
-      <section className="section mt-4">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <SectionTitle
-            title="Featured Projects"
-            subtitle="A quick taste of my recent work"
-          />
-          <Link className="btn btn-primary soft-shadow" href="/projects">
-            View all
-          </Link>
-        </div>
-        <div className="row g-3">
-          {projects.slice(0, 3).map((p) => (
-            <div className="col-12 col-md-6 col-lg-4" key={p.slug}>
-              <ProjectCard project={p} />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section mt-4">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <SectionTitle
-            title="Meet the Team"
-            subtitle="Brilliant minds behind the work"
-          />
-        </div>
-        <TeamCarousel />
-      </section>
-
+      {/**Services Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle
@@ -83,15 +58,51 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      {/**Project Section */}
+      <section className="section mt-4">
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <SectionTitle
+            title="Featured Projects"
+            subtitle="A quick taste of my recent work"
+          />
+          <Link className="btn btn-primary soft-shadow" href="/projects">
+            View all
+          </Link>
+        </div>
+        <div className="row g-3">
+          {projects.slice(0, 3).map((p) => (
+            <div className="col-12 col-md-6 col-lg-4" key={p.slug}>
+              <ProjectCard project={p} />
+            </div>
+          ))}
+        </div>
+      </section>
+      {/**Team Section */}
+      <section className="section mt-4">
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <SectionTitle
+            title="Meet the Team"
+            subtitle="Brilliant minds behind the work"
+          />
+        </div>
+        <TeamCarousel />
+      </section>
+
+      {/**FAQs Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle
             title="Frequently Ask Questions"
             subtitle="Bellow are some answers to your questions"
           />
+          <Link className="btn btn-primary soft-shadow" href="/faqs">
+            Read More
+          </Link>
         </div>
         <FAQS />
       </section>
+      {/**Contact Section */}
+      <ContactPage />
     </>
   );
 }

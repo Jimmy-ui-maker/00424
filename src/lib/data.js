@@ -134,7 +134,7 @@ export const teams = [
     img: "/teams/micah.jpg",
     desc: "Building intelligent and scalable software solutions",
     email: "mailto:enochmicah3@gmail.com",
-    contact: "44123456789",
+    contact: "2349076761102",
     facebook: "https://facebook.com/",
   },
   {

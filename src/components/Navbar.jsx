@@ -38,6 +38,11 @@ export default function Navbar() {
                 Teams
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/faqs">
+                FAQs
+              </a>
+            </li>
 
             <li className="nav-item">
               <a className="nav-link" href="/contact">
@@ -46,7 +51,7 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-none d-lg-block ms-3">
-            <a className="btn btn-primary soft-shadow" href="/contact">
+            <a className="btn text-bg-primary soft-shadow" href="/contact">
               Hire Me
             </a>
           </div>
