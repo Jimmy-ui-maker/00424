@@ -101,7 +101,7 @@ textarea {
 }
 
 .faq .accordion-item button {
-  font-size: 20px;
+  font-size: 18px;
   padding: 10px;
 }
 .accordion-button:focus {
@@ -117,5 +117,5 @@ textarea {
 
 .accordion-flush .accordion-button:not(.collapsed) {
   box-shadow: none;
-  font-size: 20px;
+  font-size: 18px;
 }

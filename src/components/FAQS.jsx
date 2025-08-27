@@ -30,8 +30,8 @@ export default function FAQS() {
                     >
                       <div className="accordion-body">
                         You can reach me via email at{" "}
-                        <a href="mailto:jimiyaks3@example.com" className="text-primary">
-                          jimiyaks3@example.com
+                        <a href="mailto:jimiyaks3@gmail.com" className="text-primary">
+                          jimiyaks3@gmail.com
                         </a>{" "}
                         or call me directly at{" "}
                         <a href="tel:+2347010228016" className="text-primary">
