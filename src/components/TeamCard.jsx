@@ -17,17 +17,16 @@ export default function TeamCard({ member }) {
           <h3 className="h5 mb-1">{member.name}</h3>
           <p className="text-secondary small mb-1">{member.role}</p>
           <p className="mb-2">{member.desc}</p>
-          <ul className="list-unstyled small text-secondary mb-3">
-            <li>📧 {member.email}</li>
-            <li>📱 {member.contact}</li>
-          </ul>
-          <a
-            href={member.facebook}
-            target="_blank"
-            className="btn btn-outline-primary soft-shadow btn-sm"
-          >
-            Facebook
-          </a>
+
+          <div className="">
+            <a
+              href={`https://wa.me/${member.contact}`}
+              target="_blank"
+              className="btn mx-1   soft-shadow btn-sm"
+            >
+              <i className=" bi bi-whatsapp  px-2 fs-2 text-success"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>

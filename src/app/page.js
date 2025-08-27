@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ServiceCard from "@/components/ServiceCard";
 import { projects, services, teams } from "@/lib/data";
 import TeamCarousel from "@/components/TeamCarousel";
+import FAQS from "@/components/FAQS";
 
 export default function HomePage() {
   return (
@@ -81,6 +82,15 @@ export default function HomePage() {
             Let&apos;s work together
           </Link>
         </div>
+      </section>
+      <section className="section mt-4">
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <SectionTitle
+            title="Frequently Ask Questions"
+            subtitle="Bellow are some answers to your questions"
+          />
+        </div>
+        <FAQS />
       </section>
     </>
   );

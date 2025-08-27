@@ -6,7 +6,8 @@
   --shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
 }
 * {
-  font-family: "Arial";
+  font-family:  "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 html,
 body {
@@ -48,8 +49,8 @@ textarea {
   box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
 }
 
-.team-card{
-    border-radius: var(--radius);
+.team-card {
+  border-radius: var(--radius);
   box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
 }
 
@@ -87,4 +88,34 @@ textarea {
 :focus-visible {
   outline: 2px dashed #0d6efd;
   outline-offset: 2px;
+}
+
+/*--------------------------------------------------------------
+# F.A.Q Page
+--------------------------------------------------------------*/
+
+/* Accordion */
+.accordion-item {
+  padding: 10px;
+  border: 1px solid var(--bg);
+}
+
+.faq .accordion-item button {
+  font-size: 20px;
+  padding: 10px;
+}
+.accordion-button:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.accordion-flush .accordion-button {
+  padding: 15px 0;
+  background: none;
+  border: 0;
+}
+
+.accordion-flush .accordion-button:not(.collapsed) {
+  box-shadow: none;
+  font-size: 20px;
 }
