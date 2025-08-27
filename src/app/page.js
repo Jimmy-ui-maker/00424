@@ -87,7 +87,7 @@ export default function HomePage() {
         </div>
         <TeamCarousel />
       </section>
-
+      
       {/**FAQs Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -102,7 +102,7 @@ export default function HomePage() {
         <FAQS />
       </section>
       {/**Contact Section */}
-      <ContactPage />
+      <ContactPage/>
     </>
   );
 }
