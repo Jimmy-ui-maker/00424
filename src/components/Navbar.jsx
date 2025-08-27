@@ -38,11 +38,7 @@ export default function Navbar() {
                 Teams
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/faqs">
-                FAQs
-              </a>
-            </li>
+           
 
             <li className="nav-item">
               <a className="nav-link" href="/contact">

@@ -2,7 +2,6 @@
 
 :root {
   --bg: #e0e5ec; /* light gray background */
-  --bg1: #a3b1c6; /* light gray background */
   --radius: 1.25rem;
   --shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
 }
@@ -94,87 +93,7 @@ textarea {
 /*--------------------------------------------------------------
 # F.A.Q Page
 --------------------------------------------------------------*/
-.landing-faq {
-  background: radial-gradient(var(--bg), var(--bg1)),
-    url("/imgs/question.jpg") fixed center top;
-  background-blend-mode: multiply;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  overflow: hidden;
-}
-.landing-faq h1 {
-  font-size: 50px;
-  font-weight: 700;
-  color: var(--bg);
-}
 
-.landing-faq h2 {
-  color: var(--bg);
-  margin: 15px 0 0 0;
-  font-size: 26px;
-}
-
-.landing-faq .btn-get-started {
-  margin-top: 30px;
-  line-height: 0;
-  padding: 15px 40px;
-  border-radius: 4px;
-  transition: 0.5s;
-  color: var(--bgColor);
-  background: linear-gradient(var(--bg), var(--bg1));
-  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
-}
-
-.landing-faq .btn-get-started span {
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-
-.landing-faq .btn-get-started i {
-  margin-left: 5px;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.landing-faq .btn-get-started:hover i {
-  transform: translateX(5px);
-}
-
-.landing-faq .landing-faq-img {
-  text-align: right;
-}
-
-@media (max-width: 768px) {
-  .landing-faq {
-    background: radial-gradient(var(--bg), var(--bg1)),
-      url("/imgs/mobQues.jpg") fixed center top;
-    text-align: center;
-    background-blend-mode: multiply;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    overflow: hidden;
-  }
-
-  .landing-faq h1 {
-    font-size: 25px;
-    margin-top: 20px;
-  }
-
-  .landing-faq h2 {
-    font-size: 20px;
-  }
-
-  .landing-faq .btn-get-started {
-    margin-top: 50px;
-    padding: 15px 40px;
-  }
-}
 /* Accordion */
 .accordion-item {
   padding: 10px;
