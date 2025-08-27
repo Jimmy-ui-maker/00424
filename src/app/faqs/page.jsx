@@ -12,9 +12,7 @@ export default function page() {
             title="Frequently Ask Questions"
             subtitle="Bellow are some answers to your questions"
           />
-          <Link className="btn btn-primary soft-shadow" href="/faqs">
-            Read More
-          </Link>
+          
         </div>
         <FAQS />
       </section>
