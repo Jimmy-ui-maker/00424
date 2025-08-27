@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function page() {
   return (
     <>
-    <h1>Hello</h1>
+    <h1>Hello world</h1>
     {/** 
       <section className="shadow-sm landing-faq mt-4 min-vh-100 d-flex flex-column justify-content-center align-items-center">
         <div className=" container ">
