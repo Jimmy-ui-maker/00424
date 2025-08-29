@@ -11,11 +11,13 @@ export default function SettingsWidget() {
   const audioRef = useRef(null);
   const widgetRef = useRef(null);
 
-  /* ✅ Apply saved theme IMMEDIATELY */
+  /* ✅ Load saved theme, music, and widget position */
   useEffect(() => {
     const savedDark = localStorage.getItem("dark-theme") === "true";
     const savedPlaying = localStorage.getItem("music-playing") === "true";
+    const savedPos = JSON.parse(localStorage.getItem("widget-pos"));
 
+    if (savedPos) setPos(savedPos);
     setDark(savedDark);
     setPlaying(savedPlaying);
 
@@ -74,11 +76,12 @@ export default function SettingsWidget() {
     localStorage.setItem("music-playing", playing);
   }, [playing]);
 
-  /* ✅ Draggable widget */
+  /* ✅ Draggable widget (mouse + touch + save position) */
   useEffect(() => {
     const widget = widgetRef.current;
     let offsetX, offsetY, dragging = false;
 
+    // 🖱️ Mouse events
     const onMouseDown = (e) => {
       dragging = true;
       offsetX = e.clientX - widget.getBoundingClientRect().left;
@@ -86,21 +89,52 @@ export default function SettingsWidget() {
     };
     const onMouseMove = (e) => {
       if (!dragging) return;
-      setPos({
+      const newPos = {
         x: e.clientX - offsetX,
         y: e.clientY - offsetY,
-      });
+      };
+      setPos(newPos);
+      localStorage.setItem("widget-pos", JSON.stringify(newPos));
     };
     const onMouseUp = () => (dragging = false);
 
+    // 📱 Touch events
+    const onTouchStart = (e) => {
+      dragging = true;
+      const touch = e.touches[0];
+      offsetX = touch.clientX - widget.getBoundingClientRect().left;
+      offsetY = touch.clientY - widget.getBoundingClientRect().top;
+    };
+    const onTouchMove = (e) => {
+      if (!dragging) return;
+      const touch = e.touches[0];
+      const newPos = {
+        x: touch.clientX - offsetX,
+        y: touch.clientY - offsetY,
+      };
+      setPos(newPos);
+      localStorage.setItem("widget-pos", JSON.stringify(newPos));
+    };
+    const onTouchEnd = () => (dragging = false);
+
+    // ✅ Attach listeners
     widget.addEventListener("mousedown", onMouseDown);
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
 
+    widget.addEventListener("touchstart", onTouchStart);
+    window.addEventListener("touchmove", onTouchMove);
+    window.addEventListener("touchend", onTouchEnd);
+
+    // ✅ Cleanup
     return () => {
       widget.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseup", onMouseUp);
+
+      widget.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
     };
   }, []);
 
@@ -117,7 +151,7 @@ export default function SettingsWidget() {
     >
       {/* Main settings button */}
       <button
-        className="btn text-bg-primary rounded-circle soft-shadow"
+        className="btn mt-2 text-bg-primary rounded-circle soft-shadow"
         onClick={() => setOpen(!open)}
       >
         <i className="bi bi-gear-fill fs-5"></i>
@@ -125,7 +159,7 @@ export default function SettingsWidget() {
 
       {/* Dropdown */}
       {open && (
-        <div className="mt-4 p-2 soft-card bg-body">
+        <div className="mt-2 p-2 soft-card bg-body">
           <button
             className="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center gap-2"
             onClick={() => setDark(!dark)}
