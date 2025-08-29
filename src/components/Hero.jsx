@@ -15,7 +15,7 @@ export default function Hero() {
             <div className="d-grid d-sm-flex gap-2">
               <Link
                 href="/projects"
-                className="btn btn-primary btn-lg soft-shadow"
+                className="btn text-bg-primary btn-lg soft-shadow"
               >
                 View Projects
               </Link>

@@ -125,7 +125,7 @@ export default function SettingsWidget() {
 
       {/* Dropdown */}
       {open && (
-        <div className="mt-2 p-2 soft-card bg-body">
+        <div className="mt-4 p-2 soft-card bg-body">
           <button
             className="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center gap-2"
             onClick={() => setDark(!dark)}
