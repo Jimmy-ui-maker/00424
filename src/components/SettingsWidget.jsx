@@ -76,10 +76,29 @@ export default function SettingsWidget() {
     localStorage.setItem("music-playing", playing);
   }, [playing]);
 
-  /* ✅ Draggable widget (mouse + touch + save position) */
+  /* ✅ Draggable widget (mouse + touch + clamp + smooth) */
   useEffect(() => {
     const widget = widgetRef.current;
     let offsetX, offsetY, dragging = false;
+
+    const clampPosition = (x, y) => {
+      const widgetRect = widget.getBoundingClientRect();
+      const maxX = window.innerWidth - widgetRect.width;
+      const maxY = window.innerHeight - widgetRect.height;
+
+      return {
+        x: Math.min(Math.max(0, x), maxX),
+        y: Math.min(Math.max(0, y), maxY),
+      };
+    };
+
+    const updatePosition = (x, y) => {
+      const clamped = clampPosition(x, y);
+      setPos(clamped);
+      localStorage.setItem("widget-pos", JSON.stringify(clamped));
+    };
+
+    let animationFrame;
 
     // 🖱️ Mouse events
     const onMouseDown = (e) => {
@@ -89,12 +108,10 @@ export default function SettingsWidget() {
     };
     const onMouseMove = (e) => {
       if (!dragging) return;
-      const newPos = {
-        x: e.clientX - offsetX,
-        y: e.clientY - offsetY,
-      };
-      setPos(newPos);
-      localStorage.setItem("widget-pos", JSON.stringify(newPos));
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() => {
+        updatePosition(e.clientX - offsetX, e.clientY - offsetY);
+      });
     };
     const onMouseUp = () => (dragging = false);
 
@@ -108,12 +125,10 @@ export default function SettingsWidget() {
     const onTouchMove = (e) => {
       if (!dragging) return;
       const touch = e.touches[0];
-      const newPos = {
-        x: touch.clientX - offsetX,
-        y: touch.clientY - offsetY,
-      };
-      setPos(newPos);
-      localStorage.setItem("widget-pos", JSON.stringify(newPos));
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() => {
+        updatePosition(touch.clientX - offsetX, touch.clientY - offsetY);
+      });
     };
     const onTouchEnd = () => (dragging = false);
 
@@ -122,8 +137,8 @@ export default function SettingsWidget() {
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
 
-    widget.addEventListener("touchstart", onTouchStart);
-    window.addEventListener("touchmove", onTouchMove);
+    widget.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
     window.addEventListener("touchend", onTouchEnd);
 
     // ✅ Cleanup
@@ -147,6 +162,8 @@ export default function SettingsWidget() {
         left: pos.x,
         zIndex: 2000,
         cursor: "grab",
+        touchAction: "none", // ✅ prevents scroll interference on mobile
+        transition: "top 0.05s linear, left 0.05s linear", // ✅ smooth feel
       }}
     >
       {/* Main settings button */}
