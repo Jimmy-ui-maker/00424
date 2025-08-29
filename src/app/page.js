@@ -13,11 +13,12 @@ export default function HomePage() {
     <>
       {/**Hero Section */}
       <Hero />
+
       {/**About Section */}
-      <section className="section mt-4">
+      <section className="section mt-4 ">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle title="About me" subtitle="A quick intro" />
-          <Link className="btn btn-primary soft-shadow" href="/about">
+          <Link className="btn text-bg-primary soft-shadow" href="/about">
             Read more
           </Link>
         </div>
@@ -41,7 +42,7 @@ export default function HomePage() {
             title="What I Do"
             subtitle="Tools and solutions I can deliver"
           />
-          <Link className="btn btn-primary soft-shadow" href="/services">
+          <Link className="btn text-bg-primary soft-shadow" href="/services">
             View all
           </Link>
         </div>
@@ -65,7 +66,7 @@ export default function HomePage() {
             title="Featured Projects"
             subtitle="A quick taste of my recent work"
           />
-          <Link className="btn btn-primary soft-shadow" href="/projects">
+          <Link className="btn text-bg-primary soft-shadow" href="/projects">
             View all
           </Link>
         </div>
@@ -87,7 +88,7 @@ export default function HomePage() {
         </div>
         <TeamCarousel />
       </section>
-      
+
       {/**FAQs Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -95,14 +96,14 @@ export default function HomePage() {
             title="Frequently Ask Questions"
             subtitle="Bellow are some answers to your questions"
           />
-          <Link className="btn btn-primary soft-shadow" href="/faqs">
+          <Link className="btn text-bg-primary soft-shadow" href="/faqs">
             Read More
           </Link>
         </div>
         <FAQS />
       </section>
       {/**Contact Section */}
-      <ContactPage/>
+      <ContactPage />
     </>
   );
 }

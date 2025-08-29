@@ -6,13 +6,11 @@ export default function Footer() {
         <div className="soft-card p-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
           <div className="small">© {year} Jimi Yaks. All rights reserved.</div>
           <div className="small d-flex gap-3">
-            <a href="https://jimiyaks3@gmail.com">Email</a>
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
+            <a href="mailto:jimiyaks3@gmail.com" target="_blank">
+              Email
+            </a>
+            <a href="https://wa.me/2347010228016" target="_blank">
+              WhatsApp
             </a>
           </div>
         </div>

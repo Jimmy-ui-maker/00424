@@ -4,7 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BootstrapClient from '@/components/BootstrapClient';
-
+import SettingsWidget from '@/components/SettingsWidget';
 export const metadata = {
   title: 'Jimi Yaks — Developer Portfolio',
   description: 'Personal portfolio website for Jimi Yaks. Projects, services, and contact.',
@@ -28,6 +28,9 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+         
+        {/* Settings Widget controls audio */}
+        <SettingsWidget/>
       </body>
     </html>
   );

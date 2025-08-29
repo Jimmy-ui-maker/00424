@@ -22,7 +22,10 @@ export default function ContactPage() {
     );
 
     // Redirect to WhatsApp
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`, "_blank");
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`,
+      "_blank"
+    );
 
     setTimeout(() => setStatus("sent"), 500);
   }
@@ -35,14 +38,46 @@ export default function ContactPage() {
           {/* LEFT COLUMN */}
           <div className="col-12 col-md-5">
             <h3 className="h4 fw-bold mb-3">Get In Touch</h3>
-            <p className="text-secondary mb-4">
-              I’d love to hear about your project or idea.  
-              Whether you want to build something new, improve your app,  
-              or just say hello — feel free to reach out.
+            <p className=" mb-5">
+              I’d love to hear about your project or idea. Whether you want to
+              build something new, improve your app, or just say hello — feel
+              free to reach out.
             </p>
 
+            {/* Contact */}
+            <div className="d-flex flex-row align-items-start gap-3 mb-3">
+              <i className="bi bi-telephone display-6 text-primary"></i>
+              <div>
+                <h5 className="mb-1">Phone Number</h5>
+                <p className="mb-0">
+                  <a
+                    href="tel:+2347010228016"
+                    className=" text-decoration-none "
+                  >
+                    +234 701 022 8016
+                  </a>
+                </p>
+              </div>
+            </div>
+            {/* Email */}
+            <div className="d-flex flex-row align-items-start gap-3 mb-3">
+              <i className="bi bi-envelope-at display-6 text-danger"></i>
+              <div>
+                <h5 className="mb-1">Email Address</h5>
+                <p className="mb-0">
+                  <a
+                    href="mailto:jimiyaks3@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-decoration-none "
+                  >
+                    jimiyaks3@gmail.com
+                  </a>
+                </p>
+              </div>
+            </div>
             {/* WHATSAPP */}
-            <div className="d-flex flex-row align-items-start gap-3">
+            <div className="d-flex flex-row align-items-start gap-3 mb-3">
               <i className="bi bi-whatsapp display-6 text-success"></i>
               <div>
                 <h5 className="mb-1">WhatsApp</h5>
@@ -51,7 +86,7 @@ export default function ContactPage() {
                     href={`https://wa.me/${WHATSAPP_NUMBER}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-decoration-none text-dark"
+                    className="text-decoration-none "
                   >
                     +234 701 022 8016
                   </a>
@@ -90,7 +125,7 @@ export default function ContactPage() {
             />
 
             <button
-              className="btn btn-success soft-shadow"
+              className="btn text-bg-success soft-shadow"
               disabled={status === "sending"}
             >
               {status === "sending" ? "Opening WhatsApp…" : "Send via WhatsApp"}
