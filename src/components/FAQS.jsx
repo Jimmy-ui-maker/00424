@@ -32,8 +32,8 @@ export default function FAQS() {
                         You can reach me via email at{" "}
                         <a href="mailto:jimiyaks3@gmail.com" className="text-primary">
                           jimiyaks3@gmail.com
-                        </a>{" "}
-                        or call me directly at{" "}
+                        </a>
+                        or call me directly at
                         <a href="tel:+2347010228016" className="text-primary">
                           +234 701 022 8016
                         </a>
@@ -60,13 +60,13 @@ export default function FAQS() {
                       data-bs-parent="#faq-group-1"
                     >
                       <div className="accordion-body">
-                        I provide a range of services including{" "}
+                        I provide a range of services including
                         <strong>Full-Stack Development, UI/UX Design, Data Science, and DevOps</strong>.  
                         My goal is to build intelligent, scalable, and user-friendly solutions.  
-                        Check out the{" "}
+                        Check out the
                         <Link href="/services" className="text-primary">
                           Services page
-                        </Link>{" "}
+                        </Link>
                         for more details.
                       </div>
                     </div>
