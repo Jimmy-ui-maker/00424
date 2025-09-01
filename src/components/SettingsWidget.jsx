@@ -7,19 +7,25 @@ export default function SettingsWidget() {
   const [dark, setDark] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [pos, setPos] = useState({ x: 30, y: 30 });
+  const [currentTrack, setCurrentTrack] = useState(0);
 
   const audioRef = useRef(null);
   const widgetRef = useRef(null);
 
-  /* ✅ Load saved theme, music, and widget position */
+  // 🎵 Playlist
+  const playlist = ["/audio/coolmusic.mp3", "/audio/coolmusic1.mp3"];
+
+  /* ✅ Load saved theme, music, track, and widget position */
   useEffect(() => {
     const savedDark = localStorage.getItem("dark-theme") === "true";
     const savedPlaying = localStorage.getItem("music-playing") === "true";
     const savedPos = JSON.parse(localStorage.getItem("widget-pos"));
+    const savedTrack = parseInt(localStorage.getItem("current-track") || "0");
 
     if (savedPos) setPos(savedPos);
     setDark(savedDark);
     setPlaying(savedPlaying);
+    setCurrentTrack(savedTrack);
 
     if (savedDark) {
       document.body.classList.add("dark-theme");
@@ -49,21 +55,32 @@ export default function SettingsWidget() {
     if (!audioEl) {
       audioEl = document.createElement("audio");
       audioEl.id = "global-audio";
-      audioEl.src = "/audio/coolmusic.mp3";
-      audioEl.loop = true;
       document.body.appendChild(audioEl);
-
-      // Restore last saved time if available
-      const savedTime = parseFloat(localStorage.getItem("music-time") || "0");
-      if (!isNaN(savedTime)) {
-        audioEl.currentTime = savedTime;
-      }
-
-      // Keep updating position
-      audioEl.addEventListener("timeupdate", () => {
-        localStorage.setItem("music-time", audioEl.currentTime);
-      });
     }
+
+    audioEl.src = playlist[currentTrack];
+    audioEl.loop = false; // 🔁 now we want to go to next track instead of looping
+
+    // Restore last saved time if on same track
+    const savedTrack = parseInt(localStorage.getItem("current-track") || "0");
+    const savedTime = parseFloat(localStorage.getItem("music-time") || "0");
+    if (savedTrack === currentTrack && !isNaN(savedTime)) {
+      audioEl.currentTime = savedTime;
+    }
+
+    // Save time progress
+    audioEl.ontimeupdate = () => {
+      localStorage.setItem("music-time", audioEl.currentTime);
+    };
+
+    // 🔥 Auto move to next song
+    audioEl.onended = () => {
+      let nextTrack = (currentTrack + 1) % playlist.length;
+      setCurrentTrack(nextTrack);
+      localStorage.setItem("current-track", nextTrack.toString());
+      audioEl.src = playlist[nextTrack];
+      if (playing) audioEl.play();
+    };
 
     audioRef.current = audioEl;
 
@@ -74,12 +91,15 @@ export default function SettingsWidget() {
     }
 
     localStorage.setItem("music-playing", playing);
-  }, [playing]);
+    localStorage.setItem("current-track", currentTrack.toString());
+  }, [playing, currentTrack]);
 
-  /* ✅ Draggable widget (mouse + touch + clamp + smooth) */
+  /* ✅ Draggable widget */
   useEffect(() => {
     const widget = widgetRef.current;
-    let offsetX, offsetY, dragging = false;
+    let offsetX,
+      offsetY,
+      dragging = false;
 
     const clampPosition = (x, y) => {
       const widgetRect = widget.getBoundingClientRect();
@@ -100,7 +120,6 @@ export default function SettingsWidget() {
 
     let animationFrame;
 
-    // 🖱️ Mouse events
     const onMouseDown = (e) => {
       dragging = true;
       offsetX = e.clientX - widget.getBoundingClientRect().left;
@@ -115,7 +134,6 @@ export default function SettingsWidget() {
     };
     const onMouseUp = () => (dragging = false);
 
-    // 📱 Touch events
     const onTouchStart = (e) => {
       dragging = true;
       const touch = e.touches[0];
@@ -132,7 +150,6 @@ export default function SettingsWidget() {
     };
     const onTouchEnd = () => (dragging = false);
 
-    // ✅ Attach listeners
     widget.addEventListener("mousedown", onMouseDown);
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
@@ -141,7 +158,6 @@ export default function SettingsWidget() {
     window.addEventListener("touchmove", onTouchMove, { passive: false });
     window.addEventListener("touchend", onTouchEnd);
 
-    // ✅ Cleanup
     return () => {
       widget.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mousemove", onMouseMove);
@@ -162,8 +178,8 @@ export default function SettingsWidget() {
         left: pos.x,
         zIndex: 2000,
         cursor: "grab",
-        touchAction: "none", // ✅ prevents scroll interference on mobile
-        transition: "top 0.05s linear, left 0.05s linear", // ✅ smooth feel
+        touchAction: "none",
+        transition: "top 0.05s linear, left 0.05s linear",
       }}
     >
       {/* Main settings button */}
@@ -177,6 +193,7 @@ export default function SettingsWidget() {
       {/* Dropdown */}
       {open && (
         <div className="mt-2 p-2 soft-card bg-body">
+          {/* Theme */}
           <button
             className="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center gap-2"
             onClick={() => setDark(!dark)}
@@ -185,8 +202,9 @@ export default function SettingsWidget() {
             {dark ? "Light Mode" : "Dark Mode"}
           </button>
 
+          {/* Play/Pause */}
           <button
-            className="btn btn-outline-success w-100 d-flex align-items-center gap-2"
+            className="btn btn-outline-success w-100 mb-2 d-flex align-items-center gap-2"
             onClick={() => setPlaying(!playing)}
           >
             <i
@@ -196,6 +214,24 @@ export default function SettingsWidget() {
             />
             {playing ? "Pause Music" : "Play Music"}
           </button>
+
+          {/* Track Selector */}
+          <div className="d-flex flex-column gap-2">
+            {playlist.map((track, idx) => (
+              <button
+                key={idx}
+                className={`btn w-100 ${
+                  idx === currentTrack
+                    ? "btn-primary"
+                    : "btn-outline-primary"
+                } d-flex align-items-center gap-2`}
+                onClick={() => setCurrentTrack(idx)}
+              >
+                <i className="bi bi-music-note"></i>
+                Track {idx + 1}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

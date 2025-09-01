@@ -179,3 +179,62 @@ html body.dark-theme textarea::placeholder {
 }
 
 
+/* =====================================================
+   Footer Theme
+   ===================================================== */
+footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html body.dark-theme footer {
+  background: #181818;
+  color: #ffffff;
+}
+
+/* =====================================================
+   Modal Styling (Light + Dark Theme Support)
+   ===================================================== */
+.modal-content {
+  border-radius: var(--radius);
+  border: none;
+  box-shadow: var(--shadow-light);
+  background: var(--bg);
+  color: #191818;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+  background: transparent;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.modal-body {
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode modal */
+html body.dark-theme .modal-content {
+  background: #1e1e1e !important;
+  color: #ffffff !important;
+  box-shadow: var(--shadow-dark) !important;
+}
+
+html body.dark-theme .modal-title {
+  color: #ffffff !important;
+}
+
+html body.dark-theme .btn-close {
+  filter: invert(1); /* makes close button visible in dark */
+}
+

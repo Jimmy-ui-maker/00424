@@ -97,7 +97,7 @@ export default function HomePage() {
             subtitle="Bellow are some answers to your questions"
           />
           <Link className="btn text-bg-primary soft-shadow" href="/faqs">
-            Read More
+            Read...
           </Link>
         </div>
         <FAQS />
