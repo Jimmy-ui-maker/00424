@@ -8,6 +8,7 @@ export default function SettingsWidget() {
   const [playing, setPlaying] = useState(false);
   const [pos, setPos] = useState({ x: 30, y: 30 });
   const [currentTrack, setCurrentTrack] = useState(0);
+  const [showTracks, setShowTracks] = useState(false); // 🔽 dropdown state
 
   const audioRef = useRef(null);
   const widgetRef = useRef(null);
@@ -48,7 +49,7 @@ export default function SettingsWidget() {
     }
   }, [dark]);
 
-  /* ✅ Persist music across refresh & restore position */
+  /* ✅ Music player logic */
   useEffect(() => {
     let audioEl = document.getElementById("global-audio");
 
@@ -59,21 +60,18 @@ export default function SettingsWidget() {
     }
 
     audioEl.src = playlist[currentTrack];
-    audioEl.loop = false; // 🔁 now we want to go to next track instead of looping
+    audioEl.loop = false;
 
-    // Restore last saved time if on same track
     const savedTrack = parseInt(localStorage.getItem("current-track") || "0");
     const savedTime = parseFloat(localStorage.getItem("music-time") || "0");
     if (savedTrack === currentTrack && !isNaN(savedTime)) {
       audioEl.currentTime = savedTime;
     }
 
-    // Save time progress
     audioEl.ontimeupdate = () => {
       localStorage.setItem("music-time", audioEl.currentTime);
     };
 
-    // 🔥 Auto move to next song
     audioEl.onended = () => {
       let nextTrack = (currentTrack + 1) % playlist.length;
       setCurrentTrack(nextTrack);
@@ -198,13 +196,55 @@ export default function SettingsWidget() {
             className="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center gap-2"
             onClick={() => setDark(!dark)}
           >
-            <i className={`bi ${dark ? "bi-sun-fill" : "bi-moon-stars-fill"}`} />
+            <i
+              className={`bi ${dark ? "bi-sun-fill" : "bi-moon-stars-fill"}`}
+            />
             {dark ? "Light Mode" : "Dark Mode"}
           </button>
 
+          {/* Track Dropdown */}
+          <div className="dropdown mb-2">
+            <button
+              className="btn btn-outline-primary w-100 d-flex align-items-center justify-content-between"
+              onClick={() => setShowTracks(!showTracks)}
+            >
+              <span className="d-flex align-items-center gap-2">
+                <i className="bi bi-music-note-list"></i>
+                {`Track ${currentTrack + 1}`}
+              </span>
+              <i
+                className={`bi ${
+                  showTracks ? "bi-caret-up-fill" : "bi-caret-down-fill"
+                }`}
+              />
+            </button>
+
+            {showTracks && (
+              <div className="mt-2 d-flex flex-column gap-2">
+                {playlist.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`btn w-100 ${
+                      idx === currentTrack
+                        ? "btn-primary"
+                        : "btn-outline-primary"
+                    } d-flex align-items-center gap-2`}
+                    onClick={() => {
+                      setCurrentTrack(idx);
+                      setShowTracks(false);
+                    }}
+                  >
+                    <i className="bi bi-music-note"></i>
+                    Track {idx + 1}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           {/* Play/Pause */}
           <button
-            className="btn btn-outline-success w-100 mb-2 d-flex align-items-center gap-2"
+            className="btn btn-outline-success w-100 d-flex align-items-center gap-2"
             onClick={() => setPlaying(!playing)}
           >
             <i
@@ -214,24 +254,6 @@ export default function SettingsWidget() {
             />
             {playing ? "Pause Music" : "Play Music"}
           </button>
-
-          {/* Track Selector */}
-          <div className="d-flex flex-column gap-2">
-            {playlist.map((track, idx) => (
-              <button
-                key={idx}
-                className={`btn w-100 ${
-                  idx === currentTrack
-                    ? "btn-primary"
-                    : "btn-outline-primary"
-                } d-flex align-items-center gap-2`}
-                onClick={() => setCurrentTrack(idx)}
-              >
-                <i className="bi bi-music-note"></i>
-                Track {idx + 1}
-              </button>
-            ))}
-          </div>
         </div>
       )}
     </div>

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Footer() {
@@ -15,7 +16,7 @@ export default function Footer() {
           <div className="soft-card p-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
             {/* Left - Copyright */}
             <div className="small text-center text-md-start">
-              © {year} <strong>Jimi Yaks</strong>. All rights reserved.
+              © {year} <strong>Sir Jimmy</strong>. All rights reserved.
             </div>
 
             {/* Center - Policies (with shadow like WhatsApp) */}
@@ -35,10 +36,10 @@ export default function Footer() {
             </div>
 
             {/* Right - WhatsApp */}
-            <div className="soft-card p-3   gap-1">
-              <a href="" className=" rounded-5 bg-body-secondary p-3 ">
-                <i className="text-muted bi bi-arrow-up"></i>
-              </a>
+            <div className="soft-card px-2 p-2   gap-1">
+              <Link href="" className=" rounded-5  p-3 ">
+                <i className=" bi bi-arrow-up"></i>
+              </Link>
             </div>
           </div>
         </div>
@@ -66,7 +67,7 @@ export default function Footer() {
                   <div>
                     <h6>Privacy Policy</h6>
                     <p>
-                      At <strong>Sir Jimmy</strong>, we value your privacy. This
+                      At <strong>Sir Jimmy Site</strong>, we value your privacy. This
                       website does not collect personal information beyond what
                       you choose to provide (for example, when contacting us via
                       email or WhatsApp).
@@ -94,7 +95,7 @@ export default function Footer() {
                   <div>
                     <h6>Terms and Conditions</h6>
                     <p>
-                      Welcome to <strong>Sir Jimmy</strong>. By using this
+                      Welcome to <strong>Sir Jimmy Site</strong>. By using this
                       website, you agree to the following terms:
                     </p>
                     <ul>

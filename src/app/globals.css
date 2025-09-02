@@ -238,3 +238,27 @@ html body.dark-theme .btn-close {
   filter: invert(1); /* makes close button visible in dark */
 }
 
+.scroll-top-btn {
+  background: #f8f9fa; /* light background */
+  color: #6c757d;      /* muted gray icon */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-light);
+}
+
+.scroll-top-btn:hover {
+  background: #e9ecef;
+  color: #000;
+}
+
+/* Dark Theme */
+html body.dark-theme .scroll-top-btn {
+  background: #2a2a2a;
+  color: #bbb;
+  box-shadow: var(--shadow-dark);
+}
+
+html body.dark-theme .scroll-top-btn:hover {
+  background: #3a3a3a;
+  color: #fff;
+}
+

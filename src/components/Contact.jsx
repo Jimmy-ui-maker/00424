@@ -7,19 +7,31 @@ const WHATSAPP_NUMBER = "2347010228016"; // without "+"
 
 export default function ContactPage() {
   const [status, setStatus] = useState(null);
+  const [activeTab, setActiveTab] = useState("new"); // "new" | "improve" | "hello"
 
   function onSubmit(e) {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const name = form.get("name");
-    const email = form.get("email");
+    const project = form.get("project");
     const message = form.get("message");
+    const file = form.get("file");
     setStatus("sending");
 
-    // Create WhatsApp message
-    const whatsappMessage = encodeURIComponent(
-      `Hi Jimi,\n\nMy name is ${name} (${email}).\n\n${message}`
-    );
+    // WhatsApp text
+    let whatsappMessage = `Hi Jimi,\n\nMy name is ${name}.`;
+    if (project) whatsappMessage += `\nProject: ${project}`;
+    whatsappMessage += `\n\n${message}`;
+
+    // Encode
+    whatsappMessage = encodeURIComponent(whatsappMessage);
+
+    // If file attached
+    if (file && file.name) {
+      alert(
+        `⚠️ WhatsApp does not support direct file uploads.\n\nBut you attached: ${file.name}.\nPlease send it manually after the chat opens.`
+      );
+    }
 
     // Redirect to WhatsApp
     window.open(
@@ -59,6 +71,7 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+
             {/* Email */}
             <div className="d-flex flex-row align-items-start gap-3 mb-3">
               <i className="bi bi-envelope-at display-6 text-danger"></i>
@@ -76,6 +89,7 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+
             {/* WHATSAPP */}
             <div className="d-flex flex-row align-items-start gap-3 mb-3">
               <i className="bi bi-whatsapp display-6 text-success"></i>
@@ -97,32 +111,85 @@ export default function ContactPage() {
 
           {/* RIGHT COLUMN */}
           <div className="col-12 col-md-7">
-            <label className="form-label">Name</label>
+            {/* Tabs */}
+            <ul className="nav nav-tabs mb-4">
+              <li className="nav-item">
+                <button
+                  type="button"
+                  className={`nav-link ${activeTab === "new" ? "active" : ""}`}
+                  onClick={() => setActiveTab("new")}
+                >
+                  Build Something New
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  type="button"
+                  className={`nav-link ${
+                    activeTab === "improve" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveTab("improve")}
+                >
+                  Improve Your App
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  type="button"
+                  className={`nav-link ${
+                    activeTab === "hello" ? "active" : ""
+                  }`}
+                  onClick={() => setActiveTab("hello")}
+                >
+                  Just Say Hello
+                </button>
+              </li>
+            </ul>
+
+            {/* Form Inputs */}
+            <label className="form-label">Your Name</label>
             <input
               name="name"
               type="text"
               required
-              className=" mb-3"
+              className="form-control mb-3"
               placeholder="Your name"
             />
 
-            <label className="form-label">Email</label>
-            <input
-              name="email"
-              type="email"
-              required
-              className=" mb-3"
-              placeholder="youremail@gmail.com"
-            />
+            {/* Show Project Name if not Hello */}
+            {activeTab !== "hello" && (
+              <>
+                <label className="form-label">Project Name</label>
+                <input
+                  name="project"
+                  type="text"
+                  required
+                  className="form-control mb-3"
+                  placeholder="Project title"
+                />
+              </>
+            )}
 
             <label className="form-label">Message</label>
             <textarea
               name="message"
-              rows={5}
+              rows={4}
               required
-              className=" mb-3"
-              placeholder="Tell me about your project..."
+              className="form-control mb-3"
+              placeholder={
+                activeTab === "hello"
+                  ? "Just say hello..."
+                  : "Tell me about your project..."
+              }
             />
+
+            {/* File upload only for Project / Improve */}
+            {activeTab !== "hello" && (
+              <>
+                <label className="form-label">Attach File (optional)</label>
+                <input type="file" name="file" className="form-control mb-3" />
+              </>
+            )}
 
             <button
               className="btn text-bg-success soft-shadow"
