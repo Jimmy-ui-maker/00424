@@ -179,6 +179,54 @@ html body.dark-theme textarea::placeholder {
 }
 
 
+/* =====================================================
+   Tabs Styling (Light + Dark Theme Support)
+   ===================================================== */
+.nav-tabs {
+  border: none !important;
+  gap: 0.5rem; /* spacing between tabs */
+}
+
+.nav-tabs .nav-link {
+  border: none !important;
+  border-radius: var(--radius) !important;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  background: var(--bg);
+  color: #191818;
+  box-shadow: var(--shadow-light);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  background: #f1f1f1;
+  color: #000;
+}
+
+.nav-tabs .nav-link.active {
+  background: #0d6efd; /* Bootstrap primary */
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Dark Theme Tabs */
+html body.dark-theme .nav-tabs .nav-link {
+  background: #1e1e1e !important;
+  color: #ffffff !important;
+  box-shadow: var(--shadow-dark) !important;
+}
+
+html body.dark-theme .nav-tabs .nav-link:hover {
+  background: #2a2a2a !important;
+  color: #fff !important;
+}
+
+html body.dark-theme .nav-tabs .nav-link.active {
+  background: #0d6efd !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
 
 
 /* =====================================================
