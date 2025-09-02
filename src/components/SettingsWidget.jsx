@@ -50,7 +50,7 @@ export default function SettingsWidget() {
     localStorage.setItem("language-index", languageIndex);
   }, [languageIndex]);
 
-  /* ✅ Music logic (same as yours) */
+  /* ✅ Music logic */
   useEffect(() => {
     let audioEl = document.getElementById("global-audio");
 
@@ -93,7 +93,7 @@ export default function SettingsWidget() {
     localStorage.setItem("current-track", currentTrack.toString());
   }, [playing, currentTrack]);
 
-  /* ✅ Draggable widget (same as yours) */
+  /* ✅ Draggable widget */
   useEffect(() => {
     const widget = widgetRef.current;
     let offsetX, offsetY, dragging = false;
@@ -206,8 +206,22 @@ export default function SettingsWidget() {
                     key={idx}
                     className={`btn w-100 ${idx === currentTrack ? "btn-primary" : "btn-outline-primary"} d-flex align-items-center gap-2`}
                     onClick={() => {
+                      if (audioRef.current) {
+                        // ✅ Pause current before switching
+                        audioRef.current.pause();
+                        audioRef.current.currentTime = 0;
+                      }
+
                       setCurrentTrack(idx);
                       setShowTracks(false);
+
+                      // ✅ If already playing, start the new one
+                      if (playing && audioRef.current) {
+                        setTimeout(() => {
+                          audioRef.current.src = playlist[idx];
+                          audioRef.current.play().catch(() => {});
+                        }, 50);
+                      }
                     }}
                   >
                     <i className="bi bi-music-note"></i>
