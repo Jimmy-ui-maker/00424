@@ -112,7 +112,7 @@ export default function ContactPage() {
           {/* RIGHT COLUMN */}
           <div className="col-12 col-md-7">
             {/* Tabs */}
-            <ul className="nav nav-tabs mb-4">
+            <ul className="nav nav-tabs mb-4 justify-content-lg-start justify-content-center">
               <li className="nav-item">
                 <button
                   type="button"
