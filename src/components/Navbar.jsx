@@ -6,7 +6,7 @@ export default function Navbar() {
           Sir Jimmy
         </a>
         <button
-          className="navbar-toggler shadow-none"
+          className="navbar-toggler shadow-none "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#nav"
@@ -14,7 +14,7 @@ export default function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon "></span>
+          <span className="navbar-toggler-icon  "></span>
         </button>
         <div className="collapse navbar-collapse" id="nav">
           <ul className="navbar-nav ms-auto  justify-content-end align-items-end mb-2 mb-lg-0 x">

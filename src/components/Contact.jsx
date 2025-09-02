@@ -119,9 +119,11 @@ export default function ContactPage() {
                   className={`nav-link ${activeTab === "new" ? "active" : ""}`}
                   onClick={() => setActiveTab("new")}
                 >
-                  Build Something New
+                  <i className="bi bi-plus-circle d-sm-none"></i>
+                  <span className="d-none d-sm-inline"> New Project</span>
                 </button>
               </li>
+
               <li className="nav-item">
                 <button
                   type="button"
@@ -130,9 +132,11 @@ export default function ContactPage() {
                   }`}
                   onClick={() => setActiveTab("improve")}
                 >
-                  Improve Your App
+                  <i className="bi bi-arrow-repeat d-sm-none"></i>
+                  <span className="d-none d-sm-inline"> Improve</span>
                 </button>
               </li>
+
               <li className="nav-item">
                 <button
                   type="button"
@@ -141,10 +145,18 @@ export default function ContactPage() {
                   }`}
                   onClick={() => setActiveTab("hello")}
                 >
-                  Just Say Hello
+                  <i className="bi bi-chat-dots d-sm-none"></i>
+                  <span className="d-none d-sm-inline"> Hello</span>
                 </button>
               </li>
             </ul>
+
+            {/* Dynamic Tab Heading */}
+            <h4 className="fw-bold mb-3">
+              {activeTab === "new" && "Start a New Project"}
+              {activeTab === "improve" && "Improve Your App"}
+              {activeTab === "hello" && "Just Say Hello"}
+            </h4>
 
             {/* Form Inputs */}
             <label className="form-label">Your Name</label>
