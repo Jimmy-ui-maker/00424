@@ -15,7 +15,6 @@ export default function ContactPage() {
     const name = form.get("name");
     const project = form.get("project");
     const message = form.get("message");
-    const file = form.get("file");
     setStatus("sending");
 
     // WhatsApp text
@@ -25,13 +24,6 @@ export default function ContactPage() {
 
     // Encode
     whatsappMessage = encodeURIComponent(whatsappMessage);
-
-    // If file attached
-    if (file && file.name) {
-      alert(
-        `⚠️ WhatsApp does not support direct file uploads.\n\nBut you attached: ${file.name}.\nPlease send it manually after the chat opens.`
-      );
-    }
 
     // Redirect to WhatsApp
     window.open(
@@ -164,7 +156,7 @@ export default function ContactPage() {
               name="name"
               type="text"
               required
-              className="form-control mb-3"
+              className=" mb-3"
               placeholder="Your name"
             />
 
@@ -176,7 +168,7 @@ export default function ContactPage() {
                   name="project"
                   type="text"
                   required
-                  className="form-control mb-3"
+                  className=" mb-3"
                   placeholder="Project title"
                 />
               </>
@@ -187,7 +179,7 @@ export default function ContactPage() {
               name="message"
               rows={4}
               required
-              className="form-control mb-3"
+              className=" mb-3"
               placeholder={
                 activeTab === "hello"
                   ? "Just say hello..."
@@ -195,12 +187,11 @@ export default function ContactPage() {
               }
             />
 
-            {/* File upload only for Project / Improve */}
+            {/* File upload NOTE instead of input */}
             {activeTab !== "hello" && (
-              <>
-                <label className="form-label">Attach File (optional)</label>
-                <input type="file" name="file" className="form-control mb-3" />
-              </>
+              <p className="text-muted small">
+                📎 You can attach files directly in WhatsApp after the chat opens.
+              </p>
             )}
 
             <button
