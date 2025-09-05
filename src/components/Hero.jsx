@@ -14,6 +14,7 @@ export default function Hero() {
             <h1 className="display-5 fw-bold mb-2">
               {t("heroGreeting")} <span className="text-primary">Sir Jimmy</span>.
             </h1>
+            
             <p className="lead mb-4">{t("heroDescription")}</p>
             <div className="d-grid d-sm-flex gap-2">
               <Link

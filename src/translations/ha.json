@@ -33,7 +33,38 @@
   "heroGreeting": "Sannu, Ni ne",
   "heroDescription": "Mai haɓaka cikakken tsarin (Full-stack developer) wanda ke ƙirƙirar ƙa’idoji masu tsafta, amsawa da inganci. Ina juya ra’ayoyi zuwa kayayyakin aiki.",
   "viewProjects": "Duba Ayyuka",
-  "contactMe": "Tuntuɓe Ni"
+  "contactMe": "Tuntuɓe Ni",
+
+  "contactTitle": "Tuntuɓi Mu",
+  "contactSubtitle": "Mu gina abu mai kyau tare",
+  "getInTouchHeading": "Yi Tuntuɓa",
+  "getInTouchText": "Zan so jin ra’ayinka ko aikin da kake da shi. Ko kana so ka fara sabon aiki, inganta app ɗinka, ko kawai ka ce sannu — ka iya tuntuɓar mu.",
+  "phoneLabel": "Lambar Waya",
+  "emailLabel": "Adireshin Imel",
+  "whatsappLabel": "WhatsApp",
+  "tabNew": "Sabon Aiki",
+  "tabImprove": "Inganta",
+  "tabHello": "Sannu",
+  "tabNewHeading": "Fara Sabon Aiki",
+  "tabImproveHeading": "Inganta App ɗinka",
+  "tabHelloHeading": "Kawai ce Sannu",
+  "nameLabel": "Sunan Ka",
+  "namePlaceholder": "Sunan ka",
+  "projectLabel": "Sunan Aikin",
+  "projectPlaceholder": "Take na aiki",
+  "messageLabel": "Saƙo",
+  "messagePlaceholderHello": "Kawai ce sannu...",
+  "messagePlaceholderProject": "Ka faɗa mani game da aikin ka...",
+  "fileNote": "📎 Za ka iya haɗa fayiloli kai tsaye a WhatsApp bayan an buɗe tattaunawa.",
+  "sendButton": "Aika ta WhatsApp",
+  "sendingButton": "Ana buɗe WhatsApp…",
+  "sentMessage": "✅ Ana kai ka zuwa WhatsApp…",
+
+  "aboutTitle": "Game da ni",
+  "aboutSubtitle": "Takaitaccen gabatarwa",
+  "aboutLead": "Ni ne Sir Jimmy — mai haɓaka wanda yake son gina hanyoyin amfani masu tsabta da ingantattu. Daga aikace-aikacen yanar gizo cikakku zuwa ayyukan da ke amfani da ML, burina shine samar da ƙima.",
+  "aboutText": "Fasahohi da nake jin daɗi: Next.js, Flask, MongoDB, TensorFlow/Keras, da Streamlit. Hakanan ina jin daɗin amfani da Bootstrap da CSS na musamman don kyakkyawan, amintaccen UI.",
+  "readMore": "Kara karantawa"
 
 
 }

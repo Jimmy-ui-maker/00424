@@ -31,5 +31,37 @@
   "heroGreeting": "Ndewo, Abụ m",
   "heroDescription": "Onye mmepe Full-stack na-eme ngwa dị ọcha, na-agbanwe agbanwe, na ntụkwasị obi. Ana m etinye echiche n'ime ngwaahịa dị ndụ.",
   "viewProjects": "Lelee Ọrụ",
-  "contactMe": "Kpọtụrụ M"
+  "contactMe": "Kpọtụrụ M",
+
+
+  "contactTitle": "Kpọtụrụ Anyị",
+  "contactSubtitle": "Ka anyị wuo ihe dị ịtụnanya",
+  "getInTouchHeading": "Kpọtụrụ Anyị",
+  "getInTouchText": "A na m enwe mmasị ịnụ banyere ọrụ gị ma ọ bụ echiche gị. Ma ịchọrọ ịmalite ọrụ ọhụrụ, mee ka ngwa gị ka mma, ma ọ bụ kpọọ sannu — biko kpọtụrụ anyị.",
+  "phoneLabel": "Nọmba Ekwentị",
+  "emailLabel": "Adreesị Email",
+  "whatsappLabel": "WhatsApp",
+  "tabNew": "Ọrụ Ọhụrụ",
+  "tabImprove": "Mee Ka Ọ Dị Bẹrị",
+  "tabHello": "Sannu",
+  "tabNewHeading": "Malite Ọrụ Ọhụrụ",
+  "tabImproveHeading": "Mee Ka Ngwa Gị Dị Bẹrị",
+  "tabHelloHeading": "Kpọọ Naanị Sannu",
+  "nameLabel": "Aha Gị",
+  "namePlaceholder": "Aha gị",
+  "projectLabel": "Aha Ọrụ",
+  "projectPlaceholder": "Aha ọrụ",
+  "messageLabel": "Ozi",
+  "messagePlaceholderHello": "Kpọọ sannu naanị...",
+  "messagePlaceholderProject": "Gwa m gbasara ọrụ gị...",
+  "fileNote": "📎 Ị nwere ike itinye faịlụ ozugbo na WhatsApp mgbe mkparịta ụka meghere.",
+  "sendButton": "Zipu site na WhatsApp",
+  "sendingButton": "Na-emepe WhatsApp…",
+  "sentMessage": "✅ A na-eziga gị WhatsApp…",
+
+  "aboutTitle": "Banyere m",
+  "aboutSubtitle": "Nkenke mputa onwe",
+  "aboutLead": "Aha m bụ Sir Jimmy — onye mmepe na-ahụ n'anya ịmepụta ngwọta bara uru, dị ọcha, ma dịkwa ike. Site na ngwa weebụ zuru oke ruo na oru ML, ihe m ji obi sie ike bụ ịmepụta uru.",
+  "aboutText": "Ngwaọrụ teknụzụ m na-ahụ n’anya: Next.js, Flask, MongoDB, TensorFlow/Keras, na Streamlit. Ana m ewerekwa Bootstrap na CSS omenala ka ha mee ka UI dị mma ma dị mfe iji.",
+  "readMore": "Gụọkwuo"
 }

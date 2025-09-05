@@ -1,11 +1,15 @@
 "use client";
 
 import SectionTitle from "@/components/SectionTitle";
+import { useTranslation } from "@/context/TranslationContext";
+
 import { useState } from "react";
 
 const WHATSAPP_NUMBER = "2347010228016"; // without "+"
 
 export default function ContactPage() {
+  const { t } = useTranslation();
+
   const [status, setStatus] = useState(null);
   const [activeTab, setActiveTab] = useState("new"); // "new" | "improve" | "hello"
 
@@ -36,23 +40,19 @@ export default function ContactPage() {
 
   return (
     <section className="section mt-4">
-      <SectionTitle title="Contact" subtitle="Let’s build something great" />
+      <SectionTitle title={t("contactTitle")} subtitle={t("contactSubtitle")} />
       <div className="soft-card p-4">
         <form onSubmit={onSubmit} className="row g-4">
           {/* LEFT COLUMN */}
           <div className="col-12 col-md-5">
-            <h3 className="h4 fw-bold mb-3">Get In Touch</h3>
-            <p className=" mb-5">
-              I’d love to hear about your project or idea. Whether you want to
-              build something new, improve your app, or just say hello — feel
-              free to reach out.
-            </p>
+            <h3 className="h4 fw-bold mb-3">{t("getInTouchHeading")}</h3>
+            <p className=" mb-5">{t("getInTouchText")}</p>
 
             {/* Contact */}
             <div className="d-flex flex-row align-items-start gap-3 mb-3">
               <i className="bi bi-telephone display-6 text-primary"></i>
               <div>
-                <h5 className="mb-1">Phone Number</h5>
+                <h5 className="mb-1">{t("phoneLabel")}</h5>
                 <p className="mb-0">
                   <a
                     href="tel:+2347010228016"
@@ -68,7 +68,7 @@ export default function ContactPage() {
             <div className="d-flex flex-row align-items-start gap-3 mb-3">
               <i className="bi bi-envelope-at display-6 text-danger"></i>
               <div>
-                <h5 className="mb-1">Email Address</h5>
+                <h5 className="mb-1">{t("emailLabel")}</h5>
                 <p className="mb-0">
                   <a
                     href="mailto:jimiyaks3@gmail.com"
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <div className="d-flex flex-row align-items-start gap-3 mb-3">
               <i className="bi bi-whatsapp display-6 text-success"></i>
               <div>
-                <h5 className="mb-1">WhatsApp</h5>
+                <h5 className="mb-1">{t("whatsappLabel")}</h5>
                 <p className="mb-0">
                   <a
                     href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -112,7 +112,7 @@ export default function ContactPage() {
                   onClick={() => setActiveTab("new")}
                 >
                   <i className="bi bi-plus-circle d-sm-none"></i>
-                  <span className="d-none d-sm-inline"> New Project</span>
+                  <span className="d-none d-sm-inline">{t("tabNew")}</span>
                 </button>
               </li>
 
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   onClick={() => setActiveTab("improve")}
                 >
                   <i className="bi bi-arrow-repeat d-sm-none"></i>
-                  <span className="d-none d-sm-inline"> Improve</span>
+                  <span className="d-none d-sm-inline">{t("tabImprove")}</span>
                 </button>
               </li>
 
@@ -138,43 +138,43 @@ export default function ContactPage() {
                   onClick={() => setActiveTab("hello")}
                 >
                   <i className="bi bi-chat-dots d-sm-none"></i>
-                  <span className="d-none d-sm-inline"> Hello</span>
+                  <span className="d-none d-sm-inline">{t("tabHello")}</span>
                 </button>
               </li>
             </ul>
 
             {/* Dynamic Tab Heading */}
             <h4 className="fw-bold mb-3">
-              {activeTab === "new" && "Start a New Project"}
-              {activeTab === "improve" && "Improve Your App"}
-              {activeTab === "hello" && "Just Say Hello"}
+              {activeTab === "new" && t("tabNewHeading")}
+              {activeTab === "improve" && t("tabImproveHeading")}
+              {activeTab === "hello" && t("tabHelloHeading")}
             </h4>
 
             {/* Form Inputs */}
-            <label className="form-label">Your Name</label>
+            <label className="form-label">{t("nameLabel")}</label>
             <input
               name="name"
               type="text"
               required
               className=" mb-3"
-              placeholder="Your name"
+              placeholder={t("namePlaceholder")}
             />
 
             {/* Show Project Name if not Hello */}
             {activeTab !== "hello" && (
               <>
-                <label className="form-label">Project Name</label>
+                <label className="form-label">{t("projectLabel")}</label>
                 <input
                   name="project"
                   type="text"
                   required
                   className=" mb-3"
-                  placeholder="Project title"
+                  placeholder={t("projectPlaceholder")}
                 />
               </>
             )}
 
-            <label className="form-label">Message</label>
+            <label className="form-label">{t("messageLabel")}</label>
             <textarea
               name="message"
               rows={4}
@@ -182,29 +182,25 @@ export default function ContactPage() {
               className=" mb-3"
               placeholder={
                 activeTab === "hello"
-                  ? "Just say hello..."
-                  : "Tell me about your project..."
+                  ? t("messagePlaceholderHello")
+                  : t("messagePlaceholderProject")
               }
             />
 
             {/* File upload NOTE instead of input */}
             {activeTab !== "hello" && (
-              <p className="text-muted small">
-                📎 You can attach files directly in WhatsApp after the chat opens.
-              </p>
+              <p className="text-muted small">{t("fileNote")}</p>
             )}
 
             <button
               className="btn text-bg-success soft-shadow"
               disabled={status === "sending"}
             >
-              {status === "sending" ? "Opening WhatsApp…" : "Send via WhatsApp"}
+              {status === "sending" ? t("sendingButton") : t("sendButton")}
             </button>
 
             {status === "sent" && (
-              <span className="ms-3 text-success">
-                ✅ Redirecting you to WhatsApp…
-              </span>
+              <span className="ms-3 text-success">{t("sentMessage")}</span>
             )}
           </div>
         </form>

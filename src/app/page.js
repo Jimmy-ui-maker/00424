@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
@@ -7,32 +8,27 @@ import { projects, services, teams } from "@/lib/data";
 import TeamCarousel from "@/components/TeamCarousel";
 import FAQS from "@/components/FAQS";
 import ContactPage from "@/components/Contact";
+import { useTranslation } from "@/context/TranslationContext";
 
 export default function HomePage() {
+  const { t } = useTranslation();
+
   return (
     <>
       {/**Hero Section */}
       <Hero />
 
       {/**About Section */}
-      <section className="section mt-4 ">
+      <section className="section">
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <SectionTitle title="About me" subtitle="A quick intro" />
+          <SectionTitle title={t("aboutTitle")} subtitle={t("aboutSubtitle")} />
           <Link className="btn text-bg-primary soft-shadow" href="/about">
-            Read more
+            {t("readMore")}
           </Link>
         </div>
         <div className="soft-card p-4">
-          <p className="lead mb-3">
-            I’m Sir Jimmy — a developer who loves building practical, clean, and
-            performant solutions. From full‑stack web apps to ML-flavored
-            projects, I focus on shipping value.
-          </p>
-          <p className="mb-0">
-            Tech I enjoy: Next.js, Flask, MongoDB, TensorFlow/Keras, and
-            Streamlit. I’m also comfortable with Bootstrap and custom CSS for
-            delightful, responsive UI.
-          </p>
+          <p className="lead mb-3">{t("aboutLead")}</p>
+          <p className="mb-0">{t("aboutText")}</p>
         </div>
       </section>
       {/**Services Section */}

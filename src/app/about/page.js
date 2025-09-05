@@ -1,22 +1,19 @@
-import SectionTitle from "@/components/SectionTitle";
+"use client";
 
-export const metadata = { title: "About — Sir Jimmy" };
+import SectionTitle from "@/components/SectionTitle";
+import { useTranslation } from "@/context/TranslationContext";
+
+//export const metadata = { title: "About — Sir Jimmy" };
 
 export default function AboutPage() {
+  const { t } = useTranslation();
+
   return (
     <section className="section">
-      <SectionTitle title="About me" subtitle="A quick intro" />
+      <SectionTitle title={t("aboutTitle")} subtitle={t("aboutSubtitle")} />
       <div className="soft-card p-4">
-        <p className="lead mb-3">
-          I’m Sir Jimmy — a developer who loves building practical, clean, and
-          performant solutions. From full‑stack web apps to ML-flavored
-          projects, I focus on shipping value.
-        </p>
-        <p className="mb-0">
-          Tech I enjoy: Next.js, Flask, MongoDB, TensorFlow/Keras, and
-          Streamlit. I’m also comfortable with Bootstrap and custom CSS for
-          delightful, responsive UI.
-        </p>
+        <p className="lead mb-3">{t("aboutLead")}</p>
+        <p className="mb-0">{t("aboutText")}</p>
       </div>
     </section>
   );
