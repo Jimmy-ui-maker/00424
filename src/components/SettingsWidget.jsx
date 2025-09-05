@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "@/context/TranslationContext"; // ⬅️ import context
 
 export default function SettingsWidget() {
   const [open, setOpen] = useState(false);
@@ -9,12 +10,12 @@ export default function SettingsWidget() {
   const [pos, setPos] = useState({ x: 30, y: 30 });
   const [currentTrack, setCurrentTrack] = useState(0);
   const [showTracks, setShowTracks] = useState(false);
-  const [languageIndex, setLanguageIndex] = useState(0); // 🔥 language state
 
   const audioRef = useRef(null);
   const widgetRef = useRef(null);
 
-  // Supported languages
+  // ⬅️ use language context
+  const { language, changeLanguage } = useTranslation();
   const languages = ["English", "Hausa", "Igbo", "Yoruba"];
 
   // Playlist
@@ -26,13 +27,11 @@ export default function SettingsWidget() {
     const savedPlaying = localStorage.getItem("music-playing") === "true";
     const savedPos = JSON.parse(localStorage.getItem("widget-pos"));
     const savedTrack = parseInt(localStorage.getItem("current-track") || "0");
-    const savedLang = parseInt(localStorage.getItem("language-index") || "0");
 
     if (savedPos) setPos(savedPos);
     setDark(savedDark);
     setPlaying(savedPlaying);
     setCurrentTrack(savedTrack);
-    setLanguageIndex(savedLang);
 
     document.body.classList.toggle("dark-theme", savedDark);
     document.body.classList.toggle("light-theme", !savedDark);
@@ -44,11 +43,6 @@ export default function SettingsWidget() {
     document.body.classList.toggle("dark-theme", dark);
     document.body.classList.toggle("light-theme", !dark);
   }, [dark]);
-
-  /* ✅ Save language */
-  useEffect(() => {
-    localStorage.setItem("language-index", languageIndex);
-  }, [languageIndex]);
 
   /* ✅ Music logic */
   useEffect(() => {
@@ -96,14 +90,19 @@ export default function SettingsWidget() {
   /* ✅ Draggable widget */
   useEffect(() => {
     const widget = widgetRef.current;
-    let offsetX, offsetY, dragging = false;
+    let offsetX,
+      offsetY,
+      dragging = false;
 
     const clampPosition = (x, y) => {
       const widgetRect = widget.getBoundingClientRect();
       const maxX = window.innerWidth - widgetRect.width;
       const maxY = window.innerHeight - widgetRect.height;
 
-      return { x: Math.min(Math.max(0, x), maxX), y: Math.min(Math.max(0, y), maxY) };
+      return {
+        x: Math.min(Math.max(0, x), maxX),
+        y: Math.min(Math.max(0, y), maxY),
+      };
     };
 
     const updatePosition = (x, y) => {
@@ -113,12 +112,34 @@ export default function SettingsWidget() {
     };
 
     let animationFrame;
-    const onMouseDown = (e) => { dragging = true; offsetX = e.clientX - widget.getBoundingClientRect().left; offsetY = e.clientY - widget.getBoundingClientRect().top; };
-    const onMouseMove = (e) => { if (!dragging) return; cancelAnimationFrame(animationFrame); animationFrame = requestAnimationFrame(() => updatePosition(e.clientX - offsetX, e.clientY - offsetY)); };
+    const onMouseDown = (e) => {
+      dragging = true;
+      offsetX = e.clientX - widget.getBoundingClientRect().left;
+      offsetY = e.clientY - widget.getBoundingClientRect().top;
+    };
+    const onMouseMove = (e) => {
+      if (!dragging) return;
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() =>
+        updatePosition(e.clientX - offsetX, e.clientY - offsetY)
+      );
+    };
     const onMouseUp = () => (dragging = false);
 
-    const onTouchStart = (e) => { dragging = true; const touch = e.touches[0]; offsetX = touch.clientX - widget.getBoundingClientRect().left; offsetY = touch.clientY - widget.getBoundingClientRect().top; };
-    const onTouchMove = (e) => { if (!dragging) return; const touch = e.touches[0]; cancelAnimationFrame(animationFrame); animationFrame = requestAnimationFrame(() => updatePosition(touch.clientX - offsetX, touch.clientY - offsetY)); };
+    const onTouchStart = (e) => {
+      dragging = true;
+      const touch = e.touches[0];
+      offsetX = touch.clientX - widget.getBoundingClientRect().left;
+      offsetY = touch.clientY - widget.getBoundingClientRect().top;
+    };
+    const onTouchMove = (e) => {
+      if (!dragging) return;
+      const touch = e.touches[0];
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() =>
+        updatePosition(touch.clientX - offsetX, touch.clientY - offsetY)
+      );
+    };
     const onTouchEnd = () => (dragging = false);
 
     widget.addEventListener("mousedown", onMouseDown);
@@ -141,7 +162,9 @@ export default function SettingsWidget() {
 
   /* ✅ Cycle language */
   const handleLanguageChange = () => {
-    setLanguageIndex((prev) => (prev + 1) % languages.length);
+    const nextLang =
+      languages[(languages.indexOf(language) + 1) % languages.length];
+    changeLanguage(nextLang);
   };
 
   return (
@@ -173,7 +196,9 @@ export default function SettingsWidget() {
             className="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center gap-2"
             onClick={() => setDark(!dark)}
           >
-            <i className={`bi ${dark ? "bi-sun-fill" : "bi-moon-stars-fill"}`} />
+            <i
+              className={`bi ${dark ? "bi-sun-fill" : "bi-moon-stars-fill"}`}
+            />
             {dark ? "Light Mode" : "Dark Mode"}
           </button>
 
@@ -183,7 +208,7 @@ export default function SettingsWidget() {
             onClick={handleLanguageChange}
           >
             <i className="bi bi-translate"></i>
-            {languages[languageIndex]}
+            {language}
           </button>
 
           {/* Track Dropdown */}
@@ -196,7 +221,11 @@ export default function SettingsWidget() {
                 <i className="bi bi-music-note-list"></i>
                 {`Track ${currentTrack + 1}`}
               </span>
-              <i className={`bi ${showTracks ? "bi-caret-up-fill" : "bi-caret-down-fill"}`} />
+              <i
+                className={`bi ${
+                  showTracks ? "bi-caret-up-fill" : "bi-caret-down-fill"
+                }`}
+              />
             </button>
 
             {showTracks && (
@@ -204,18 +233,19 @@ export default function SettingsWidget() {
                 {playlist.map((_, idx) => (
                   <button
                     key={idx}
-                    className={`btn w-100 ${idx === currentTrack ? "btn-primary" : "btn-outline-primary"} d-flex align-items-center gap-2`}
+                    className={`btn w-100 ${
+                      idx === currentTrack
+                        ? "btn-primary"
+                        : "btn-outline-primary"
+                    } d-flex align-items-center gap-2`}
                     onClick={() => {
                       if (audioRef.current) {
-                        // ✅ Pause current before switching
                         audioRef.current.pause();
                         audioRef.current.currentTime = 0;
                       }
-
                       setCurrentTrack(idx);
                       setShowTracks(false);
 
-                      // ✅ If already playing, start the new one
                       if (playing && audioRef.current) {
                         setTimeout(() => {
                           audioRef.current.src = playlist[idx];
@@ -237,7 +267,11 @@ export default function SettingsWidget() {
             className="btn btn-outline-success w-100 d-flex align-items-center gap-2"
             onClick={() => setPlaying(!playing)}
           >
-            <i className={`bi ${playing ? "bi-pause-circle-fill" : "bi-music-note-beamed"}`} />
+            <i
+              className={`bi ${
+                playing ? "bi-pause-circle-fill" : "bi-music-note-beamed"
+              }`}
+            />
             {playing ? "Pause Music" : "Play Music"}
           </button>
         </div>
