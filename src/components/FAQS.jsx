@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from "@/context/TranslationContext";
 
 export default function FAQS() {
+  const { t } = useTranslation();
+
   return (
     <section className="section faq">
       <div className="container">
@@ -10,7 +15,6 @@ export default function FAQS() {
             <div className="card">
               <div className="card-body">
                 <div className="accordion accordion-flush" id="faq-group-1">
-                  
                   {/* FAQ 1 */}
                   <div className="accordion-item rounded-top-2">
                     <h2 className="accordion-header">
@@ -20,7 +24,7 @@ export default function FAQS() {
                         type="button"
                         data-bs-toggle="collapse"
                       >
-                        How can I contact you directly?
+                        {t("faq1Q")}
                       </button>
                     </h2>
                     <div
@@ -29,15 +33,18 @@ export default function FAQS() {
                       data-bs-parent="#faq-group-1"
                     >
                       <div className="accordion-body">
-                        You can reach me via email at{" "}
-                        <a href="mailto:jimiyaks3@gmail.com" className="text-primary">
+                        {t("faq1A")}{" "}
+                        <a
+                          href="mailto:jimiyaks3@gmail.com"
+                          className="text-primary"
+                        >
                           jimiyaks3@gmail.com
-                        </a>
-                        or call me directly at
+                        </a>{" "}
+                        {t("faq1Or")}{" "}
                         <a href="tel:+2347010228016" className="text-primary">
                           +234 701 022 8016
                         </a>
-                        . I’ll get back to you as soon as possible.
+                        .
                       </div>
                     </div>
                   </div>
@@ -51,7 +58,7 @@ export default function FAQS() {
                         type="button"
                         data-bs-toggle="collapse"
                       >
-                        What kind of services do you offer?
+                        {t("faq2Q")}
                       </button>
                     </h2>
                     <div
@@ -60,14 +67,11 @@ export default function FAQS() {
                       data-bs-parent="#faq-group-1"
                     >
                       <div className="accordion-body">
-                        I provide a range of services including
-                        <strong>Full-Stack Development, UI/UX Design, Data Science, and DevOps</strong>.  
-                        My goal is to build intelligent, scalable, and user-friendly solutions.  
-                        Check out the
+                        {t("faq2A")}{" "}
                         <Link href="/services" className="text-primary">
-                          Services page
+                          {t("faq2Link")}
                         </Link>
-                        for more details.
+                        .
                       </div>
                     </div>
                   </div>
@@ -81,7 +85,7 @@ export default function FAQS() {
                         type="button"
                         data-bs-toggle="collapse"
                       >
-                        Do you work alone or with a team?
+                        {t("faq3Q")}
                       </button>
                     </h2>
                     <div
@@ -90,12 +94,9 @@ export default function FAQS() {
                       data-bs-parent="#faq-group-1"
                     >
                       <div className="accordion-body">
-                        I collaborate with a talented team of professionals including{" "}
-                        <strong>developers, designers, data scientists, and architects</strong>.  
-                        Each member brings unique expertise to deliver the best results.  
-                        Meet them on the{" "}
+                        {t("faq3A")}{" "}
                         <Link href="/teams" className="text-primary">
-                          Team page
+                          {t("faq3Link")}
                         </Link>
                         .
                       </div>
@@ -111,7 +112,7 @@ export default function FAQS() {
                         type="button"
                         data-bs-toggle="collapse"
                       >
-                        Can I see examples of your past work?
+                        {t("faq4Q")}
                       </button>
                     </h2>
                     <div
@@ -120,14 +121,11 @@ export default function FAQS() {
                       data-bs-parent="#faq-group-1"
                     >
                       <div className="accordion-body">
-                        Absolutely! I’ve worked on several exciting projects ranging from{" "}
-                        <strong>web applications</strong> to{" "}
-                        <strong>AI-powered solutions</strong>.  
-                        Visit the{" "}
+                        {t("faq4A")}{" "}
                         <Link href="/projects" className="text-primary">
-                          Projects page
-                        </Link>{" "}
-                        to explore case studies and featured works.
+                          {t("faq4Link")}
+                        </Link>
+                        .
                       </div>
                     </div>
                   </div>
@@ -141,7 +139,7 @@ export default function FAQS() {
                         type="button"
                         data-bs-toggle="collapse"
                       >
-                        How soon can we start working together?
+                        {t("faq5Q")}
                       </button>
                     </h2>
                     <div
@@ -150,17 +148,14 @@ export default function FAQS() {
                       data-bs-parent="#faq-group-1"
                     >
                       <div className="accordion-body">
-                        I’m always open to new opportunities! The timeline depends on the{" "}
-                        <strong>scope of your project</strong>.  
-                        Send me a quick message through the{" "}
+                        {t("faq5A")}{" "}
                         <Link href="/contact" className="text-primary">
-                          Contact page
-                        </Link>{" "}
-                        and we can discuss details right away.
+                          {t("faq5Link")}
+                        </Link>
+                        .
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>

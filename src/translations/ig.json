@@ -33,7 +33,6 @@
   "viewProjects": "Lelee Ọrụ",
   "contactMe": "Kpọtụrụ M",
 
-
   "contactTitle": "Kpọtụrụ Anyị",
   "contactSubtitle": "Ka anyị wuo ihe dị ịtụnanya",
   "getInTouchHeading": "Kpọtụrụ Anyị",
@@ -63,5 +62,62 @@
   "aboutSubtitle": "Nkenke mputa onwe",
   "aboutLead": "Aha m bụ Sir Jimmy — onye mmepe na-ahụ n'anya ịmepụta ngwọta bara uru, dị ọcha, ma dịkwa ike. Site na ngwa weebụ zuru oke ruo na oru ML, ihe m ji obi sie ike bụ ịmepụta uru.",
   "aboutText": "Ngwaọrụ teknụzụ m na-ahụ n’anya: Next.js, Flask, MongoDB, TensorFlow/Keras, na Streamlit. Ana m ewerekwa Bootstrap na CSS omenala ka ha mee ka UI dị mma ma dị mfe iji.",
-  "readMore": "Gụọkwuo"
+  "readMore": "Gụọkwuo",
+
+  "faq1Q": "Kedu ka m ga-esi kpọtụrụ gị ozugbo?",
+  "faq1A": "Ị nwere ike kpọtụrụ m site na email na",
+  "faq1Or": "ma ọ bụ kpọọ m ozugbo na",
+  "faq2Q": "Kedu ụdị ọrụ ị na-enye?",
+  "faq2A": "Ana m enye ọrụ dị iche iche gụnyere Full-Stack Development, UI/UX Design, Data Science, na DevOps. Ebumnuche m bụ iwulite ngwọta nwere ọgụgụ isi, nke na-adaba adaba, na nke dị mfe iji. Lelee",
+  "faq2Link": "Ibe ọrụ",
+  "faq3Q": "Ị na-arụ ọrụ naanị gị ma ọ bụ na otu?",
+  "faq3A": "Ana m arụkọ ọrụ na otu ndị ọkachamara nwere ọgụgụ isi gụnyere ndị mmepe, ndị na-ese ihe, ndị sayensị data, na ndị na-ekenye usoro. Onye ọ bụla n’ime ha na-eweta nka pụrụ iche iji nweta ezigbo nsonaazụ. Zute ha na",
+  "faq3Link": "Ibe otu",
+  "faq4Q": "Enwere m ike ịhụ ihe atụ nke ọrụ gara aga?",
+  "faq4A": "Ee! Arụrụ m ọrụ na ọtụtụ oru na-atọ ụtọ site na ngwa weebụ ruo ngwọta nwere AI. Gara",
+  "faq4Link": "Ibe oru",
+  "faq5Q": "Kedu oge anyị nwere ike ịmalite ịrụ ọrụ ọnụ?",
+  "faq5A": "Ana m na-anabatakarị ohere ọhụrụ! Oge ahụ dabere na oke ọrụ gị. Zipụ m ozi ngwa ngwa site na",
+  "faq5Link": "Ibe kọntaktị",
+
+  "faqTitle": "Ajụjụ ndị a na-ajụkarị",
+  "faqSubtitle": "N'okpuru bụ ụfọdụ azịza nye ajụjụ gị",
+
+  "servicesTitle": "Ihe M Na-eme",
+  "servicesSubtitle": "Ngwaọrụ na ngwọta m nwere ike inye",
+  "viewAll": "Lee niile",
+  "letsWork": "Ka anyị rụọ ọrụ ọnụ",
+
+  "servicesList": [
+    {
+      "title": "Ngwa Web zuru oke",
+      "emoji": "🧩",
+      "description": "Site n’echiche ruo itinye ya — ngwa ngwa, ngwa ọsọ, na nke a pụrụ ịdabere na ya.",
+      "highlights": [
+        "Next.js 14 + REST/JSON",
+        "Ndebanye aha, CRUD, dashboards",
+        "SEO na omume kacha mma"
+      ]
+    },
+    {
+      "title": "Nlereanya Data & ML",
+      "emoji": "🧠",
+      "description": "Gbanwee data ka ọ bụrụ nghọta ngwa ngwa site na nlereanya na dashboards.",
+      "highlights": [
+        "TensorFlow/Keras & scikit-learn",
+        "Ihe ngosi Streamlit",
+        "Notebooks na akụkọ doro anya"
+      ]
+    },
+    {
+      "title": "APIs & Njikọ",
+      "emoji": "🔌",
+      "description": "REST APIs siri ike na njikọ ndị ọzọ nke na-arụ ọrụ nke ọma.",
+      "highlights": [
+        "Node/Flask backends",
+        "Njikọ Email/Ụgwọ",
+        "E tinyere docs na ule"
+      ]
+    }
+  ]
 }

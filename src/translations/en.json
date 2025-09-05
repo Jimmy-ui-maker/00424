@@ -58,5 +58,62 @@
   "aboutSubtitle": "A quick intro",
   "aboutLead": "I’m Sir Jimmy — a developer who loves building practical, clean, and performant solutions. From full-stack web apps to ML-flavored projects, I focus on shipping value.",
   "aboutText": "Tech I enjoy: Next.js, Flask, MongoDB, TensorFlow/Keras, and Streamlit. I’m also comfortable with Bootstrap and custom CSS for delightful, responsive UI.",
-  "readMore": "Read more"
+  "readMore": "Read more",
+
+  "faqTitle": "Frequently Asked Questions",
+  "faqSubtitle": "Below are some answers to your questions",
+
+  "faq1Q": "How can I contact you directly?",
+  "faq1A": "You can reach me via email at",
+  "faq1Or": "or call me directly at",
+  "faq2Q": "What kind of services do you offer?",
+  "faq2A": "I provide a range of services including Full-Stack Development, UI/UX Design, Data Science, and DevOps. My goal is to build intelligent, scalable, and user-friendly solutions. Check out the",
+  "faq2Link": "Services page",
+  "faq3Q": "Do you work alone or with a team?",
+  "faq3A": "I collaborate with a talented team of professionals including developers, designers, data scientists, and architects. Each member brings unique expertise to deliver the best results. Meet them on the",
+  "faq3Link": "Team page",
+  "faq4Q": "Can I see examples of your past work?",
+  "faq4A": "Absolutely! I’ve worked on several exciting projects ranging from web applications to AI-powered solutions. Visit the",
+  "faq4Link": "Projects page",
+  "faq5Q": "How soon can we start working together?",
+  "faq5A": "I’m always open to new opportunities! The timeline depends on the scope of your project. Send me a quick message through the",
+  "faq5Link": "Contact page",
+
+  "servicesTitle": "What I Do",
+  "servicesSubtitle": "Tools and solutions I can deliver",
+  "viewAll": "View all",
+  "letsWork": "Let's work together",
+
+  "servicesList": [
+    {
+      "title": "Full-Stack Web Apps",
+      "emoji": "🧩",
+      "description": "From idea to deploy — responsive, fast, and reliable applications.",
+      "highlights": [
+        "Next.js 14 + REST/JSON",
+        "Auth, CRUD, dashboards",
+        "SEO + performance best practices"
+      ]
+    },
+    {
+      "title": "Data & ML Prototypes",
+      "emoji": "🧠",
+      "description": "Turn data into insight with quick, clear prototypes and dashboards.",
+      "highlights": [
+        "TensorFlow/Keras & scikit-learn",
+        "Streamlit demos",
+        "Clean notebooks & reports"
+      ]
+    },
+    {
+      "title": "APIs & Integrations",
+      "emoji": "🔌",
+      "description": "Robust REST APIs and third-party integrations that just work.",
+      "highlights": [
+        "Node/Flask backends",
+        "Email/Payments integration",
+        "Docs & tests included"
+      ]
+    }
+  ]
 }

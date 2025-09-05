@@ -9,7 +9,7 @@
   "rights": "Duk haƙƙoƙi na ajiye.",
   "privacyPolicy": "Manufar Sirri",
   "terms": "Sharuɗɗa da Ka'idoji",
-  
+
   "close": "Rufe",
   "privacyText1": "A shafin Sir Jimmy, muna daraja sirrin ku. Wannan gidan yanar gizo baya tattara bayanan sirri fiye da abin da kuka bayar (misali, lokacin da kuka tuntuɓe mu ta imel ko WhatsApp).",
   "privacyText2": "Zai yiwu mu yi amfani da kukis da fasahohi makamancin haka don inganta amfani (kamar adana saitunan yanayin duhu ko tunawa da abubuwan da kuka fi so). Ba a sayar ko raba bayanan ku da wani ɓangare na uku.",
@@ -28,7 +28,6 @@
   "pauseMusic": "Dakatar da Waka",
   "track": "Waƙa",
   "language": "Harshe",
-
 
   "heroGreeting": "Sannu, Ni ne",
   "heroDescription": "Mai haɓaka cikakken tsarin (Full-stack developer) wanda ke ƙirƙirar ƙa’idoji masu tsafta, amsawa da inganci. Ina juya ra’ayoyi zuwa kayayyakin aiki.",
@@ -64,7 +63,62 @@
   "aboutSubtitle": "Takaitaccen gabatarwa",
   "aboutLead": "Ni ne Sir Jimmy — mai haɓaka wanda yake son gina hanyoyin amfani masu tsabta da ingantattu. Daga aikace-aikacen yanar gizo cikakku zuwa ayyukan da ke amfani da ML, burina shine samar da ƙima.",
   "aboutText": "Fasahohi da nake jin daɗi: Next.js, Flask, MongoDB, TensorFlow/Keras, da Streamlit. Hakanan ina jin daɗin amfani da Bootstrap da CSS na musamman don kyakkyawan, amintaccen UI.",
-  "readMore": "Kara karantawa"
+  "readMore": "Kara karantawa",
 
+  "faq1Q": "Ta yaya zan iya tuntubar ka kai tsaye?",
+  "faq1A": "Za ka iya tuntubar ni ta imel a",
+  "faq1Or": "ko kuma ka kira ni kai tsaye a",
+  "faq2Q": "Wadanne irin ayyuka kake bayarwa?",
+  "faq2A": "Ina bayar da ayyuka daban-daban ciki har da Full-Stack Development, UI/UX Design, Data Science, da DevOps. Burina shi ne gina mafita masu hankali, masu auna girma, kuma masu sauƙin amfani. Duba",
+  "faq2Link": "Shafin Ayyuka",
+  "faq3Q": "Kana yin aiki kai kaɗai ko da tawaga?",
+  "faq3A": "Ina yin aiki tare da ƙwararrun mutane ciki har da masu haɓaka, masu zanen UI, masu binciken bayanai, da masu tsara tsarin. Kowanne yana kawo ƙwarewa ta musamman don samun sakamako mafi kyau. Ka sadu da su a",
+  "faq3Link": "Shafin Tawaga",
+  "faq4Q": "Zan iya ganin misalan ayyukanka na baya?",
+  "faq4A": "Tabbas! Na yi aiki akan ayyuka masu ban sha’awa daga aikace-aikacen yanar gizo zuwa mafita masu amfani da AI. Ziyarci",
+  "faq4Link": "Shafin Ayyuka",
+  "faq5Q": "Yaushe zamu iya fara aiki tare?",
+  "faq5A": "Ina koyaushe a bude ga sababbin damar! Lokacin yana dogara da girman aikin ka. Aika min da saƙo ta",
+  "faq5Link": "Shafin Tuntuɓa",
 
+  "faqTitle": "Tambayoyin da ake yawan yi",
+  "faqSubtitle": "Ga wasu amsoshi ga tambayoyinku a ƙasa",
+
+  "servicesTitle": "Abinda Nake Yi",
+  "servicesSubtitle": "Kayan aiki da mafita da zan iya bayarwa",
+  "viewAll": "Duba duka",
+  "letsWork": "Mu yi aiki tare",
+
+  "servicesList": [
+    {
+      "title": "Aikace-aikacen Yanar Gizo na Cikakken Tsari",
+      "emoji": "🧩",
+      "description": "Daga tunani zuwa sakawa — aikace-aikacen da suke da sauri, amintattu kuma masu amsawa.",
+      "highlights": [
+        "Next.js 14 + REST/JSON",
+        "Shiga, CRUD, dashboards",
+        "SEO da kyawawan al’adun inganci"
+      ]
+    },
+    {
+      "title": "Tsarin Bayanai & ML",
+      "emoji": "🧠",
+      "description": "Juya bayanai zuwa fahimta da sauri tare da gwaje-gwaje da dashboards.",
+      "highlights": [
+        "TensorFlow/Keras & scikit-learn",
+        "Nuna ta Streamlit",
+        "Notebooks da rahotanni masu tsafta"
+      ]
+    },
+    {
+      "title": "APIs & Hada-hadu",
+      "emoji": "🔌",
+      "description": "REST APIs masu ƙarfi da haɗa ɓangare na uku masu aiki yadda ya kamata.",
+      "highlights": [
+        "Node/Flask backends",
+        "Hada Imel/Biya",
+        "Ana haɗa docs da gwaje-gwaje"
+      ]
+    }
+  ]
 }

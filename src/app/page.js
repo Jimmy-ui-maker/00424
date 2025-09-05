@@ -3,15 +3,19 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import ProjectCard from "@/components/ProjectCard";
-import ServiceCard from "@/components/ServiceCard";
-import { projects, services, teams } from "@/lib/data";
+import { projects, services } from "@/lib/data";
 import TeamCarousel from "@/components/TeamCarousel";
 import FAQS from "@/components/FAQS";
 import ContactPage from "@/components/Contact";
+import ServiceCard from "@/components/ServiceCard";
+
 import { useTranslation } from "@/context/TranslationContext";
 
 export default function HomePage() {
   const { t } = useTranslation();
+
+  // 👇 grab the array from JSON translations
+  const services = t("servicesList");
 
   return (
     <>
@@ -35,26 +39,29 @@ export default function HomePage() {
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle
-            title="What I Do"
-            subtitle="Tools and solutions I can deliver"
+            title={t("servicesTitle")}
+            subtitle={t("servicesSubtitle")}
           />
           <Link className="btn text-bg-primary soft-shadow" href="/services">
-            View all
+            {t("viewAll")}
           </Link>
         </div>
+
         <div className="row g-3">
-          {services.map((s) => (
-            <div className="col-12 col-md-6 col-lg-4" key={s.title}>
+          {services.map((s, i) => (
+            <div className="col-12 col-md-6 col-lg-4" key={i}>
               <ServiceCard service={s} />
             </div>
           ))}
         </div>
+
         <div className="text-center mt-4">
           <Link className="btn btn-outline-primary soft-shadow" href="/contact">
-            Let&apos;s work together
+            {t("letsWork")}
           </Link>
         </div>
       </section>
+
       {/**Project Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -88,12 +95,9 @@ export default function HomePage() {
       {/**FAQs Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <SectionTitle
-            title="Frequently Ask Questions"
-            subtitle="Bellow are some answers to your questions"
-          />
+          <SectionTitle title={t("faqTitle")} subtitle={t("faqSubtitle")} />
           <Link className="btn text-bg-primary soft-shadow" href="/faqs">
-            Read...
+            {t("readMore")}
           </Link>
         </div>
         <FAQS />

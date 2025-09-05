@@ -62,5 +62,62 @@
   "aboutSubtitle": "Ìfihàn kúkúrú",
   "aboutLead": "Orúkọ mi ni Sir Jimmy — olùdàgbàsókè tó nífẹ̀ẹ́ sí lílo ojútùú tó dára, tó mọ́, tí kò sì nira. Láti inú àwọn app wẹẹ̀bù full-stack dé iṣẹ́ tó ní ML, èrò mi ni pípa iye jáde.",
   "aboutText": "Ìmọ̀ ẹ̀rọ tí mo fẹ́ràn: Next.js, Flask, MongoDB, TensorFlow/Keras, àti Streamlit. Mo tún ráyè lò Bootstrap àti CSS adani fún UI tó lẹ́wà, tó sì rọrùn láti lò.",
-  "readMore": "Ka siwaju"
+  "readMore": "Ka siwaju",
+
+  "faq1Q": "Báwo ni mo ṣe le kan si ọ taara?",
+  "faq1A": "O le kan si mi nipasẹ imeeli ni",
+  "faq1Or": "tàbí pe mi taara ní",
+  "faq2Q": "Iru iṣẹ wo ni o nṣe?",
+  "faq2A": "Mo nṣe ọpọlọpọ iṣẹ́ pẹ̀lú Full-Stack Development, UI/UX Design, Data Science, ati DevOps. Ẹ̀mí mi ni láti kọ ojútùú ọlọ́gbọ́n, tó gbooro, tó sì rọrùn fún àwọn oníṣe. Ṣayẹwo",
+  "faq2Link": "Ojú-ìwé iṣẹ́",
+  "faq3Q": "Ṣe o ṣiṣẹ̀ nikan tàbí pẹ̀lú ẹgbẹ́?",
+  "faq3A": "Mo máa ń ṣiṣẹ́ pọ̀ mọ́ ẹgbẹ́ àwọn amòye tó ní ẹ̀bùn gẹ́gẹ́ bí àwọn olùdàgbàsókè, àwọn oníṣeré UI, àwọn onímọ̀ data, àti àwọn aṣáájú ìmọ̀ ẹ̀rọ. Ẹgbẹ́ kọọkan mú agbára tirẹ̀ wá láti fi ẹ̀rí tó dáa han. Pàdé wọn lórí",
+  "faq3Link": "Ojú-ìwé ẹgbẹ́",
+  "faq4Q": "Ṣé mo le rí àpẹẹrẹ iṣẹ́ rẹ̀ tẹ́lẹ̀?",
+  "faq4A": "Dájúdájú! Mo ti ṣiṣẹ́ lórí ọ̀pọ̀ iṣẹ́ tó dára láti inú ohun elo wẹẹbu dé ojútùú alágbára AI. Ṣàbẹ̀wò sí",
+  "faq4Link": "Ojú-ìwé iṣẹ́",
+  "faq5Q": "Nígbà wo ni a lè bẹ̀rẹ̀ ṣiṣẹ́ pọ̀?",
+  "faq5A": "Mo máa ń ṣí sílẹ̀ fún ànfààní tuntun ní gbogbo ìgbà! Àkókò náà dá lórí ìwọn iṣẹ́ rẹ. Ránṣẹ́ sí mi lẹ́sẹ̀kẹsẹ̀ nípasẹ̀",
+  "faq5Link": "Ojú-ìwé ìbáṣepọ̀",
+
+  "faqTitle": "Awọn ibeere ti a maa n beere nigbagbogbo",
+  "faqSubtitle": "Ni isalẹ ni diẹ ninu awọn idahun si awọn ibeere rẹ",
+
+  "servicesTitle": "Ohun Ti Mo Ṣe",
+  "servicesSubtitle": "Awọn irinṣẹ ati awọn ojutu ti MO le pese",
+  "viewAll": "Wo gbogbo rẹ",
+  "letsWork": "Jẹ ká ṣiṣẹ pọ",
+
+  "servicesList": [
+    {
+      "title": "Awọn Ohun elo Ayelujara Apapọ",
+      "emoji": "🧩",
+      "description": "Lati ero de si ifijiṣẹ — awọn ohun elo to yara, to peye ati igbẹkẹle.",
+      "highlights": [
+        "Next.js 14 + REST/JSON",
+        "Ìforúkọsílẹ, CRUD, dashboards",
+        "SEO ati awọn iṣe to dara julọ"
+      ]
+    },
+    {
+      "title": "Awọn Apẹẹrẹ Data & ML",
+      "emoji": "🧠",
+      "description": "Yi data pada si oye ni kiakia pẹlu awọn apẹẹrẹ ati dashboards.",
+      "highlights": [
+        "TensorFlow/Keras & scikit-learn",
+        "Awọn ifihan Streamlit",
+        "Awọn iwe akọsilẹ ati ijabọ mimọ"
+      ]
+    },
+    {
+      "title": "APIs & Isopọ",
+      "emoji": "🔌",
+      "description": "REST APIs to lagbara ati awọn isopọ ẹgbẹ kẹta ti n ṣiṣẹ daradara.",
+      "highlights": [
+        "Node/Flask backends",
+        "Isopọ Email/Isanwo",
+        "Awọn iwe ati idanwo ti wa pẹlu"
+      ]
+    }
+  ]
 }
