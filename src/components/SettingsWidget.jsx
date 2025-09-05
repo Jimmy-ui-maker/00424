@@ -15,7 +15,7 @@ export default function SettingsWidget() {
   const widgetRef = useRef(null);
 
   // ⬅️ use language context
-  const { language, changeLanguage } = useTranslation();
+  const { language, changeLanguage, t } = useTranslation();
   const languages = ["English", "Hausa", "Igbo", "Yoruba"];
 
   // Playlist
@@ -199,7 +199,7 @@ export default function SettingsWidget() {
             <i
               className={`bi ${dark ? "bi-sun-fill" : "bi-moon-stars-fill"}`}
             />
-            {dark ? "Light Mode" : "Dark Mode"}
+            {dark ? t("lightMode") : t("darkMode")}
           </button>
 
           {/* Language Switcher 🔥 */}
@@ -208,7 +208,7 @@ export default function SettingsWidget() {
             onClick={handleLanguageChange}
           >
             <i className="bi bi-translate"></i>
-            {language}
+            {t("language")}: {language}
           </button>
 
           {/* Track Dropdown */}
@@ -219,7 +219,7 @@ export default function SettingsWidget() {
             >
               <span className="d-flex align-items-center gap-2">
                 <i className="bi bi-music-note-list"></i>
-                {`Track ${currentTrack + 1}`}
+                {`${t("track")} ${currentTrack + 1}`}
               </span>
               <i
                 className={`bi ${
@@ -255,7 +255,7 @@ export default function SettingsWidget() {
                     }}
                   >
                     <i className="bi bi-music-note"></i>
-                    Track {idx + 1}
+                    {t("track")} {idx + 1}
                   </button>
                 ))}
               </div>
@@ -272,7 +272,7 @@ export default function SettingsWidget() {
                 playing ? "bi-pause-circle-fill" : "bi-music-note-beamed"
               }`}
             />
-            {playing ? "Pause Music" : "Play Music"}
+            {playing ? t("pauseMusic") : t("playMusic")}
           </button>
         </div>
       )}

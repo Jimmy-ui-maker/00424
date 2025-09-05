@@ -19,5 +19,17 @@
   "termsList2": "Njirimara dịka ọnọdụ abalị, egwu na-egwu, na widget dị ka ha bụ, enweghị nkwa ọ bụla.",
   "termsList3": "Anyị anaghị aza ajụjụ maka nsogbu sitere na njikọ ndị ọzọ (dịka WhatsApp, email, GitHub).",
   "termsList4": "Ị kwenyere na ị gaghị eji webụsaịtị a eme ihe n'ụzọ na-ezighi ezi ma ọ bụ mee ka arụmọrụ daa.",
-  "termsText2": "Anyị nwere ikike ịkwalite usoro ndị a n’oge ọ bụla. Iji saịtị ahụ mgbe mgbanwe gasịrị pụtara na ị kwenyere."
+  "termsText2": "Anyị nwere ikike ịkwalite usoro ndị a n’oge ọ bụla. Iji saịtị ahụ mgbe mgbanwe gasịrị pụtara na ị kwenyere.",
+
+  "darkMode": "Ọnọdụ Ojii",
+  "lightMode": "Ọnọdụ Ìhè",
+  "playMusic": "Gwa Egwu",
+  "pauseMusic": "Kwụsị Egwu",
+  "track": "Egwu",
+  "language": "Asụsụ",
+
+  "heroGreeting": "Ndewo, Abụ m",
+  "heroDescription": "Onye mmepe Full-stack na-eme ngwa dị ọcha, na-agbanwe agbanwe, na ntụkwasị obi. Ana m etinye echiche n'ime ngwaahịa dị ndụ.",
+  "viewProjects": "Lelee Ọrụ",
+  "contactMe": "Kpọtụrụ M"
 }

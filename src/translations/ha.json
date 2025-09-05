@@ -19,5 +19,20 @@
   "termsList2": "Fasali kamar yanayin duhu, kunna kiɗa, da widget suna zuwa kamar yadda suke ba tare da garanti ba.",
   "termsList3": "Ba mu da alhakin matsalolin da suka taso daga hanyoyin waje (misali WhatsApp, imel, GitHub).",
   "termsList4": "Kun yarda da kada ku yi amfani da wannan shafin ta hanyar da bata dace ba ko kawo cikas ga aiki.",
-  "termsText2": "Muna da ikon sabunta waɗannan sharuɗɗa a kowane lokaci. Ci gaba da amfani da shafin bayan canje-canje na nufin kun amince."
+  "termsText2": "Muna da ikon sabunta waɗannan sharuɗɗa a kowane lokaci. Ci gaba da amfani da shafin bayan canje-canje na nufin kun amince.",
+
+  "darkMode": "Yanayin Duhu",
+  "lightMode": "Yanayin Haske",
+  "playMusic": " kunna Waka",
+  "pauseMusic": "Dakatar da Waka",
+  "track": "Waƙa",
+  "language": "Harshe",
+
+
+  "heroGreeting": "Sannu, Ni ne",
+  "heroDescription": "Mai haɓaka cikakken tsarin (Full-stack developer) wanda ke ƙirƙirar ƙa’idoji masu tsafta, amsawa da inganci. Ina juya ra’ayoyi zuwa kayayyakin aiki.",
+  "viewProjects": "Duba Ayyuka",
+  "contactMe": "Tuntuɓe Ni"
+
+
 }

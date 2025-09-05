@@ -19,5 +19,10 @@
   "termsPoint3": "We are not responsible for third-party links.",
   "termsPoint4": "You agree not to misuse this website.",
   "termsConclusion": "We reserve the right to update these terms.",
-  "close": "Close"
+  "close": "Close",
+
+  "heroGreeting": "Hey, I'm",
+  "heroDescription": "Full-stack developer crafting clean, responsive, and reliable apps. I turn ideas into shipped products.",
+  "viewProjects": "View Projects",
+  "contactMe": "Contact Me"
 }
