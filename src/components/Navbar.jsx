@@ -22,7 +22,7 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="nav">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto justify-content-end align-items-end mb-2 mb-lg-0">
             <li className="nav-item"><a className="nav-link" href="/about">{t("about")}</a></li>
             <li className="nav-item"><a className="nav-link" href="/services">{t("services")}</a></li>
             <li className="nav-item"><a className="nav-link" href="/projects">{t("projects")}</a></li>
