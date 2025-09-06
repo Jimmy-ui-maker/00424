@@ -14,9 +14,11 @@ import { useTranslation } from "@/context/TranslationContext";
 export default function HomePage() {
   const { t } = useTranslation();
 
-  // 👇 grab the array from JSON translations
-  const services = t("servicesList");
-
+  // Grab the services list from translation JSON
+  const services = t("servicesList", { returnObjects: true }) || [];
+  // ✅ ensure it's always an array
+  const projects = t("projectsList", { returnObjects: true });
+  const projectList = Array.isArray(projects) ? projects : [];
   return (
     <>
       {/**Hero Section */}
@@ -62,19 +64,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/**Project Section */}
+      {/* Project Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle
-            title="Featured Projects"
-            subtitle="A quick taste of my recent work"
+            title={t("projectsTitle")}
+            subtitle={t("projectsSubtitle")}
           />
           <Link className="btn text-bg-primary soft-shadow" href="/projects">
-            View all
+            {t("viewAllProjects")}
           </Link>
         </div>
+
         <div className="row g-3">
-          {projects.slice(0, 3).map((p) => (
+          {projectList.slice(0, 3).map((p) => (
             <div className="col-12 col-md-6 col-lg-4" key={p.slug}>
               <ProjectCard project={p} />
             </div>

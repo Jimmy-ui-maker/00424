@@ -119,5 +119,75 @@
         "E tinyere docs na ule"
       ]
     }
+  ],
+
+  "projectsTitle": "Ọrụ Gosipụtara",
+  "projectsSubtitle": "Ntụnyere ngwa ngwa nke ụfọdụ ọrụ m n’oge na-adịbeghị anya",
+  "viewAllProjects": "Lelee niile",
+
+  "liveDemo": "Ngosipụta Dị ndụ",
+  "sourceCode": "Koodu Isi",
+  "backToProjects": "← Laghachi na oru",
+  "projectsList": [
+    {
+      "slug": "smart-result-locator",
+      "title": "Sistemụ Ịchọta Nsonaazụ Smart",
+      "tagline": "Raspberry Pi + Flask + Njikwa Servo",
+      "short": "Na-enye akwụkwọ nsonaazụ site na nọmba matric & nhọrọ faculty.",
+      "description": "Ngwa Flask jikọtara na ngwaọrụ Raspberry Pi iji jikwaa injin servo na-enye akwụkwọ nsonaazụ. Ọ na-agụnye ọchụchọ site na nọmba matric, nhọrọ faculty, na nchekwa.",
+      "image": "/project-placeholders/hardware.svg",
+      "stack": ["Flask", "Python", "Raspberry Pi", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "welfake-detector",
+      "title": "Nchọpụta Akụkọ Ụgha (WELFake)",
+      "tagline": "NLP na TF/Keras",
+      "short": "Na-ekewa akụkọ dị ka eziokwu ma ọ bụ ụgha site na dataset WELFake (~72k akụkọ).",
+      "description": "E wuru pipeline nchọpụta ederede (ịhichapụ, tokenization, LSTM/BERT) iji chọpụta akụkọ ụgha. Ọ gụnyere dashboard na-egosi nsonaazụ.",
+      "image": "/project-placeholders/nlp.svg",
+      "stack": ["TensorFlow", "Keras", "Python", "Streamlit"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "hausa-speech-emotion",
+      "title": "Nchọpụta Emume olu Hausa",
+      "tagline": "LSTM + NJirimara MFCC (Librosa)",
+      "short": "Na-achọpụta mmetụta site na olu Hausa iji MFCCs na LSTM.",
+      "description": "E wuru dataset na ụdị LSTM iji chọpụta mmetụta site na olu Hausa. Ọ nwere demo ebe a pụrụ itinye faịlụ olu ma nweta amụma.",
+      "image": "/project-placeholders/audio.svg",
+      "stack": ["Python", "Librosa", "TensorFlow", "Streamlit"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "intelligent-email-scraper",
+      "title": "Ngwa nyocha email nwere ọgụgụ isi",
+      "tagline": "Next.js crawler + nkwenye",
+      "short": "Crawler nke na-achịkọta na nyochaa email site na weebụsaịtị.",
+      "description": "Crawler kpọmkwem na-eji NLP chọpụta adreesị email kachasị mma ma belata njehie. Ọ na-agụnye nkwenye na mbupụ gaa na CSV.",
+      "image": "/project-placeholders/crawler.svg",
+      "stack": ["Next.js", "Node.js", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "code-sharing-platform",
+      "title": "Ikpo okwu maka ịkekọrịta koodu",
+      "tagline": "Next.js 14 + MongoDB",
+      "short": "Ikekọrịta koodu nwere ndebanye aha, posts, likes, na comments.",
+      "description": "Ikpo okwu dị mfe ebe ndị ọrụ nwere ike kesaa snippets, mee likes, na kparịta ụka. UI dị ọcha, na-emeghari, nwere dark/light mode.",
+      "image": "/project-placeholders/code.svg",
+      "stack": ["Next.js", "MongoDB", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "soybean-disease-recognition",
+      "title": "Nchọpụta Ọrịa Akwụkwọ Sọyịbean",
+      "tagline": "Nchọpụta onyonyo (Keras)",
+      "short": "Na-achọpụta ọrịa akwụkwọ sọyịbean site na dataset (~770 onyonyo).",
+      "description": "E wuru ma nwalee ụdị CNN iji chọpụta ọrịa osisi. Ọ na-egosikwa onyonyo Grad-CAM iji kọwaa amụma.",
+      "image": "/project-placeholders/vision.svg",
+      "stack": ["TensorFlow", "Keras", "Python"],
+      "links": { "repo": "#", "demo": "#" }
+    }
   ]
 }

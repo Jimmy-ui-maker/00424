@@ -120,5 +120,76 @@
         "Ana haɗa docs da gwaje-gwaje"
       ]
     }
+  ],
+
+  "projectsTitle": "Ayyuka na Musamman",
+  "projectsSubtitle": "Ƙaramin zaɓi daga ayyukan da na yi kwanan nan",
+  "viewAllProjects": "Duba duka",
+
+  "liveDemo": "Nunin Kai Tsaye",
+  "sourceCode": "Lambar Tushe",
+  "backToProjects": "← Komawa zuwa ayyuka",
+  
+  "projectsList": [
+    {
+      "slug": "smart-result-locator",
+      "title": "Tsarin Samun Sakamako Mai Hikima",
+      "tagline": "Raspberry Pi + Flask + Sarrafa Servo",
+      "short": "Na’urar rarraba takardun sakamako ta lambar ɗalibi & zaɓen faculty.",
+      "description": "Manhajar Flask da aka haɗa da kayan aiki tana aiki akan Raspberry Pi don sarrafa injin servo wajen rarraba takardun sakamako. Tana ƙunshe da bincike ta lambar ɗalibi, zaɓen faculty, da tsaron shiga.",
+      "image": "/project-placeholders/hardware.svg",
+      "stack": ["Flask", "Python", "Raspberry Pi", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "welfake-detector",
+      "title": "Gano Labaran Ƙarya (WELFake)",
+      "tagline": "NLP tare da TF/Keras",
+      "short": "Yana bambance labarai gaskiya ko ƙarya daga bayanan WELFake (~72k labarai).",
+      "description": "An gina tsarin rarrabuwa na rubutu (tsabtacewa, tokenization, LSTM/BERT) don gano labaran ƙarya. Ya haɗa da dashboard mai bayyana sakamako.",
+      "image": "/project-placeholders/nlp.svg",
+      "stack": ["TensorFlow", "Keras", "Python", "Streamlit"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "hausa-speech-emotion",
+      "title": "Gano Ji a Muryar Hausa",
+      "tagline": "LSTM + Fasalin MFCC (Librosa)",
+      "short": "Yana gano motsin zuciya daga sautunan Hausa ta amfani da MFCCs da LSTM.",
+      "description": "An gina rumbun bayanai da kuma LSTM don gane motsin zuciya daga sautunan Hausa. Ya haɗa da demo inda za ka iya ɗora sauti kuma ka sami hasashen.",
+      "image": "/project-placeholders/audio.svg",
+      "stack": ["Python", "Librosa", "TensorFlow", "Streamlit"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "intelligent-email-scraper",
+      "title": "Mai Cire Imel Mai Hikima",
+      "tagline": "Next.js crawler + Tabbatarwa",
+      "short": "Mai binciken yanar gizo na halal da ke cire da kuma tantance imel daga shafuka.",
+      "description": "Crawler mai daidaici da amfani da tsarin NLP don gano adireshin imel cikin sauƙi tare da rage kuskure. Ya haɗa da tabbaci da fitarwa zuwa CSV.",
+      "image": "/project-placeholders/crawler.svg",
+      "stack": ["Next.js", "Node.js", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "code-sharing-platform",
+      "title": "Dandalin Rabon Lambar Kwamfuta",
+      "tagline": "Next.js 14 + MongoDB",
+      "short": "Rabo na lambar kwamfuta tare da rajista, posts, likes, da comments.",
+      "description": "Dandalin sauƙi inda masu amfani za su iya raba snippets, yin like, da tattaunawa. Tsarin UI mai kyau, yana aiki a kowane na’ura, tare da dark/light mode.",
+      "image": "/project-placeholders/code.svg",
+      "stack": ["Next.js", "MongoDB", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "soybean-disease-recognition",
+      "title": "Gano Cutar Wake (Soybean)",
+      "tagline": "Rarrabuwa ta Hotuna (Keras)",
+      "short": "Yana gano cututtukan ganyen wake ta hanyar bayanai (~770 hotuna).",
+      "description": "An gina da gwada samfurin CNN don gane cututtukan tsirrai. Ya haɗa da hoton Grad-CAM don bayyana hasashen.",
+      "image": "/project-placeholders/vision.svg",
+      "stack": ["TensorFlow", "Keras", "Python"],
+      "links": { "repo": "#", "demo": "#" }
+    }
   ]
 }

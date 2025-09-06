@@ -119,5 +119,76 @@
         "Awọn iwe ati idanwo ti wa pẹlu"
       ]
     }
+  ],
+
+  "projectsTitle": "Àwọn Ìṣèṣe Tó Ṣàfihàn",
+  "projectsSubtitle": "Àwọn àpẹẹrẹ iṣẹ́ tuntun mi",
+  "viewAllProjects": "Wo gbogbo wọn",
+
+  "liveDemo": "Ìfihàn Alààyè",
+  "sourceCode": "Koodu Orísun",
+  "backToProjects": "← Pada sí àwọn iṣẹ́",
+  
+  "projectsList": [
+    {
+      "slug": "smart-result-locator",
+      "title": "Ètò Àwárí Àbájáde Smart",
+      "tagline": "Raspberry Pi + Flask + Iṣakoso Servo",
+      "short": "Ìpínpin àbájáde pẹ̀lú nómba matric & yíyan faculty.",
+      "description": "Ìṣàpẹẹrẹ Flask tó bá a mọ́ ẹrọ Raspberry Pi láti ṣakoso motor servo láti pín àbájáde. Ó ní àwárí pẹ̀lú nómba matric, yíyan faculty, àti ààbò tó dájú.",
+      "image": "/project-placeholders/hardware.svg",
+      "stack": ["Flask", "Python", "Raspberry Pi", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "welfake-detector",
+      "title": "Ìdánimọ́ Ìròyìn Èké (WELFake)",
+      "tagline": "NLP pẹ̀lú TF/Keras",
+      "short": "Yà ìròyìn sí tòótọ́ tàbí èké pẹ̀lú dataset WELFake (~72k àpilẹ̀kọ).",
+      "description": "Ìpẹ̀yà ìtọ́kasí ọ̀rọ̀ (mímọ́, tokenization, LSTM/BERT) láti mọ̀ ìròyìn èké. Ó ní dashboard tó ṣàlàyé abajade.",
+      "image": "/project-placeholders/nlp.svg",
+      "stack": ["TensorFlow", "Keras", "Python", "Streamlit"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "hausa-speech-emotion",
+      "title": "Ìmúlò Ìmọ̀lára Ní Ìró Hausa",
+      "tagline": "LSTM + Àwọn Àmì MFCC (Librosa)",
+      "short": "Mọ̀ ìmọ̀lára láti inú ìró Hausa pẹ̀lú MFCC àti LSTM.",
+      "description": "Àkọsílẹ̀ data àti awoṣe LSTM fún ìdánimọ́ ìmọ̀lára nínú ìró Hausa. Ó ní demo láti gbékalẹ̀ ohun àti gba àbájáde.",
+      "image": "/project-placeholders/audio.svg",
+      "stack": ["Python", "Librosa", "TensorFlow", "Streamlit"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "intelligent-email-scraper",
+      "title": "Ìkójọpọ̀ Ímẹ́l Pẹ̀lú Ọgbọ́n",
+      "tagline": "Next.js crawler + ìmúdájú",
+      "short": "Crawler tó mọ́ọ̀mọ́ ń kó ìmẹ́l jọ àti ṣe ìmúdájú látinú ojúewé.",
+      "description": "Crawler tó mọ́ọ̀mọ́ pẹ̀lú NLP láti mọ́ adirẹsi ìmẹ́l tó dájú, dín aṣìṣe kù. Ó ní ìmúdájú àti ìtajà sí CSV.",
+      "image": "/project-placeholders/crawler.svg",
+      "stack": ["Next.js", "Node.js", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "code-sharing-platform",
+      "title": "Pẹpẹ Ìpín Kóòdù",
+      "tagline": "Next.js 14 + MongoDB",
+      "short": "Ìpín kóòdù pẹ̀lú ìforúkọsílẹ̀, posts, likes, àti comments.",
+      "description": "Pẹpẹ tó rọrùn fún àwọn oníṣe láti pín snippets, ṣe like, àti jíròrò. UI mọ́, dáa lórí gbogbo ẹrọ, pẹ̀lú dark/light mode.",
+      "image": "/project-placeholders/code.svg",
+      "stack": ["Next.js", "MongoDB", "Bootstrap"],
+      "links": { "repo": "#", "demo": "#" }
+    },
+    {
+      "slug": "soybean-disease-recognition",
+      "title": "Ìdánimọ́ Àrùn Èpo Ṣóyà",
+      "tagline": "Ìtòkasí Awòrán (Keras)",
+      "short": "Mọ̀ àrùn ewé ṣóyà pẹ̀lú dataset (~770 àwòrán).",
+      "description": "Awoṣe CNN tí a kọ́ fún ìdánimọ́ àrùn ọ̀gbìn. Ó ní àfihàn Grad-CAM fún ìtúmọ̀ abajade.",
+      "image": "/project-placeholders/vision.svg",
+      "stack": ["TensorFlow", "Keras", "Python"],
+      "links": { "repo": "#", "demo": "#" }
+    }
   ]
 }
