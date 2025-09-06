@@ -189,5 +189,75 @@
       "stack": ["TensorFlow", "Keras", "Python"],
       "links": { "repo": "#", "demo": "#" }
     }
+  ],
+
+  "teamsTitle": "Zute Ndị otu",
+  "teamsSubtitle": "Ndị mmadụ n’azụ ọrụ a",
+  "prevTeam": "‹ Gara aga",
+  "nextTeam": "Osote ›",
+  "teamsList": [
+    {
+      "name": "Bala Jimmy Yakubu",
+      "role": "Onye Mmepụta Full-Stack",
+      "img": "/teams/jimi.jpg",
+      "desc": "Ọkachamara na AI, ML, na ime ka data bụrụ ihe bara uru.",
+      "email": "mailto:jimiyaks@gmail.com",
+      "contact": "2347010228016",
+      "facebook": "https://facebook.com/Jih Mih"
+    },
+    {
+      "name": "Abdullahi Ashiru",
+      "role": "Onye injinia ngwanrọ kachasị elu",
+      "img": "/teams/ashiru.jpg",
+      "desc": "CEO nke Cloudsoft Consulting Limited. Ọkachamara n’ịmepụta ndị otu.",
+      "email": "mailto:cloudsoftconsultingltd@gmail.com",
+      "contact": "2349065306495",
+      "facebook": "https://facebook.com/"
+    },
+    {
+      "name": "Enoch Micah",
+      "role": "Onye Mmepụta Web",
+      "img": "/teams/micah.jpg",
+      "desc": "Na-ewu ihe ngwọta ngwanrọ nwere ọgụgụ isi na nke nwere ike ịgbasa.",
+      "email": "mailto:enochmicah3@gmail.com",
+      "contact": "2349076761102",
+      "facebook": "https://facebook.com/"
+    },
+    {
+      "name": "Idris Hassan",
+      "role": "Onye Mmepụta Full-Stack",
+      "img": "/teams/hassan.jpg",
+      "desc": "Na-emepụta ihe ngosi mara mma na mfe iji na-elekọta nkọwa.",
+      "email": "mailto:abbahassan312@gmail.com",
+      "contact": "2349068866503",
+      "facebook": "https://facebook.com/"
+    },
+    {
+      "name": "Auwal Yusuf Muhammad",
+      "role": "Onye Mmepụta Full-Stack",
+      "img": "/teams/yusuf.jpg",
+      "desc": "Onye mbụ na sayensị kọmputa na nhazi usoro backend.",
+      "email": "mailto:yusufmuhammadauwal884@gmail.com",
+      "contact": "2348130586073",
+      "facebook": "https://facebook.com/"
+    },
+    {
+      "name": "Victor Mebusaiye",
+      "role": "Onye Mmepụta Web & Ngwa ekwentị",
+      "img": "/teams/victor.jpg",
+      "desc": "Na-eme ka itinye ngwa na-emegharị onwe ya ma na-eme ka usoro dị mma.",
+      "email": "mailto:vp4208479@gmail.com",
+      "contact": "2348086018133",
+      "facebook": "https://facebook.com/"
+    },
+    {
+      "name": "Bello Adbullahi",
+      "role": "Onye injinia Ngwanrọ",
+      "img": "/teams/abdullahi.jpg",
+      "desc": "Na-agbanwe mgbakọ mgbako siri ike ka ọ bụrụ ngwọta mara mma.",
+      "email": "mailto:abdullahibello8944@gmail.com",
+      "contact": "2347060608944",
+      "facebook": "https://facebook.com/"
+    }
   ]
 }

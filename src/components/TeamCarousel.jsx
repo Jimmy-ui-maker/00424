@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { teams } from "@/lib/data";
+import { useTranslation } from "@/context/TranslationContext";
 import TeamCard from "./TeamCard";
 
 export default function TeamCarousel() {
+  const { t } = useTranslation();
+  const teams = t("teamsList", { returnObjects: true }) || [];
+
   const [chunkSize, setChunkSize] = useState(3);
 
   useEffect(() => {
@@ -16,12 +19,11 @@ export default function TeamCarousel() {
       }
     };
 
-    updateChunkSize(); // initial run
+    updateChunkSize();
     window.addEventListener("resize", updateChunkSize);
     return () => window.removeEventListener("resize", updateChunkSize);
   }, []);
 
-  // chunk the array
   const chunked = [];
   for (let i = 0; i < teams.length; i += chunkSize) {
     chunked.push(teams.slice(i, i + chunkSize));
@@ -58,7 +60,7 @@ export default function TeamCarousel() {
           data-bs-target="#teamCarousel"
           data-bs-slide="prev"
         >
-          ‹ Prev
+          {t("prevTeam")}
         </button>
         <button
           className="btn btn-outline-primary soft-shadow"
@@ -66,7 +68,7 @@ export default function TeamCarousel() {
           data-bs-target="#teamCarousel"
           data-bs-slide="next"
         >
-          Next ›
+          {t("nextTeam")}
         </button>
       </div>
     </div>

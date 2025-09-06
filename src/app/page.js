@@ -87,10 +87,10 @@ export default function HomePage() {
       {/**Team Section */}
       <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <SectionTitle
-            title="Meet the Team"
-            subtitle="Brilliant minds behind the work"
-          />
+          <SectionTitle title={t("teamsTitle")} subtitle={t("teamsSubtitle")} />
+          <Link className="btn text-bg-primary soft-shadow" href="/teams">
+            {t("viewAll")}
+          </Link>
         </div>
         <TeamCarousel />
       </section>
