@@ -189,7 +189,7 @@ export default function ContactPage() {
 
             {/* File upload NOTE instead of input */}
             {activeTab !== "hello" && (
-              <p className="text-muted small">{t("fileNote")}</p>
+              <p className="small">{t("fileNote")}</p>
             )}
 
             <button
