@@ -8,7 +8,9 @@ export default function SnakeGame({ user }) {
   const [dir, setDir] = useState({ x: 0, y: 0 });
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-  const [paused, setPaused] = useState(false); // 🆕 pause state
+  const [paused, setPaused] = useState(false);
+  const [started, setStarted] = useState(false); // 🆕 track start
+  const touchStart = useRef({ x: 0, y: 0 });
 
   const gridSize = 20;
   const tileCount = 20;
@@ -23,11 +25,12 @@ export default function SnakeGame({ user }) {
     setScore(0);
     setGameOver(false);
     setPaused(false);
+    setStarted(false); // require Start again
   };
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || gameOver || paused) return; // 🛑 pause check
+    if (!canvas || gameOver || paused || !started) return; // 🛑 only run when started
     const ctx = canvas.getContext("2d");
 
     const interval = setInterval(() => {
@@ -38,7 +41,7 @@ export default function SnakeGame({ user }) {
 
         // snake
         snake.forEach((s, i) => {
-          ctx.fillStyle = i === 0 ? "#32cd32" : "lime"; // 🐍 head brighter
+          ctx.fillStyle = i === 0 ? "#32cd32" : "lime";
           ctx.beginPath();
           ctx.arc(
             s.x * gridSize + gridSize / 2,
@@ -101,7 +104,7 @@ export default function SnakeGame({ user }) {
 
       // draw snake
       newSnake.forEach((s, i) => {
-        ctx.fillStyle = i === 0 ? "#1f941fff" : "lime"; // 🟢 distinct head
+        ctx.fillStyle = i === 0 ? "#1f941f" : "lime";
         ctx.beginPath();
         ctx.arc(
           s.x * gridSize + gridSize / 2,
@@ -127,9 +130,9 @@ export default function SnakeGame({ user }) {
     }, speed);
 
     return () => clearInterval(interval);
-  }, [snake, dir, food, gameOver, paused]);
+  }, [snake, dir, food, gameOver, paused, started]);
 
-  // controls
+  // keyboard controls
   useEffect(() => {
     const handleKey = (e) => {
       switch (e.key) {
@@ -149,7 +152,7 @@ export default function SnakeGame({ user }) {
           if (dir.x === -1) break;
           setDir({ x: 1, y: 0 });
           break;
-        case " ": // spacebar toggles pause/play
+        case " ":
           setPaused((p) => !p);
           break;
       }
@@ -158,11 +161,38 @@ export default function SnakeGame({ user }) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [dir]);
 
+  // 🆕 swipe controls for mobile
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    };
+    const handleTouchEnd = (e) => {
+      const dx = e.changedTouches[0].clientX - touchStart.current.x;
+      const dy = e.changedTouches[0].clientY - touchStart.current.y;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        if (dx > 30 && dir.x !== -1) setDir({ x: 1, y: 0 }); // swipe right
+        else if (dx < -30 && dir.x !== 1) setDir({ x: -1, y: 0 }); // swipe left
+      } else {
+        if (dy > 30 && dir.y !== -1) setDir({ x: 0, y: 1 }); // swipe down
+        else if (dy < -30 && dir.y !== 1) setDir({ x: 0, y: -1 }); // swipe up
+      }
+    };
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [dir]);
+
   return (
     <div className="container d-flex justify-content-center align-items-center flex-column">
       {!gameOver ? (
         <>
-          <div className="d-flex justify-content-between align-items-center w-100 mb-3" style={{ maxWidth: "420px" }}>
+          <div
+            className="d-flex justify-content-between align-items-center w-100 mb-3"
+            style={{ maxWidth: "420px" }}
+          >
             <h3 className="badge bg-success fs-5 p-2 mb-0">Score: {score}</h3>
             <button
               className={`btn btn-sm ${paused ? "btn-primary" : "btn-warning"}`}
@@ -176,13 +206,23 @@ export default function SnakeGame({ user }) {
             </button>
           </div>
 
-          <canvas
-            ref={canvasRef}
-            width={400}
-            height={400}
-            className="border border-light rounded shadow"
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
+          <div className="position-relative">
+            <canvas
+              ref={canvasRef}
+              width={400}
+              height={400}
+              className="border border-light rounded shadow"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+            {!started && (
+              <button
+                className="btn btn-lg btn-success position-absolute top-50 start-50 translate-middle"
+                onClick={() => setStarted(true)}
+              >
+                ▶ Start
+              </button>
+            )}
+          </div>
         </>
       ) : (
         <div className="card col-12 col-md-6 p-4 mt-4 shadow-lg">
