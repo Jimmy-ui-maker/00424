@@ -29,6 +29,7 @@ export default function Navbar() {
             <li className="nav-item"><a className="nav-link" href="/teams">{t("teams")}</a></li>
             <li className="nav-item"><a className="nav-link" href="/faqs">{t("faqs")}</a></li>
             <li className="nav-item"><a className="nav-link" href="/contact">{t("contact")}</a></li>
+            <li className="nav-item"><a className="nav-link" href="/games">Games</a></li>
           </ul>
           <div className="d-none d-lg-block ms-3">
             <a className="btn text-bg-primary soft-shadow" href="/contact">

@@ -11,21 +11,19 @@
 }
 
 * {
-  font-family: "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  font-family: "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode",
+    Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    border 0.3s ease;
 }
 
 html,
-body .light-theme {
+body {
   height: 100%;
-}
-
-body  {
-  background: var(--bg);
-  color: #191818;
+    color: #191818;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
+
 
 /* =====================================================
    Light Mode (Default)
@@ -43,7 +41,7 @@ body  {
 }
 
 input[type="text"],
-input[type="email"],
+input[type="number"],
 textarea {
   background: transparent;
   border: none !important;
@@ -69,7 +67,8 @@ textarea {
   border-radius: var(--radius) !important;
   box-shadow: var(--shadow-light);
   border: none;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    border 0.3s ease;
 }
 
 .navbar {
@@ -121,6 +120,39 @@ textarea {
   font-size: 18px;
 }
 
+
+/* =====================================================
+   Modal Styling (Light Theme Support)
+   ===================================================== */
+.modal-content {
+  border-radius: var(--radius);
+  border: none;
+  box-shadow: var(--shadow-light);
+  background: var(--bg);
+  color: #191818;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+  background: transparent;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.modal-body {
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 /* =====================================================
    Dark Theme (Flat + Tiny Shadow, No Borders)
    ===================================================== */
@@ -144,7 +176,9 @@ html body.dark-theme .accordion-item {
   background: #1e1e1e !important;
   color: #ffffff !important;
   border: none !important;
-  box-shadow: var(--shadow-dark) !important; /* 🔥 subtle shadow instead of border */
+  box-shadow: var(
+    --shadow-dark
+  ) !important; /* 🔥 subtle shadow instead of border */
 }
 
 html body.dark-theme .navbar a,
@@ -170,14 +204,13 @@ html body.dark-theme textarea {
   background: #1e1e1e !important;
   color: #ffffff !important;
   border: none !important;
-  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.7) !important; /* softer inset for dark mode */
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7) !important; /* softer inset for dark mode */
 }
 
 html body.dark-theme input::placeholder,
 html body.dark-theme textarea::placeholder {
   color: #bbbbbb !important;
 }
-
 
 /* =====================================================
    Tabs Styling (Light + Dark Theme Support)
@@ -227,8 +260,6 @@ html body.dark-theme .nav-tabs .nav-link.active {
   box-shadow: none !important;
 }
 
-
-
 /* =====================================================
    Footer Theme
    ===================================================== */
@@ -241,39 +272,8 @@ html body.dark-theme footer {
   color: #ffffff;
 }
 
-/* =====================================================
-   Modal Styling (Light + Dark Theme Support)
-   ===================================================== */
-.modal-content {
-  border-radius: var(--radius);
-  border: none;
-  box-shadow: var(--shadow-light);
-  background: var(--bg);
-  color: #191818;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
 
-.modal-header,
-.modal-footer {
-  border: none;
-  background: transparent;
-}
-
-.modal-title {
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-
-.modal-body {
-  max-height: calc(100vh - 160px);
-  overflow-y: auto;
-}
-
-.modal-backdrop.show {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Dark mode modal */
+/*  Modal Styling ( Dark Theme Support ) */
 html body.dark-theme .modal-content {
   background: #1e1e1e !important;
   color: #ffffff !important;
@@ -290,7 +290,7 @@ html body.dark-theme .btn-close {
 
 .scroll-top-btn {
   background: #f8f9fa; /* light background */
-  color: #6c757d;      /* muted gray icon */
+  color: #6c757d; /* muted gray icon */
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-light);
 }
@@ -311,5 +311,3 @@ html body.dark-theme .scroll-top-btn:hover {
   background: #3a3a3a;
   color: #fff;
 }
-
-
