@@ -22,7 +22,6 @@ export default function SnakePage() {
               <label className="form-label fw-bold">Name</label>
               <input
                 type="text"
-                
                 value={form.name}
                 required
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -34,17 +33,17 @@ export default function SnakePage() {
               <label className="form-label fw-bold">Age</label>
               <input
                 type="number"
-                
                 value={form.age}
                 required
                 onChange={(e) => setForm({ ...form, age: e.target.value })}
               />
             </div>
 
-            {/* Difficulty - check buttons */}
+            {/* Difficulty */}
             <div className="mb-3">
               <label className="form-label fw-bold d-block">Difficulty</label>
-              <div className="btn-group " role="group" aria-label="Difficulty">
+              <div className="btn-group" role="group" aria-label="Difficulty">
+                {/* Simple */}
                 <input
                   type="radio"
                   className="btn-check"
@@ -53,10 +52,18 @@ export default function SnakePage() {
                   checked={form.difficulty === "simple"}
                   onChange={() => setForm({ ...form, difficulty: "simple" })}
                 />
-                <label className="btn btn-outline-success" htmlFor="simple">
+                <label
+                  className={`btn ${
+                    form.difficulty === "simple"
+                      ? "btn-success"
+                      : "btn-outline-success"
+                  }`}
+                  htmlFor="simple"
+                >
                   Simple
                 </label>
 
+                {/* Medium */}
                 <input
                   type="radio"
                   className="btn-check"
@@ -65,10 +72,18 @@ export default function SnakePage() {
                   checked={form.difficulty === "medium"}
                   onChange={() => setForm({ ...form, difficulty: "medium" })}
                 />
-                <label className="btn btn-outline-warning mx-1" htmlFor="medium">
+                <label
+                  className={`btn mx-1 ${
+                    form.difficulty === "medium"
+                      ? "btn-warning text-dark"
+                      : "btn-outline-warning"
+                  }`}
+                  htmlFor="medium"
+                >
                   Medium
                 </label>
 
+                {/* Hard */}
                 <input
                   type="radio"
                   className="btn-check"
@@ -77,7 +92,14 @@ export default function SnakePage() {
                   checked={form.difficulty === "hard"}
                   onChange={() => setForm({ ...form, difficulty: "hard" })}
                 />
-                <label className="btn btn-outline-danger" htmlFor="hard">
+                <label
+                  className={`btn ${
+                    form.difficulty === "hard"
+                      ? "btn-danger"
+                      : "btn-outline-danger"
+                  }`}
+                  htmlFor="hard"
+                >
                   Hard
                 </label>
               </div>

@@ -17,140 +17,125 @@
     border 0.3s ease;
 }
 
-html,
-body {
-  height: 100%;
-    color: #191818;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-
 /* =====================================================
-   Light Mode (Default)
+   Light Theme (Flat + Soft Shadow, No Borders)
    ===================================================== */
-.small a {
-  text-decoration: none;
-  border-radius: 8px;
-  padding: 5px;
-  box-shadow: var(--shadow-light);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+html body.light-theme {
+  background: var(--bg) !important;
+  color: #191818 !important;
 }
 
-.bg-body {
-  background: var(--bg);
+html body.light-theme .bg-body,
+html body.light-theme .navbar,
+html body.light-theme .soft-card,
+html body.light-theme .team-card,
+html body.light-theme .soft-shadow,
+html body.light-theme .card,
+html body.light-theme .btn,
+html body.light-theme .form-select,
+html body.light-theme .dropdown-menu,
+html body.light-theme .list-group-item,
+html body.light-theme .table,
+html body.light-theme .accordion-item {
+  background: var(--bg) !important;
+  color: #191818 !important;
+  border: none !important;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light) !important;
 }
 
+html body.light-theme .navbar a,
+html body.light-theme .accordion-button,
+html body.light-theme .accordion-flush .accordion-button {
+  color: #191818 !important;
+  background: var(--bg) !important;
+  box-shadow: none;
+}
+
+html body.light-theme .small a {
+  background: var(--bg) !important;
+  color: #191818 !important;
+  border: none !important;
+  box-shadow: var(--shadow-light) !important;
+}
+
+html body.light-theme .small a:hover {
+  background: #f1f1f1 !important;
+}
+
+html body.light-theme input[type="text"],
+html body.light-theme input[type="number"],
+html body.light-theme textarea {
+  background: transparent !important;
+  color: #191818 !important;
+  border: none !important;
+  box-shadow: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff !important;
+}
+
+html body.light-theme input::placeholder,
+html body.light-theme textarea::placeholder {
+  color: #6c757d !important;
+}
+
+/* Tabs Styling */
+html body.light-theme .nav-tabs .nav-link {
+  background: var(--bg) !important;
+  color: #191818 !important;
+  box-shadow: var(--shadow-light) !important;
+}
+
+html body.light-theme .nav-tabs .nav-link:hover {
+  background: #f1f1f1 !important;
+  color: #000 !important;
+}
+
+html body.light-theme .nav-tabs .nav-link.active {
+  background: #0d6efd !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Modal */
+html body.light-theme .modal-content {
+  background: var(--bg) !important;
+  color: #191818 !important;
+  box-shadow: var(--shadow-light) !important;
+}
+
+html body.light-theme .modal-title {
+  color: #191818 !important;
+}
+
+/* Footer */
+html body.light-theme footer {
+  background: var(--bg) !important;
+  color: #191818 !important;
+}
+
+/* Scroll Button */
+html body.light-theme .scroll-top-btn {
+  background: #f8f9fa !important;
+  color: #6c757d !important;
+  box-shadow: var(--shadow-light) !important;
+}
+
+html body.light-theme .scroll-top-btn:hover {
+  background: #e9ecef !important;
+  color: #000 !important;
+}
+
+/* Input fields */
 input[type="text"],
 input[type="number"],
 textarea {
   background: transparent;
-  border: none !important;
+  border: none !important; /* Force remove Bootstrap border */
   border-radius: 12px;
   padding: 10px;
   box-shadow: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff;
   width: 100%;
   margin-bottom: 10px;
-  outline: none;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.soft-card,
-.team-card,
-.card,
-.btn,
-.soft-shadow,
-.form-select,
-.navbar,
-.dropdown-menu,
-.list-group-item,
-.table {
-  border-radius: var(--radius) !important;
-  box-shadow: var(--shadow-light);
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
-    border 0.3s ease;
-}
-
-.navbar {
-  z-index: 1000;
-  background: var(--bg);
-}
-
-.navbar a {
-  color: #191818;
-}
-
-.section {
-  margin-top: 1rem;
-}
-
-.object-fit-cover {
-  object-fit: cover;
-}
-
-:focus-visible {
-  outline: 2px dashed #0d6efd;
-  outline-offset: 2px;
-}
-
-/* FAQ */
-.accordion-item {
-  padding: 10px;
-  border: 1px solid var(--bg);
-}
-
-.faq .accordion-item button {
-  font-size: 18px;
-  padding: 10px;
-}
-
-.accordion-button:focus {
-  outline: 0;
-  box-shadow: none;
-}
-
-.accordion-flush .accordion-button {
-  padding: 15px 0;
-  background: none;
-  border: 0;
-}
-
-.accordion-flush .accordion-button:not(.collapsed) {
-  box-shadow: none;
-  font-size: 18px;
-}
-
-
-/* =====================================================
-   Modal Styling (Light Theme Support)
-   ===================================================== */
-.modal-content {
-  border-radius: var(--radius);
-  border: none;
-  box-shadow: var(--shadow-light);
-  background: var(--bg);
-  color: #191818;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.modal-header,
-.modal-footer {
-  border: none;
-  background: transparent;
-}
-
-.modal-title {
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-
-.modal-body {
-  max-height: calc(100vh - 160px);
-  overflow-y: auto;
-}
-
-.modal-backdrop.show {
-  background-color: rgba(0, 0, 0, 0.5);
+  outline: none; /* Optional: removes focus outline */
 }
 
 /* =====================================================
@@ -176,6 +161,7 @@ html body.dark-theme .accordion-item {
   background: #1e1e1e !important;
   color: #ffffff !important;
   border: none !important;
+  border-radius: var(--radius);
   box-shadow: var(
     --shadow-dark
   ) !important; /* 🔥 subtle shadow instead of border */
@@ -185,6 +171,8 @@ html body.dark-theme .navbar a,
 html body.dark-theme .accordion-button,
 html body.dark-theme .accordion-flush .accordion-button {
   color: #ffffff !important;
+  background: #1e1e1e !important;
+  box-shadow: none;
 }
 
 html body.dark-theme .small a {
@@ -199,7 +187,7 @@ html body.dark-theme .small a:hover {
 }
 
 html body.dark-theme input[type="text"],
-html body.dark-theme input[type="email"],
+html body.dark-theme input[type="number"],
 html body.dark-theme textarea {
   background: #1e1e1e !important;
   color: #ffffff !important;
@@ -271,7 +259,6 @@ html body.dark-theme footer {
   background: #181818;
   color: #ffffff;
 }
-
 
 /*  Modal Styling ( Dark Theme Support ) */
 html body.dark-theme .modal-content {

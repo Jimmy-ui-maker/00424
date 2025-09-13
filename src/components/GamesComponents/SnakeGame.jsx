@@ -172,7 +172,7 @@ export default function SnakeGame({ user }) {
       {!gameOver ? (
         <>
           <div
-            className="d-flex justify-content-between align-items-center w-100 mb-3"
+            className="d-flex justify-content-center align-items-center w-100 mb-3"
             style={{ maxWidth: "420px" }}
           >
             <h3 className="badge bg-success fs-5 p-2 mb-0">Score: {score}</h3>
