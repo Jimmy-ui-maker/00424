@@ -24,6 +24,13 @@
 
   "close": "Close",
 
+  "darkMode": "Light Mode",
+  "lightMode": "Dark Mode ",
+  "playMusic": "Play track",
+  "pauseMusic": "Pause track",
+  "track": "Track",
+  "language": "Language",
+
   "heroGreeting": "Hey, I'm",
   "heroDescription": "Full-stack developer crafting clean, responsive, and reliable apps. I turn ideas into shipped products.",
   "viewProjects": "View Projects",
@@ -192,8 +199,6 @@
   "teamsSubtitle": "The people behind the work",
   "prevTeam": "‹ Prev",
   "nextTeam": "Next ›",
-
-  
 
   "teamsList": [
     {

@@ -17,11 +17,11 @@
 }
 
 html,
-body {
+body .light-theme {
   height: 100%;
 }
 
-body {
+body  {
   background: var(--bg);
   color: #191818;
   transition: background-color 0.4s ease, color 0.4s ease;

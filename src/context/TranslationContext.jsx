@@ -4,12 +4,14 @@ import en from "@/translations/en.json";
 import ha from "@/translations/ha.json";
 import ig from "@/translations/ig.json";
 import yo from "@/translations/yo.json";
+import zh from "@/translations/zh.json";
 
 const translations = {
   English: en,
   Hausa: ha,
   Igbo: ig,
   Yoruba: yo,
+  Chinese: zh,
 };
 
 const TranslationContext = createContext();

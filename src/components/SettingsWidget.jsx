@@ -16,7 +16,7 @@ export default function SettingsWidget() {
 
   // ⬅️ use language context
   const { language, changeLanguage, t } = useTranslation();
-  const languages = ["English", "Hausa", "Igbo", "Yoruba"];
+  const languages = ["English", "Hausa", "Igbo", "Yoruba", "Chinese"];
 
   // Playlist
   const playlist = ["/audio/coolmusic.mp3", "/audio/coolmusic1.mp3"];
