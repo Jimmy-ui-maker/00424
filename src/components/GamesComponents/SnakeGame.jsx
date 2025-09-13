@@ -9,8 +9,6 @@ export default function SnakeGame({ user }) {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [paused, setPaused] = useState(false);
-  const [started, setStarted] = useState(false); // 🆕 track start
-  const touchStart = useRef({ x: 0, y: 0 });
 
   const gridSize = 20;
   const tileCount = 20;
@@ -25,21 +23,18 @@ export default function SnakeGame({ user }) {
     setScore(0);
     setGameOver(false);
     setPaused(false);
-    setStarted(false); // require Start again
   };
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || gameOver || paused || !started) return; // 🛑 only run when started
+    if (!canvas || gameOver || paused) return;
     const ctx = canvas.getContext("2d");
 
     const interval = setInterval(() => {
       if (dir.x === 0 && dir.y === 0) {
-        // idle state
         ctx.fillStyle = "#111";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // snake
         snake.forEach((s, i) => {
           ctx.fillStyle = i === 0 ? "#32cd32" : "lime";
           ctx.beginPath();
@@ -53,7 +48,6 @@ export default function SnakeGame({ user }) {
           ctx.fill();
         });
 
-        // food
         ctx.fillStyle = "red";
         ctx.beginPath();
         ctx.arc(
@@ -70,13 +64,11 @@ export default function SnakeGame({ user }) {
       let newSnake = [...snake];
       let head = { x: newSnake[0].x + dir.x, y: newSnake[0].y + dir.y };
 
-      // wrap around edges
       if (head.x < 0) head.x = tileCount - 1;
       if (head.y < 0) head.y = tileCount - 1;
       if (head.x >= tileCount) head.x = 0;
       if (head.y >= tileCount) head.y = 0;
 
-      // self-collision
       if (newSnake.some((s) => s.x === head.x && s.y === head.y)) {
         setGameOver(true);
         clearInterval(interval);
@@ -85,7 +77,6 @@ export default function SnakeGame({ user }) {
 
       newSnake.unshift(head);
 
-      // eat food
       if (head.x === food.x && head.y === food.y) {
         setScore((prev) => prev + 1);
         setFood({
@@ -98,11 +89,9 @@ export default function SnakeGame({ user }) {
 
       setSnake(newSnake);
 
-      // clear canvas
       ctx.fillStyle = "#111";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // draw snake
       newSnake.forEach((s, i) => {
         ctx.fillStyle = i === 0 ? "#1f941f" : "lime";
         ctx.beginPath();
@@ -116,7 +105,6 @@ export default function SnakeGame({ user }) {
         ctx.fill();
       });
 
-      // draw food
       ctx.fillStyle = "red";
       ctx.beginPath();
       ctx.arc(
@@ -130,9 +118,9 @@ export default function SnakeGame({ user }) {
     }, speed);
 
     return () => clearInterval(interval);
-  }, [snake, dir, food, gameOver, paused, started]);
+  }, [snake, dir, food, gameOver, paused]);
 
-  // keyboard controls
+  // keyboard
   useEffect(() => {
     const handleKey = (e) => {
       switch (e.key) {
@@ -161,29 +149,23 @@ export default function SnakeGame({ user }) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [dir]);
 
-  // 🆕 swipe controls for mobile
-  useEffect(() => {
-    const handleTouchStart = (e) => {
-      touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    };
-    const handleTouchEnd = (e) => {
-      const dx = e.changedTouches[0].clientX - touchStart.current.x;
-      const dy = e.changedTouches[0].clientY - touchStart.current.y;
-      if (Math.abs(dx) > Math.abs(dy)) {
-        if (dx > 30 && dir.x !== -1) setDir({ x: 1, y: 0 }); // swipe right
-        else if (dx < -30 && dir.x !== 1) setDir({ x: -1, y: 0 }); // swipe left
-      } else {
-        if (dy > 30 && dir.y !== -1) setDir({ x: 0, y: 1 }); // swipe down
-        else if (dy < -30 && dir.y !== 1) setDir({ x: 0, y: -1 }); // swipe up
-      }
-    };
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchend", handleTouchEnd);
-    return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [dir]);
+  // D-Pad control
+  const move = (direction) => {
+    switch (direction) {
+      case "up":
+        if (dir.y !== 1) setDir({ x: 0, y: -1 });
+        break;
+      case "down":
+        if (dir.y !== -1) setDir({ x: 0, y: 1 });
+        break;
+      case "left":
+        if (dir.x !== 1) setDir({ x: -1, y: 0 });
+        break;
+      case "right":
+        if (dir.x !== -1) setDir({ x: 1, y: 0 });
+        break;
+    }
+  };
 
   return (
     <div className="container d-flex justify-content-center align-items-center flex-column">
@@ -194,34 +176,42 @@ export default function SnakeGame({ user }) {
             style={{ maxWidth: "420px" }}
           >
             <h3 className="badge bg-success fs-5 p-2 mb-0">Score: {score}</h3>
-            <button
-              className={`btn btn-sm ${paused ? "btn-primary" : "btn-warning"}`}
-              onClick={() => setPaused(!paused)}
-            >
-              {paused ? (
-                <i className="bi bi-play-fill"></i>
-              ) : (
-                <i className="bi bi-pause-fill"></i>
-              )}
-            </button>
           </div>
 
-          <div className="position-relative">
-            <canvas
-              ref={canvasRef}
-              width={400}
-              height={400}
-              className="border border-light rounded shadow"
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            {!started && (
-              <button
-                className="btn btn-lg btn-success position-absolute top-50 start-50 translate-middle"
-                onClick={() => setStarted(true)}
-              >
-                ▶ Start
+          <canvas
+            ref={canvasRef}
+            width={400}
+            height={400}
+            className="border border-light rounded shadow"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+
+          {/* D-Pad with Play/Pause button in center */}
+          <div className="d-md-none mt-3">
+            <div className="d-flex justify-content-center">
+              <button className="btn btn-dark m-1" onClick={() => move("up")}>
+                ↑
               </button>
-            )}
+            </div>
+            <div className="d-flex justify-content-center align-items-center">
+              <button className="btn btn-dark m-1" onClick={() => move("left")}>
+                ←
+              </button>
+              <button
+                className={`btn m-1 ${paused ? "btn-primary" : "btn-warning"}`}
+                onClick={() => setPaused(!paused)}
+              >
+                {paused ? <i className="bi bi-play-fill"></i> : <i className="bi bi-pause-fill"></i>}
+              </button>
+              <button className="btn btn-dark m-1" onClick={() => move("right")}>
+                →
+              </button>
+            </div>
+            <div className="d-flex justify-content-center">
+              <button className="btn btn-dark m-1" onClick={() => move("down")}>
+                ↓
+              </button>
+            </div>
           </div>
         </>
       ) : (

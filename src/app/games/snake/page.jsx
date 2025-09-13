@@ -65,7 +65,7 @@ export default function SnakePage() {
                   checked={form.difficulty === "medium"}
                   onChange={() => setForm({ ...form, difficulty: "medium" })}
                 />
-                <label className="btn btn-outline-warning mx-2" htmlFor="medium">
+                <label className="btn btn-outline-warning mx-1" htmlFor="medium">
                   Medium
                 </label>
 
