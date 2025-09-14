@@ -32,8 +32,7 @@ export default function SnakeGame({ user }) {
 
     const interval = setInterval(() => {
       if (dir.x === 0 && dir.y === 0) {
-        ctx.fillStyle = "#111";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         snake.forEach((s, i) => {
           ctx.fillStyle = i === 0 ? "#32cd32" : "lime";
@@ -89,8 +88,7 @@ export default function SnakeGame({ user }) {
 
       setSnake(newSnake);
 
-      ctx.fillStyle = "#111";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       newSnake.forEach((s, i) => {
         ctx.fillStyle = i === 0 ? "#1f941f" : "lime";
@@ -182,33 +180,56 @@ export default function SnakeGame({ user }) {
             ref={canvasRef}
             width={400}
             height={400}
-            className="border border-light rounded shadow"
+            className="border rounded shadow"
             style={{ maxWidth: "100%", height: "auto" }}
           />
 
           {/* D-Pad with Play/Pause button in center */}
           <div className="d-md-none mt-3">
             <div className="d-flex justify-content-center">
-              <button className="btn btn-dark m-1" onClick={() => move("up")}>
+              <button
+                className="btn btn-dark m-1 p-3 rounded-circle"
+                style={{ width: "70px", height: "70px", fontSize: "1.5rem" }}
+                onClick={() => move("up")}
+              >
                 ↑
               </button>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-              <button className="btn btn-dark m-1" onClick={() => move("left")}>
+              <button
+                className="btn btn-dark m-1 p-3 rounded-circle"
+                style={{ width: "70px", height: "70px", fontSize: "1.5rem" }}
+                onClick={() => move("left")}
+              >
                 ←
               </button>
               <button
-                className={`btn m-1 ${paused ? "btn-primary" : "btn-warning"}`}
+                className={`btn m-1 p-3 rounded-circle ${
+                  paused ? "btn-primary" : "btn-warning"
+                }`}
+                style={{ width: "80px", height: "80px", fontSize: "1.8rem" }}
                 onClick={() => setPaused(!paused)}
               >
-                {paused ? <i className="bi bi-play-fill"></i> : <i className="bi bi-pause-fill"></i>}
+                {paused ? (
+                  <i className="bi bi-play-fill"></i>
+                ) : (
+                  <i className="bi bi-pause-fill"></i>
+                )}
               </button>
-              <button className="btn btn-dark m-1" onClick={() => move("right")}>
+              <button
+                className="btn btn-dark m-1 p-3 rounded-circle"
+                style={{ width: "70px", height: "70px", fontSize: "1.5rem" }}
+                onClick={() => move("right")}
+              >
                 →
               </button>
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn btn-dark m-1" onClick={() => move("down")}>
+              <button
+                className="btn btn-dark m-1 p-3 rounded-circle"
+                style={{ width: "70px", height: "70px", fontSize: "1.5rem" }}
+                onClick={() => move("down")}
+              >
                 ↓
               </button>
             </div>
@@ -217,10 +238,18 @@ export default function SnakeGame({ user }) {
       ) : (
         <div className="card col-12 col-md-6 p-4 mt-4 shadow-lg">
           <h2 className="text-danger">🎉 Game Over!</h2>
-          <p><strong>Name:</strong> {user.name}</p>
-          <p><strong>Age:</strong> {user.age}</p>
-          <p><strong>Difficulty:</strong> {user.difficulty}</p>
-          <p><strong>Final Score:</strong> {score}</p>
+          <p>
+            <strong>Name:</strong> {user.name}
+          </p>
+          <p>
+            <strong>Age:</strong> {user.age}
+          </p>
+          <p>
+            <strong>Difficulty:</strong> {user.difficulty}
+          </p>
+          <p>
+            <strong>Final Score:</strong> {score}
+          </p>
           <button className="btn btn-success mt-3" onClick={restartGame}>
             🔄 Restart Game
           </button>

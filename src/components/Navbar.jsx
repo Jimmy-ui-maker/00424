@@ -23,13 +23,36 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="nav">
           <ul className="navbar-nav ms-auto justify-content-end align-items-end mb-2 mb-lg-0">
-            <li className="nav-item"><a className="nav-link" href="/about">{t("about")}</a></li>
-            <li className="nav-item"><a className="nav-link" href="/services">{t("services")}</a></li>
-            <li className="nav-item"><a className="nav-link" href="/projects">{t("projects")}</a></li>
-            <li className="nav-item"><a className="nav-link" href="/teams">{t("teams")}</a></li>
-            <li className="nav-item"><a className="nav-link" href="/faqs">{t("faqs")}</a></li>
-            <li className="nav-item"><a className="nav-link" href="/contact">{t("contact")}</a></li>
-            <li className="nav-item"><a className="nav-link" href="/games">Games</a></li>
+            <li className="nav-item">
+              <a className="nav-link" href="/about">
+                {t("about")}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/services">
+                {t("services")}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/projects">
+                {t("projects")}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/teams">
+                {t("teams")}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/faqs">
+                {t("faqs")}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/contact">
+                {t("contact")}
+              </a>
+            </li>
           </ul>
           <div className="d-none d-lg-block ms-3">
             <a className="btn text-bg-primary soft-shadow" href="/contact">

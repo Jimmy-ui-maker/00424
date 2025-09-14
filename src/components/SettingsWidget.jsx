@@ -182,7 +182,7 @@ export default function SettingsWidget() {
     >
       {/* Main settings button */}
       <button
-        className="btn mt-2 text-bg-primary rounded-circle soft-shadow"
+        className="btn mt-2  rounded-circle soft-shadow"
         onClick={() => setOpen(!open)}
       >
         <i className="bi bi-gear-fill fs-5"></i>
