@@ -15,7 +15,7 @@ export default function TicTacToePage() {
     <div className="container py-5 d-flex justify-content-center">
       {!user ? (
         <div className="card col-12 col-md-6 p-4 shadow-lg">
-          <h2 className="mb-4 text-center">🎮 Start Tic-Tac-Toe Game</h2>
+          <h2 className="mb-4 text-center">🧠 Start Memory Game</h2>
           <form onSubmit={handleSubmit}>
             {/* Name */}
             <div className="mb-3">

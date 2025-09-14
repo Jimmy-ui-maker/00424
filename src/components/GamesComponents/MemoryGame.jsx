@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 
 export default function MemoryGame({ user }) {
   const difficulties = {
-    simple: 6,   // 6 pairs = 12 cards
-    medium: 10,  // 10 pairs = 20 cards
-    hard: 15     // 15 pairs = 30 cards
+    simple: 6, // 6 pairs = 12 cards
+    medium: 10, // 10 pairs = 20 cards
+    hard: 15, // 15 pairs = 30 cards
   };
 
   const [cards, setCards] = useState([]);
@@ -73,27 +73,34 @@ export default function MemoryGame({ user }) {
 
       {!gameOver ? (
         <>
+          {/* Responsive grid */}
           <div
-            className="memory-board"
+            className="memory-board w-100"
             style={{
               display: "grid",
-              gridTemplateColumns: `repeat(${Math.min(6, Math.ceil(cards.length / 3))}, 100px)`,
+              gridTemplateColumns: "repeat(auto-fit, minmax(70px, 1fr))",
               gap: "10px",
-              justifyContent: "center",
+              maxWidth: "500px",
             }}
           >
             {cards.map((value, index) => (
               <button
                 key={index}
-                className={`btn fs-3 ${
+                className={`btn ${
                   flipped.includes(index) || matched.includes(index)
                     ? "btn-primary text-white"
                     : "btn-outline-secondary"
                 }`}
-                style={{ width: "100px", height: "100px" }}
+                style={{
+                  aspectRatio: "1 / 1",
+                  minWidth: "70px",
+                  fontSize: "clamp(1rem, 2vw, 1.5rem)", // scales font-size
+                }}
                 onClick={() => handleFlip(index)}
               >
-                {flipped.includes(index) || matched.includes(index) ? value : "❓"}
+                {flipped.includes(index) || matched.includes(index)
+                  ? value
+                  : "❓"}
               </button>
             ))}
           </div>
@@ -114,10 +121,18 @@ export default function MemoryGame({ user }) {
       ) : (
         <div className="card col-12 col-md-6 p-4 mt-4 shadow-lg text-center">
           <h2 className="text-danger">🎉 Game Over!</h2>
-          <p><strong>Name:</strong> {user.name}</p>
-          <p><strong>Age:</strong> {user.age}</p>
-          <p><strong>Difficulty:</strong> {user.difficulty}</p>
-          <p><strong>Total Moves:</strong> {moves}</p>
+          <p>
+            <strong>Name:</strong> {user.name}
+          </p>
+          <p>
+            <strong>Age:</strong> {user.age}
+          </p>
+          <p>
+            <strong>Difficulty:</strong> {user.difficulty}
+          </p>
+          <p>
+            <strong>Total Moves:</strong> {moves}
+          </p>
           <button className="btn btn-success mt-3" onClick={restartGame}>
             🔄 Restart Game
           </button>
