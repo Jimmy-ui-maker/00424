@@ -158,7 +158,7 @@ html body.light-theme canvas {
    Dark Theme (Flat + Tiny Shadow, No Borders)
    ===================================================== */
 html body.dark-theme {
-  background: #181818 !important;
+  background: #1C2A3B !important;
   color: #ffffff !important;
 }
 
@@ -174,7 +174,7 @@ html body.dark-theme .dropdown-menu,
 html body.dark-theme .list-group-item,
 html body.dark-theme .table,
 html body.dark-theme .accordion-item {
-  background: #1e1e1e !important;
+  background: #24364A !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: var(--radius);
@@ -187,12 +187,12 @@ html body.dark-theme .navbar a,
 html body.dark-theme .accordion-button,
 html body.dark-theme .accordion-flush .accordion-button {
   color: #ffffff !important;
-  background: #1e1e1e !important;
+  background: #24364A !important;
   box-shadow: none;
 }
 
 html body.dark-theme .small a {
-  background: #1e1e1e !important;
+  background: #24364A !important;
   color: #ffffff !important;
   border: none !important;
   box-shadow: var(--shadow-dark) !important;
@@ -205,7 +205,7 @@ html body.dark-theme .small a:hover {
 html body.dark-theme input[type="text"],
 html body.dark-theme input[type="number"],
 html body.dark-theme textarea {
-  background: #1e1e1e !important;
+  background: #24364A !important;
   color: #ffffff !important;
   border: none !important;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7) !important; /* softer inset for dark mode */
@@ -248,7 +248,7 @@ html body.dark-theme textarea::placeholder {
 
 /* Dark Theme Tabs */
 html body.dark-theme .nav-tabs .nav-link {
-  background: #1e1e1e !important;
+  background: #24364A !important;
   color: #ffffff !important;
   box-shadow: var(--shadow-dark) !important;
 }
@@ -266,7 +266,7 @@ html body.dark-theme .nav-tabs .nav-link.active {
 
 /* Dark Mode */
 html body.dark-theme canvas {
-  background: #1e1e1e !important; /* deep dark bg */
+  background: #24364A !important; /* deep dark bg */
   border: none !important;
   border-radius: var(--radius);
   box-shadow: var(
@@ -282,13 +282,13 @@ footer {
 }
 
 html body.dark-theme footer {
-  background: #181818;
+  background: #1C2A3B;
   color: #ffffff;
 }
 
 /*  Modal Styling ( Dark Theme Support ) */
 html body.dark-theme .modal-content {
-  background: #1e1e1e !important;
+  background: #24364A !important;
   color: #ffffff !important;
   box-shadow: var(--shadow-dark) !important;
 }
@@ -364,7 +364,7 @@ body.light-theme .profile-img {
 
 /* Adapt to Dark Theme */
 body.dark-theme .profile-img {
-  background: #1e1e1e;
+  background: #24364A;
   box-shadow: var(--shadow-dark);
 }
 
