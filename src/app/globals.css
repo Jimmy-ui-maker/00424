@@ -324,3 +324,60 @@ html body.dark-theme .scroll-top-btn:hover {
   background: #3a3a3a;
   color: #fff;
 }
+
+/* custom card tweaks */
+.ex-card {
+  border-radius: var(--radius);
+  padding-top: 70px; /* space for image */
+  position: relative;
+  text-align: center;
+}
+
+.ex-card h2 {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.ex-card .reason-box {
+  padding: 10px;
+}
+
+/* Light theme */
+body.light-theme .profile-img {
+  background: var(--bg);
+  box-shadow: var(--shadow-light);
+}
+
+/* =====================================================
+   Profile Image (Floating, Themed)
+   ===================================================== */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-light);
+  margin-top: -60px;
+  background: var(--bg);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Adapt to Dark Theme */
+body.dark-theme .profile-img {
+  background: #1e1e1e;
+  box-shadow: var(--shadow-dark);
+}
+
+.navbar img {
+  width: 100px;
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .navbar img {
+    width: 80px;
+    height: 50px;
+  }
+  
+}
+

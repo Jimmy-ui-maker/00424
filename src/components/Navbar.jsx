@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg sticky-top soft-shadow">
       <div className="container">
         <a className="navbar-brand fw-bold" href="/">
-          Sir Jimmy
+           <img src="/imgs/logo1.png" className="  rounded-2 " alt="" />
         </a>
         <button
           className="navbar-toggler shadow-none"

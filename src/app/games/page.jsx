@@ -5,7 +5,7 @@ export default function GamesPage() {
   const games = [
     { name: "Snake", slug: "snake", desc: "Classic snake game with difficulty levels." },
     { name: "Tic-Tac-Toe", slug: "tic-tac-toe", desc: "Play against a friend or AI." },
-    { name: "Memory Game", slug: "memory", desc: "Test your memory with card flips." }
+    { name: "Memory Game", slug: "memory", desc: "Test your memory with card flips." },
   ];
 
   return (

@@ -25,7 +25,7 @@ export default function HomePage() {
       <Hero />
 
       {/**About Section */}
-      <section className="section">
+      <section className="section mt-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <SectionTitle title={t("aboutTitle")} subtitle={t("aboutSubtitle")} />
           <Link className="btn text-bg-primary soft-shadow" href="/about">
