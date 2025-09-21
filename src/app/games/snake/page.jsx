@@ -22,6 +22,7 @@ export default function SnakePage() {
               <label className="form-label fw-bold">Name</label>
               <input
                 type="text"
+                className="form-control"
                 value={form.name}
                 required
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -31,77 +32,66 @@ export default function SnakePage() {
             {/* Age */}
             <div className="mb-3">
               <label className="form-label fw-bold">Age</label>
-              <input
-                type="number"
+              <select
+                className="form-select"
                 value={form.age}
                 required
                 onChange={(e) => setForm({ ...form, age: e.target.value })}
-              />
+              >
+                <option value="">Select Age</option>
+                {[...Array(101).keys()].map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Difficulty */}
-            <div className="mb-3">
+            <div className="mb-3 text-center">
               <label className="form-label fw-bold d-block">Difficulty</label>
-              <div className="btn-group" role="group" aria-label="Difficulty">
+              <div className="d-flex justify-content-center gap-3">
                 {/* Simple */}
-                <input
-                  type="radio"
-                  className="btn-check"
-                  name="difficulty"
-                  id="simple"
-                  checked={form.difficulty === "simple"}
-                  onChange={() => setForm({ ...form, difficulty: "simple" })}
-                />
-                <label
-                  className={`btn ${
-                    form.difficulty === "simple"
-                      ? "btn-success"
-                      : "btn-outline-success"
-                  }`}
-                  htmlFor="simple"
-                >
-                  Simple
-                </label>
+                <div className="form-check">
+                  <input
+                    className="form-check-input shadow-none "
+                    type="checkbox"
+                    id="simple"
+                    checked={form.difficulty === "simple"}
+                    onChange={() => setForm({ ...form, difficulty: "simple" })}
+                  />
+                  <label className="form-check-label text-success " htmlFor="simple">
+                    Simple
+                  </label>
+                </div>
 
                 {/* Medium */}
-                <input
-                  type="radio"
-                  className="btn-check"
-                  name="difficulty"
-                  id="medium"
-                  checked={form.difficulty === "medium"}
-                  onChange={() => setForm({ ...form, difficulty: "medium" })}
-                />
-                <label
-                  className={`btn mx-1 ${
-                    form.difficulty === "medium"
-                      ? "btn-warning text-dark"
-                      : "btn-outline-warning"
-                  }`}
-                  htmlFor="medium"
-                >
-                  Medium
-                </label>
+                <div className="form-check">
+                  <input
+                    className="form-check-input shadow-none"
+                    type="checkbox"
+                    id="medium"
+                    checked={form.difficulty === "medium"}
+                    onChange={() => setForm({ ...form, difficulty: "medium" })}
+                  />
+                  <label className="form-check-label text-warning" htmlFor="medium">
+                    Medium
+                  </label>
+                </div>
 
                 {/* Hard */}
-                <input
-                  type="radio"
-                  className="btn-check"
-                  name="difficulty"
-                  id="hard"
-                  checked={form.difficulty === "hard"}
-                  onChange={() => setForm({ ...form, difficulty: "hard" })}
-                />
-                <label
-                  className={`btn ${
-                    form.difficulty === "hard"
-                      ? "btn-danger"
-                      : "btn-outline-danger"
-                  }`}
-                  htmlFor="hard"
-                >
-                  Hard
-                </label>
+                <div className="form-check">
+                  <input
+                    className="form-check-input shadow-none"
+                    type="checkbox"
+                    id="hard"
+                    checked={form.difficulty === "hard"}
+                    onChange={() => setForm({ ...form, difficulty: "hard" })}
+                  />
+                  <label className="form-check-label text-danger" htmlFor="hard">
+                    Hard
+                  </label>
+                </div>
               </div>
             </div>
 

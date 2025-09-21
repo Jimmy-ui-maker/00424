@@ -381,3 +381,26 @@ body.dark-theme .profile-img {
   
 }
 
+
+
+/* Endless Runner styling */
+.runner-player {
+  font-size: 48px !important;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+  transition: transform 0.1s ease-in-out;
+}
+
+.runner-player:active {
+  transform: scale(1.1);
+}
+
+.runner-obstacle {
+  font-size: 42px !important;
+  filter: drop-shadow(2px 3px 5px rgba(255, 0, 0, 0.6));
+}
+
+.runner-road {
+  background: linear-gradient(#222, #444);
+  border: 2px solid #000;
+  border-radius: 10px;
+}
