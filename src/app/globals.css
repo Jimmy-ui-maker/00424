@@ -158,7 +158,7 @@ html body.light-theme canvas {
    Dark Theme (Flat + Tiny Shadow, No Borders)
    ===================================================== */
 html body.dark-theme {
-  background: #1C2A3B !important;
+  background: #1c2a3b !important;
   color: #ffffff !important;
 }
 
@@ -174,7 +174,7 @@ html body.dark-theme .dropdown-menu,
 html body.dark-theme .list-group-item,
 html body.dark-theme .table,
 html body.dark-theme .accordion-item {
-  background: #24364A !important;
+  background: #24364a !important;
   color: #ffffff !important;
   border: none !important;
   border-radius: var(--radius);
@@ -187,12 +187,12 @@ html body.dark-theme .navbar a,
 html body.dark-theme .accordion-button,
 html body.dark-theme .accordion-flush .accordion-button {
   color: #ffffff !important;
-  background: #24364A !important;
+  background: #24364a !important;
   box-shadow: none;
 }
 
 html body.dark-theme .small a {
-  background: #24364A !important;
+  background: #24364a !important;
   color: #ffffff !important;
   border: none !important;
   box-shadow: var(--shadow-dark) !important;
@@ -205,7 +205,7 @@ html body.dark-theme .small a:hover {
 html body.dark-theme input[type="text"],
 html body.dark-theme input[type="number"],
 html body.dark-theme textarea {
-  background: #24364A !important;
+  background: #24364a !important;
   color: #ffffff !important;
   border: none !important;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7) !important; /* softer inset for dark mode */
@@ -248,7 +248,7 @@ html body.dark-theme textarea::placeholder {
 
 /* Dark Theme Tabs */
 html body.dark-theme .nav-tabs .nav-link {
-  background: #24364A !important;
+  background: #24364a !important;
   color: #ffffff !important;
   box-shadow: var(--shadow-dark) !important;
 }
@@ -266,7 +266,7 @@ html body.dark-theme .nav-tabs .nav-link.active {
 
 /* Dark Mode */
 html body.dark-theme canvas {
-  background: #24364A !important; /* deep dark bg */
+  background: #24364a !important; /* deep dark bg */
   border: none !important;
   border-radius: var(--radius);
   box-shadow: var(
@@ -282,13 +282,13 @@ footer {
 }
 
 html body.dark-theme footer {
-  background: #1C2A3B;
+  background: #1c2a3b;
   color: #ffffff;
 }
 
 /*  Modal Styling ( Dark Theme Support ) */
 html body.dark-theme .modal-content {
-  background: #24364A !important;
+  background: #24364a !important;
   color: #ffffff !important;
   box-shadow: var(--shadow-dark) !important;
 }
@@ -364,7 +364,7 @@ body.light-theme .profile-img {
 
 /* Adapt to Dark Theme */
 body.dark-theme .profile-img {
-  background: #24364A;
+  background: #24364a;
   box-shadow: var(--shadow-dark);
 }
 
@@ -378,29 +378,129 @@ body.dark-theme .profile-img {
     width: 80px;
     height: 50px;
   }
-  
 }
 
-
-
-/* Endless Runner styling */
-.runner-player {
-  font-size: 48px !important;
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
-  transition: transform 0.1s ease-in-out;
+/* =====================================================
+   NotFound Page Styling (Light + Dark Themes)
+   ===================================================== */
+.not-found {
+  background: var(--bg); /* light gradient */
+  color: #191818 !important;
+  position: relative;
+  z-index: 1;
 }
 
-.runner-player:active {
-  transform: scale(1.1);
+.not-found::before {
+  /* Overlay Blur Effect */
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+  box-shadow: var(
+   --shadow-light
+  ) !important; /* 🔥 subtle shadow instead of border */
+  z-index: -1;
 }
 
-.runner-obstacle {
-  font-size: 42px !important;
-  filter: drop-shadow(2px 3px 5px rgba(255, 0, 0, 0.6));
+.not-found .emoji {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: bounce 1.5s infinite;
 }
 
-.runner-road {
-  background: linear-gradient(#222, #444);
-  border: 2px solid #000;
-  border-radius: 10px;
+.oops-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ff6f61;
+  text-shadow: 2px 2px #ffcdd2;
+}
+
+.oops-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #00796b;
+}
+
+.funny-text {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fix Hire Me + Back Home Buttons */
+.btn-back-home,
+.btn-hire-me {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 40px;
+  text-decoration: none;
+  background: #ff6f61;
+  color: #fff !important;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 12px rgba(255, 111, 97, 0.5);
+}
+
+.btn-back-home:hover,
+.btn-hire-me:hover {
+  background: #e64a19;
+  transform: scale(1.08);
+}
+
+/* Bounce Emoji Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* =====================================================
+   Dark Theme Adaptation
+   ===================================================== */
+html body.dark-theme .not-found {
+  background: #1c2a3b !important;
+  color: #ffffff !important;
+}
+
+html body.dark-theme .not-found::before {
+  background: #24364a !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius);
+  box-shadow: var(
+    --shadow-dark
+  ) !important; /* 🔥 subtle shadow instead of border */
+}
+
+html body.dark-theme .oops-title {
+  color: #ff8a65;
+  text-shadow: 2px 2px #1c2a3b;
+}
+
+html body.dark-theme .oops-subtitle {
+  color: #4dd0e1;
+}
+
+html body.dark-theme .funny-text {
+  color: #ccc;
+}
+
+html body.dark-theme .btn-back-home,
+html body.dark-theme .btn-hire-me {
+  background: #29b6f6; /* sky blue button in dark mode */
+  box-shadow: 0px 4px 12px rgba(41, 182, 246, 0.5);
+}
+
+html body.dark-theme .btn-back-home:hover,
+html body.dark-theme .btn-hire-me:hover {
+  background: #0288d1;
 }

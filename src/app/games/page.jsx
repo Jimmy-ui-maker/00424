@@ -6,6 +6,7 @@ export default function GamesPage() {
     { name: "Snake", slug: "snake", desc: "Classic snake game with difficulty levels." },
     { name: "Tic-Tac-Toe", slug: "tic-tac-toe", desc: "Play against a friend or AI." },
     { name: "Memory Game", slug: "memory", desc: "Test your memory with card flips." },
+    { name: "Endless Game", slug: "runner", desc: "Run as fast as you can." },
   ];
 
   return (
