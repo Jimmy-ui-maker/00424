@@ -40,7 +40,7 @@ export default function SnakeGame({ user }) {
           ctx.arc(
             s.x * gridSize + gridSize / 2,
             s.y * gridSize + gridSize / 2,
-            gridSize / 2 - 2,
+            i === 0 ? gridSize / 2 : gridSize / 2 - 2, // head bigger
             0,
             Math.PI * 2
           );
@@ -96,7 +96,7 @@ export default function SnakeGame({ user }) {
         ctx.arc(
           s.x * gridSize + gridSize / 2,
           s.y * gridSize + gridSize / 2,
-          gridSize / 2 - 2,
+          i === 0 ? gridSize / 2 : gridSize / 2 - 2, // head bigger
           0,
           Math.PI * 2
         );
