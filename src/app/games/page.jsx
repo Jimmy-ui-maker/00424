@@ -6,7 +6,15 @@ export default function GamesPage() {
     { name: "Snake", slug: "snake", desc: "Classic snake game with difficulty levels." },
     { name: "Tic-Tac-Toe", slug: "tic-tac-toe", desc: "Play against a friend or AI." },
     { name: "Memory Game", slug: "memory", desc: "Test your memory with card flips." },
-    { name: "Endless Game", slug: "runner", desc: "Run as fast as you can." },
+    { name: "Endless Runner", slug: "runner", desc: "Run as fast as you can and dodge obstacles." },
+    { name: "Quiz Game", slug: "quiz", desc: "Answer trivia questions and test your knowledge." },
+    { name: "Pong", slug: "pong", desc: "Classic paddle-and-ball game against AI or a friend." },
+    { name: "2048", slug: "2048", desc: "Combine tiles to reach the 2048 number." },
+    { name: "Sudoku", slug: "sudoku", desc: "Solve challenging number puzzles." },
+    { name: "Minesweeper", slug: "minesweeper", desc: "Uncover tiles while avoiding mines." },
+    { name: "Chess", slug: "chess", desc: "Challenge yourself or a friend in chess." },
+    { name: "Hangman", slug: "hangman", desc: "Guess the word before it's too late." },
+    { name: "Flappy Bird", slug: "flappy", desc: "Tap to keep the bird flying and avoid pipes." },
   ];
 
   return (
