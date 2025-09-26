@@ -14,7 +14,7 @@ export default function GamesPage() {
     { name: "Minesweeper", slug: "minesweeper", desc: "Uncover tiles while avoiding mines." },
     { name: "Chess", slug: "chess", desc: "Challenge yourself or a friend in chess." },
     { name: "Hangman", slug: "hangman", desc: "Guess the word before it's too late." },
-    { name: "Flappy Bird", slug: "flappy", desc: "Tap to keep the bird flying and avoid pipes." },
+    { name: "Flappy Ball", slug: "flappy", desc: "Tap to keep the ball flying and avoid pipes." },
   ];
 
   return (
