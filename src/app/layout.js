@@ -7,6 +7,7 @@ import BootstrapClient from "@/components/BootstrapClient";
 import SettingsWidget from "@/components/SettingsWidget";
 import { TranslationProvider } from "@/context/TranslationContext";
 import GamesWidget from "@/components/GamesWidget";
+import FilterWidget from "@/components/FilterWidget";
 export const metadata = {
   title: "Jimi Yaks — Developer Portfolio",
   description:
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           {/* Settings Widget controls audio */}
           <SettingsWidget />
           <GamesWidget />
+          <FilterWidget />
         </TranslationProvider>
       </body>
     </html>

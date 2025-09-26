@@ -1,10 +1,22 @@
 "use client";
 
-import Link from "next/link";
 import { useTranslation } from "@/context/TranslationContext";
 
 export default function Hero() {
   const { t } = useTranslation();
+
+  const handleDownload = () => {
+    const confirmDownload = window.confirm("Do you want to download Jimmy's CV?");
+    if (confirmDownload) {
+      // Create a hidden <a> element to trigger download
+      const link = document.createElement("a");
+      link.href = "/docs/Jimmy CV.docx"; // file is inside public/docs
+      link.download = "Jimmy CV.docx"; // suggested download name
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
 
   return (
     <div className="section mt-4">
@@ -14,21 +26,22 @@ export default function Hero() {
             <h1 className="display-5 fw-bold mb-2">
               {t("heroGreeting")} <span className="text-primary">Sir Jimmy</span>.
             </h1>
-            
+
             <p className="lead mb-4">{t("heroDescription")}</p>
             <div className="d-grid d-sm-flex gap-2">
-              <Link
-                href="/projects"
+              <button
+                onClick={handleDownload}
                 className="btn text-bg-primary btn-lg soft-shadow"
               >
-                {t("viewProjects")}
-              </Link>
-              <Link
+                {t("downloadCV") || "Download CV"}
+              </button>
+
+              <a
                 href="/contact"
                 className="btn btn-outline-primary btn-lg soft-shadow"
               >
                 {t("contactMe")}
-              </Link>
+              </a>
             </div>
           </div>
           <div className="col-12 col-md-5">

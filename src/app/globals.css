@@ -65,6 +65,7 @@ html body.light-theme .small a:hover {
 
 html body.light-theme input[type="text"],
 html body.light-theme input[type="number"],
+html body.light-theme input[type="search"],
 html body.light-theme textarea {
   background: transparent !important;
   color: #191818 !important;
@@ -99,15 +100,22 @@ html body.light-theme .nav-tabs .nav-link.active {
   box-shadow: none !important;
 }
 
-/* Modal */
+/* Modal - Light Theme */
 html body.light-theme .modal-content {
   background: var(--bg) !important;
   color: #191818 !important;
-  box-shadow: var(--shadow-light) !important;
+  border-radius: var(--radius);
+}
+html body.light-theme .modal-content a {
+  color: #191818 !important;
 }
 
 html body.light-theme .modal-title {
   color: #191818 !important;
+}
+
+html body.light-theme .btn-close {
+  filter: invert(0); /* keep default black close button */
 }
 
 /* Footer */
@@ -127,10 +135,15 @@ html body.light-theme .scroll-top-btn:hover {
   background: #e9ecef !important;
   color: #000 !important;
 }
+html body.light-theme .modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.25) !important; /* soft dark overlay */
+  backdrop-filter: blur(4px);
+}
 
 /* Input fields */
 input[type="text"],
 input[type="number"],
+input[type="search"],
 textarea {
   background: transparent;
   border: none !important; /* Force remove Bootstrap border */
@@ -204,6 +217,7 @@ html body.dark-theme .small a:hover {
 
 html body.dark-theme input[type="text"],
 html body.dark-theme input[type="number"],
+html body.dark-theme input[type="search"],
 html body.dark-theme textarea {
   background: #24364a !important;
   color: #ffffff !important;
@@ -292,6 +306,9 @@ html body.dark-theme .modal-content {
   color: #ffffff !important;
   box-shadow: var(--shadow-dark) !important;
 }
+html body.dark-theme .modal-content a {
+  color: #ffffff !important;
+}
 
 html body.dark-theme .modal-title {
   color: #ffffff !important;
@@ -299,6 +316,10 @@ html body.dark-theme .modal-title {
 
 html body.dark-theme .btn-close {
   filter: invert(1); /* makes close button visible in dark */
+}
+html body.dark-theme .modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.6) !important; /* stronger overlay */
+  backdrop-filter: blur(6px);
 }
 
 .scroll-top-btn {
@@ -399,7 +420,7 @@ body.dark-theme .profile-img {
   -webkit-backdrop-filter: blur(6px);
   border-radius: var(--radius);
   box-shadow: var(
-   --shadow-light
+    --shadow-light
   ) !important; /* 🔥 subtle shadow instead of border */
   z-index: -1;
 }
@@ -503,4 +524,47 @@ html body.dark-theme .btn-hire-me {
 html body.dark-theme .btn-back-home:hover,
 html body.dark-theme .btn-hire-me:hover {
   background: #0288d1;
+}
+
+/* Offcanvas sizing */
+.offcanvas.offcanvas-custom {
+  width: 280px; /* adjust as needed */
+  max-width: 80%; /* still responsive */
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+/* =====================================================
+   Offcanvas - Light Theme
+   ===================================================== */
+html body.light-theme .offcanvas {
+  background: var(--bg) !important;
+  color: #191818 !important;
+  border-radius: var(--radius) 0 0 var(--radius);
+  box-shadow: var(--shadow-light) !important;
+}
+
+html body.light-theme .offcanvas a {
+  color: #191818 !important;
+}
+
+html body.light-theme .offcanvas-header {
+  border-bottom: none !important;
+}
+
+/* =====================================================
+   Offcanvas - Dark Theme
+   ===================================================== */
+html body.dark-theme .offcanvas {
+  background: #24364a !important;
+  color: #ffffff !important;
+  border-radius: var(--radius) 0 0 var(--radius);
+  box-shadow: var(--shadow-dark) !important;
+}
+
+html body.dark-theme .offcanvas a {
+  color: #ffffff !important;
+}
+
+html body.dark-theme .offcanvas-header {
+  border-bottom: none !important;
 }
