@@ -571,3 +571,13 @@ html body.dark-theme .offcanvas a {
 html body.dark-theme .offcanvas-header {
   border-bottom: none !important;
 }
+
+/* Canvas full width on mobile */
+canvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  background: #fff;
+  box-shadow: var(--shadow);
+}

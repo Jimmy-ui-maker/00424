@@ -193,7 +193,7 @@ export default function RunnerGame() {
           >
             <i className="bi bi-arrow-repeat"></i> Restart
           </button>
-           <a href="/games" className="btn btn-outline-primary mt-3 ms-2">
+          <a href="/games" className="btn btn-outline-primary mt-3 ms-2">
             ⬅ Back to Games
           </a>
         </div>
