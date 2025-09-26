@@ -1,20 +1,36 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FlappyBall from "@/components/GamesComponents/FlappyBall";
 
 export default function FlappyPage() {
   const [user, setUser] = useState(null);
   const [form, setForm] = useState({ name: "", age: "", difficulty: "simple" });
+  const [savedUser, setSavedUser] = useState(null);
 
+  // Load saved user from localStorage on first render
+  useEffect(() => {
+    const stored = localStorage.getItem("flappyUser");
+    if (stored) {
+      setSavedUser(JSON.parse(stored));
+    }
+  }, []);
+
+  // Save user to localStorage when starting game
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser(form);
+    localStorage.setItem("flappyUser", JSON.stringify(form));
+  };
+
+  // Start game with saved user
+  const handleQuickStart = () => {
+    if (savedUser) setUser(savedUser);
   };
 
   return (
-    <div className="container py-5 d-flex justify-content-center">
+    <div className="container py-5 d-flex justify-content-center position-relative">
       {!user ? (
-        <div className="card col-12 col-md-6 p-4 shadow-lg">
+        <div className="card col-12 col-md-6 p-4 shadow-lg position-relative">
           <h2 className="mb-4 text-center">🏐 Start Flappy Ball</h2>
           <form onSubmit={handleSubmit}>
             {/* Name */}
@@ -33,9 +49,9 @@ export default function FlappyPage() {
             <div className="mb-3">
               <label className="form-label fw-bold">Age</label>
               <select
-                className="form-select"
                 value={form.age}
                 required
+                type="select"
                 onChange={(e) => setForm({ ...form, age: e.target.value })}
               >
                 <option value="">Select Age</option>
@@ -58,9 +74,7 @@ export default function FlappyPage() {
                       type="checkbox"
                       id={level}
                       checked={form.difficulty === level}
-                      onChange={() =>
-                        setForm({ ...form, difficulty: level })
-                      }
+                      onChange={() => setForm({ ...form, difficulty: level })}
                     />
                     <label
                       className={`form-check-label ${
@@ -84,6 +98,24 @@ export default function FlappyPage() {
               <button className="btn btn-success px-4">Start Game</button>
             </div>
           </form>
+
+          {/* ✅ Floating Quick Start Button (Top-Left) */}
+          {savedUser && (
+            <button
+              onClick={handleQuickStart}
+              className="btn btn-primary rounded-circle shadow-lg position-absolute"
+              style={{
+                top: "-20px",
+                left: "-20px",
+                width: "60px",
+                height: "60px",
+                fontSize: "22px",
+              }}
+              title={`Quick Start: ${savedUser.name}, ${savedUser.age}, ${savedUser.difficulty}`}
+            >
+              ▶
+            </button>
+          )}
         </div>
       ) : (
         <FlappyBall user={user} />

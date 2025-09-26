@@ -7,8 +7,10 @@ export default function FlappyBall({ user }) {
   const ballY = useRef(150);
   const ballVelocity = useRef(0);
   const pipes = useRef([]);
+
   const [isRunning, setIsRunning] = useState(false);
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
   // Difficulty settings
@@ -86,20 +88,33 @@ export default function FlappyBall({ user }) {
       });
     };
 
-    const endGame = () => {
-      setIsRunning(false);
-      setGameOver(true);
+    const drawHUD = () => {
+      ctx.fillStyle = "black";
+      ctx.font = "20px Arial";
+      ctx.textAlign = "left";
+      ctx.fillText(`Score: ${score}`, 10, 25);
+      ctx.fillText(`High Score: ${highScore}`, 10, 50);
+    };
 
-      // Draw "Game Over"
-      ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-      ctx.fillRect(0, canvas.height / 2 - 50, canvas.width, 100);
+    const drawGameOver = () => {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+      ctx.fillRect(0, canvas.height / 2 - 80, canvas.width, 160);
 
       ctx.fillStyle = "white";
       ctx.font = "36px Arial";
       ctx.textAlign = "center";
-      ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+      ctx.fillText("🎉 GAME OVER 🎉", canvas.width / 2, canvas.height / 2 - 20);
+
       ctx.font = "20px Arial";
-      ctx.fillText(`Final Score: ${score}`, canvas.width / 2, canvas.height / 2 + 40);
+      ctx.fillText(`Final Score: ${score}`, canvas.width / 2, canvas.height / 2 + 20);
+      ctx.fillText(`High Score: ${highScore}`, canvas.width / 2, canvas.height / 2 + 50);
+    };
+
+    const endGame = () => {
+      setIsRunning(false);
+      setGameOver(true);
+      setHighScore((prev) => (score > prev ? score : prev));
+      drawGameOver();
     };
 
     const update = () => {
@@ -145,7 +160,7 @@ export default function FlappyBall({ user }) {
         }
       }
 
-      // ✅ Scoring (add +1 once when the ball fully clears the pipe)
+      // ✅ Scoring
       pipes.current.forEach((pipe) => {
         if (!pipe.passed && pipe.x + 50 < ballX - ballRadius) {
           setScore((prev) => prev + 1);
@@ -165,19 +180,14 @@ export default function FlappyBall({ user }) {
       // Draw
       drawBall();
       drawPipes();
-
-      // HUD score
-      ctx.fillStyle = "black";
-      ctx.font = "20px Arial";
-      ctx.textAlign = "left";
-      ctx.fillText(`Score: ${score}`, 10, 25);
+      drawHUD();
 
       animationFrameId = requestAnimationFrame(update);
     };
 
     update();
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isRunning, pipeGap, gravity, jump, pipeSpeed]);
+  }, [isRunning, pipeGap, gravity, jump, pipeSpeed, highScore]);
 
   const handleJump = () => {
     if (!isRunning) return;
@@ -189,19 +199,30 @@ export default function FlappyBall({ user }) {
       <h4 className="mb-3">
         🏐 Welcome {user.name}, Age {user.age} ({user.difficulty})
       </h4>
+
+      {/* Canvas */}
       <canvas
         ref={canvasRef}
         className="border rounded shadow"
         onClick={handleJump}
       />
+
+      {/* Controls */}
       <div className="mt-3">
         {!isRunning ? (
-          <button
-            className="btn btn-primary"
-            onClick={() => setIsRunning(true)}
-          >
-            {gameOver ? "Restart Game" : "Start Game"}
-          </button>
+          <>
+            <button
+              className="btn btn-primary"
+              onClick={() => setIsRunning(true)}
+            >
+              {gameOver ? "Restart Game" : "Start Game"}
+            </button>
+            {gameOver && (
+              <a href="/games" className="btn btn-outline-primary ms-2">
+                ⬅ Back to Games
+              </a>
+            )}
+          </>
         ) : (
           <p className="text-muted">Tap/click to bounce!</p>
         )}

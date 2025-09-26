@@ -66,6 +66,7 @@ html body.light-theme .small a:hover {
 html body.light-theme input[type="text"],
 html body.light-theme input[type="number"],
 html body.light-theme input[type="search"],
+html body.light-theme select[type="select"],
 html body.light-theme textarea {
   background: transparent !important;
   color: #191818 !important;
@@ -144,6 +145,7 @@ html body.light-theme .modal-backdrop {
 input[type="text"],
 input[type="number"],
 input[type="search"],
+select[type="select"],
 textarea {
   background: transparent;
   border: none !important; /* Force remove Bootstrap border */
@@ -218,6 +220,7 @@ html body.dark-theme .small a:hover {
 html body.dark-theme input[type="text"],
 html body.dark-theme input[type="number"],
 html body.dark-theme input[type="search"],
+html body.dark-theme select[type="select"],
 html body.dark-theme textarea {
   background: #24364a !important;
   color: #ffffff !important;

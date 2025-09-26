@@ -1,14 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SnakeGame from "@/components/GamesComponents/SnakeGame";
 
 export default function SnakePage() {
   const [user, setUser] = useState(null);
   const [form, setForm] = useState({ name: "", age: "", difficulty: "simple" });
+  const [savedUser, setSavedUser] = useState(null);
 
+  // Load saved user from localStorage on first render
+  useEffect(() => {
+    const stored = localStorage.getItem("snakegame");
+    if (stored) {
+      setSavedUser(JSON.parse(stored));
+    }
+  }, []);
+
+  // Save user to localStorage when starting game
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser(form);
+    localStorage.setItem("snakegame", JSON.stringify(form));
+  };
+
+   // Start game with saved user
+  const handleQuickStart = () => {
+    if (savedUser) setUser(savedUser);
   };
 
   return (
@@ -33,9 +49,9 @@ export default function SnakePage() {
             <div className="mb-3">
               <label className="form-label fw-bold">Age</label>
               <select
-                className="form-select"
                 value={form.age}
                 required
+                type="select"
                 onChange={(e) => setForm({ ...form, age: e.target.value })}
               >
                 <option value="">Select Age</option>
@@ -60,7 +76,10 @@ export default function SnakePage() {
                     checked={form.difficulty === "simple"}
                     onChange={() => setForm({ ...form, difficulty: "simple" })}
                   />
-                  <label className="form-check-label text-success " htmlFor="simple">
+                  <label
+                    className="form-check-label text-success "
+                    htmlFor="simple"
+                  >
                     Simple
                   </label>
                 </div>
@@ -74,7 +93,10 @@ export default function SnakePage() {
                     checked={form.difficulty === "medium"}
                     onChange={() => setForm({ ...form, difficulty: "medium" })}
                   />
-                  <label className="form-check-label text-warning" htmlFor="medium">
+                  <label
+                    className="form-check-label text-warning"
+                    htmlFor="medium"
+                  >
                     Medium
                   </label>
                 </div>
@@ -88,7 +110,10 @@ export default function SnakePage() {
                     checked={form.difficulty === "hard"}
                     onChange={() => setForm({ ...form, difficulty: "hard" })}
                   />
-                  <label className="form-check-label text-danger" htmlFor="hard">
+                  <label
+                    className="form-check-label text-danger"
+                    htmlFor="hard"
+                  >
                     Hard
                   </label>
                 </div>
@@ -100,6 +125,23 @@ export default function SnakePage() {
               <button className="btn btn-success px-4">Start Game</button>
             </div>
           </form>
+          {/* ✅ Floating Quick Start Button (Top-Left) */}
+          {savedUser && (
+            <button
+              onClick={handleQuickStart}
+              className="btn btn-primary rounded-circle shadow-lg position-absolute"
+              style={{
+                top: "-20px",
+                left: "-20px",
+                width: "60px",
+                height: "60px",
+                fontSize: "22px",
+              }}
+              title={`Quick Start: ${savedUser.name}, ${savedUser.age}, ${savedUser.difficulty}`}
+            >
+              ▶
+            </button>
+          )}
         </div>
       ) : (
         <SnakeGame user={user} />

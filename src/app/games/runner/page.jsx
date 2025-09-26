@@ -1,37 +1,37 @@
 "use client";
-import MemoryGame from "@/components/GamesComponents/MemoryGame";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import RunnerGame from "@/components/GamesComponents/RunnerGame";
 
-export default function TicTacToePage() {
+export default function RunnerPage() {
   const [user, setUser] = useState(null);
   const [form, setForm] = useState({ name: "", age: "", difficulty: "simple" });
   const [savedUser, setSavedUser] = useState(null);
 
-  // Load saved user from localStorage on first render
+  // Load saved user from localStorage
   useEffect(() => {
-    const stored = localStorage.getItem("memory");
+    const stored = localStorage.getItem("runnerUser");
     if (stored) {
       setSavedUser(JSON.parse(stored));
     }
   }, []);
 
-  // Save user to localStorage when starting game
+  // Save user when starting game
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser(form);
-    localStorage.setItem("memory", JSON.stringify(form));
+    localStorage.setItem("runnerUser", JSON.stringify(form));
   };
 
-  // Start game with saved user
+  // Quick Start with saved user
   const handleQuickStart = () => {
     if (savedUser) setUser(savedUser);
   };
 
   return (
-    <div className="container py-5 d-flex justify-content-center">
+    <div className="container py-5 d-flex justify-content-center position-relative">
       {!user ? (
-        <div className="card col-12 col-md-6 p-4 shadow-lg">
-          <h2 className="mb-4 text-center">🧠 Start Memory Game</h2>
+        <div className="card col-12 col-md-6 p-4 shadow-lg position-relative">
+          <h2 className="mb-4 text-center">🏃 Start Endless Runner</h2>
           <form onSubmit={handleSubmit}>
             {/* Name */}
             <div className="mb-3">
@@ -67,64 +67,38 @@ export default function TicTacToePage() {
             <div className="mb-3 text-center">
               <label className="form-label fw-bold d-block">Difficulty</label>
               <div className="d-flex justify-content-center gap-3">
-                {/* Simple */}
-                <div className="form-check">
-                  <input
-                    className="form-check-input shadow-none "
-                    type="checkbox"
-                    id="simple"
-                    checked={form.difficulty === "simple"}
-                    onChange={() => setForm({ ...form, difficulty: "simple" })}
-                  />
-                  <label
-                    className="form-check-label text-success "
-                    htmlFor="simple"
-                  >
-                    Simple
-                  </label>
-                </div>
-
-                {/* Medium */}
-                <div className="form-check">
-                  <input
-                    className="form-check-input shadow-none"
-                    type="checkbox"
-                    id="medium"
-                    checked={form.difficulty === "medium"}
-                    onChange={() => setForm({ ...form, difficulty: "medium" })}
-                  />
-                  <label
-                    className="form-check-label text-warning"
-                    htmlFor="medium"
-                  >
-                    Medium
-                  </label>
-                </div>
-
-                {/* Hard */}
-                <div className="form-check">
-                  <input
-                    className="form-check-input shadow-none"
-                    type="checkbox"
-                    id="hard"
-                    checked={form.difficulty === "hard"}
-                    onChange={() => setForm({ ...form, difficulty: "hard" })}
-                  />
-                  <label
-                    className="form-check-label text-danger"
-                    htmlFor="hard"
-                  >
-                    Hard
-                  </label>
-                </div>
+                {["simple", "medium", "hard"].map((level) => (
+                  <div className="form-check" key={level}>
+                    <input
+                      className="form-check-input shadow-none"
+                      type="checkbox"
+                      id={level}
+                      checked={form.difficulty === level}
+                      onChange={() => setForm({ ...form, difficulty: level })}
+                    />
+                    <label
+                      className={`form-check-label ${
+                        level === "simple"
+                          ? "text-success"
+                          : level === "medium"
+                          ? "text-warning"
+                          : "text-danger"
+                      }`}
+                      htmlFor={level}
+                    >
+                      {level.charAt(0).toUpperCase() + level.slice(1)}
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Start button */}
+            {/* Start */}
             <div className="text-center">
               <button className="btn btn-success px-4">Start Game</button>
             </div>
           </form>
+
           {/* ✅ Floating Quick Start Button (Top-Left) */}
           {savedUser && (
             <button
@@ -144,7 +118,7 @@ export default function TicTacToePage() {
           )}
         </div>
       ) : (
-        <MemoryGame user={user} />
+        <RunnerGame user={user} />
       )}
     </div>
   );
