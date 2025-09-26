@@ -540,7 +540,7 @@ html body.light-theme .offcanvas {
   background: var(--bg) !important;
   color: #191818 !important;
   border-radius: var(--radius) 0 0 var(--radius);
-  box-shadow: var(--shadow-light) !important;
+  
 }
 
 html body.light-theme .offcanvas a {
