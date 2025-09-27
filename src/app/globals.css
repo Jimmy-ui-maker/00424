@@ -573,11 +573,3 @@ html body.dark-theme .offcanvas-header {
 }
 
 /* Canvas full width on mobile */
-canvas {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  width: 100%;
-  background: #fff;
-  box-shadow: var(--shadow);
-}

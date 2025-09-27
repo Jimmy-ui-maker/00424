@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export default function RunnerGame() {
+export default function RunnerGame({ user }) {   // ✅ accept user from props
   const canvasRef = useRef(null);
   const obstacles = useRef([]);
   const [score, setScore] = useState(0);
@@ -12,6 +12,16 @@ export default function RunnerGame() {
   const animationRef = useRef(null);
 
   const player = useRef({ x: 50, y: 200, size: 20, dy: 0 });
+
+  // ✅ difficulty config
+  const difficultySettings = {
+    simple: { speed: 3, spawnRate: 120 },
+    medium: { speed: 5, spawnRate: 90 },
+    hard: { speed: 7, spawnRate: 70 },
+  };
+
+  const { speed, spawnRate } =
+    difficultySettings[user?.difficulty || "simple"];
 
   // ✅ Responsive screen check
   useEffect(() => {
@@ -53,7 +63,7 @@ export default function RunnerGame() {
         x: canvas.width,
         y: canvas.height - size - 10,
         size,
-        speed: 3 + Math.random() * 2,
+        speed, // ✅ from difficulty
       });
     };
 
@@ -93,7 +103,7 @@ export default function RunnerGame() {
 
       // spawn new
       obstacleTimer++;
-      if (obstacleTimer > 100) {
+      if (obstacleTimer > spawnRate) {   // ✅ controlled by difficulty
         spawnObstacle();
         obstacleTimer = 0;
       }
@@ -123,7 +133,7 @@ export default function RunnerGame() {
     }
 
     return () => cancelAnimationFrame(animationRef.current);
-  }, [isRunning, isPaused, isSmallScreen, gameOver]);
+  }, [isRunning, isPaused, isSmallScreen, gameOver, speed, spawnRate]);
 
   // ✅ Keyboard controls
   useEffect(() => {
@@ -169,7 +179,9 @@ export default function RunnerGame() {
 
   return (
     <div className="text-center position-relative section">
-      <h2 className="mb-3">Runner Game</h2>
+      <h2 className="mb-3">
+        Runner Game - <span className="text-capitalize">{user?.difficulty}</span>
+      </h2>
       <p className="fw-bold">Score: {score}</p>
 
       {/* Game canvas */}
