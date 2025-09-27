@@ -75,7 +75,7 @@ export default function Navbar() {
         >
           <div className="offcanvas-header">
             <h5 className="offcanvas-title fw-bold" id="offcanvasNavLabel">
-              {t("menu") || "Menu"}
+              {t("menu") || "Menu "} 
             </h5>
             <button
               type="button"
