@@ -726,16 +726,51 @@ html body.dark-theme .sudoku-wrapper {
   }
 }
 
-/* Light Theme */
-body.light-theme {
-  --board-bg: #f7fbff;
-  --tips-accent: #8fa6ff;
+/* Sudoku Cells - Neumorphic Inset Shadows */
+.sudoku-cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #bfc9d9;
+  outline: none;
+  box-sizing: border-box;
+
+  /* Inset shadow for neumorphic effect */
+  box-shadow: inset 3px 3px 6px #c0c8d9,
+              inset -3px -3px 6px #ffffff;
+  transition: all 0.3s ease;
 }
 
-body.dark-theme {
-  --board-bg: #1e2a38;
-  --tips-accent: #00c6ff;
+/* Editable cells */
+.sudoku-cell.editable {
+  background: #f7fbff;
 }
+
+/* Fixed cells */
+.sudoku-cell.fixed {
+  background: #e9eef8;
+  font-weight: bold;
+  cursor: not-allowed;
+}
+
+/* Dark theme override */
+body.dark-theme .sudoku-cell {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7),
+              inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .sudoku-cell.editable {
+  background: #24364a;
+  color: #fff;
+}
+
+body.dark-theme .sudoku-cell.fixed {
+  background: #2f4058;
+  color: #fff;
+}
+
 
 body.dark-theme .sudoku-cell.editable {
   background: #24364a !important;
