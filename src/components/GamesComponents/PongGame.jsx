@@ -171,13 +171,13 @@ export default function PongGame({ user }) {
 
       // game over
       if (ball.current.y - ball.current.r <= 0) {
-        setWinner("Player");
+        setWinner(`${user.name} 😂`);
         setGameOver(true);
         setIsRunning(false);
         return;
       }
       if (ball.current.y + ball.current.r >= ch) {
-        setWinner("AI");
+        setWinner("AI 😂");
         setGameOver(true);
         setIsRunning(false);
         return;
@@ -193,7 +193,7 @@ export default function PongGame({ user }) {
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [isRunning, isPaused, isSmallScreen, gameOver]);
+  }, [isRunning, isPaused, isSmallScreen, gameOver, user]);
 
   // desktop keyboard
   useEffect(() => {

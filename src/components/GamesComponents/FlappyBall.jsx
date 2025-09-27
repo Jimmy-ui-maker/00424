@@ -12,6 +12,7 @@ export default function FlappyBall({ user }) {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   // Difficulty settings
   const speeds = { simple: 2, medium: 3, hard: 4 };
@@ -33,10 +34,12 @@ export default function FlappyBall({ user }) {
     const container = containerRef.current;
 
     const resizeCanvas = () => {
-      if (window.innerWidth < 992) {
+      if (window.innerWidth < 768) {
+        setIsSmallScreen(true);
         canvas.width = container.offsetWidth;
         canvas.height = (container.offsetWidth * 5) / 4;
       } else {
+        setIsSmallScreen(false);
         canvas.width = 800;
         canvas.height = 400;
       }
@@ -47,13 +50,14 @@ export default function FlappyBall({ user }) {
     return () => window.removeEventListener("resize", resizeCanvas);
   }, []);
 
+  // Game loop
   useEffect(() => {
     if (!isRunning) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let animationFrameId;
 
-    // Reset
+    // Reset state
     ballY.current = 150;
     ballVelocity.current = 0;
     pipes.current = [];
@@ -97,8 +101,9 @@ export default function FlappyBall({ user }) {
     };
 
     const drawGameOver = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-      ctx.fillRect(0, canvas.height / 2 - 80, canvas.width, 160);
+      // Darker overlay
+      ctx.fillStyle = "rgba(20, 20, 20, 0.85)";
+      ctx.fillRect(0, canvas.height / 2 - 100, canvas.width, 200);
 
       ctx.fillStyle = "white";
       ctx.font = "36px Arial";
@@ -106,8 +111,16 @@ export default function FlappyBall({ user }) {
       ctx.fillText("🎉 GAME OVER 🎉", canvas.width / 2, canvas.height / 2 - 20);
 
       ctx.font = "20px Arial";
-      ctx.fillText(`Final Score: ${score}`, canvas.width / 2, canvas.height / 2 + 20);
-      ctx.fillText(`High Score: ${highScore}`, canvas.width / 2, canvas.height / 2 + 50);
+      ctx.fillText(
+        `Final Score: ${score}`,
+        canvas.width / 2,
+        canvas.height / 2 + 20
+      );
+      ctx.fillText(
+        `High Score: ${highScore}`,
+        canvas.width / 2,
+        canvas.height / 2 + 50
+      );
     };
 
     const endGame = () => {
@@ -144,7 +157,7 @@ export default function FlappyBall({ user }) {
         pipe.x -= pipeSpeed;
       });
 
-      // Remove old
+      // Remove old pipes
       pipes.current = pipes.current.filter((pipe) => pipe.x + 50 > 0);
 
       // Collision detection
@@ -163,12 +176,12 @@ export default function FlappyBall({ user }) {
       // ✅ Scoring
       pipes.current.forEach((pipe) => {
         if (!pipe.passed && pipe.x + 50 < ballX - ballRadius) {
-          setScore((prev) => prev + 1);
+          setScore((s) => s + 1); // smoother increment
           pipe.passed = true;
         }
       });
 
-      // Ceiling/floor
+      // Ceiling/floor collision
       if (
         ballY.current + ballRadius > canvas.height ||
         ballY.current - ballRadius < 0
@@ -205,6 +218,15 @@ export default function FlappyBall({ user }) {
         ref={canvasRef}
         className="border rounded shadow"
         onClick={handleJump}
+        style={{
+          display: "block",
+          margin: "0 auto",
+          width: isSmallScreen ? "100%" : "800px",
+          height: isSmallScreen ? "60vh" : "400px",
+          borderRadius: 12,
+          boxShadow: "8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff",
+          background: "#fff",
+        }}
       />
 
       {/* Controls */}
@@ -218,13 +240,13 @@ export default function FlappyBall({ user }) {
               {gameOver ? "Restart Game" : "Start Game"}
             </button>
             {gameOver && (
-              <a href="/games" className="btn btn-outline-primary ms-2">
+              <a href="/games" className="btn btn-outline-secondary ms-2">
                 ⬅ Back to Games
               </a>
             )}
           </>
         ) : (
-          <p className="text-muted">Tap/click to bounce!</p>
+          <p>Tap/click to bounce!</p>
         )}
       </div>
     </div>
