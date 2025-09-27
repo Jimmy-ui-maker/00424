@@ -9,6 +9,7 @@ export default function SearchModal() {
   const pages = [
     { name: "Games", url: "/games" },
     { name: "Ex-Gfrnds", url: "/exgfrnds" },
+    { name: "New Project", url: "/newproject" },
     { name: "About", url: "/about" },
     { name: "Services", url: "/services" },
     { name: "Projects", url: "/projects" },
