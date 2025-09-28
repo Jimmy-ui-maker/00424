@@ -340,7 +340,7 @@ export default function NewProject() {
             {selectedPrice && (
               <div className="form-check mt-4">
                 <input
-                  className="form-check-input"
+                  className="form-check-input shadow-none"
                   type="checkbox"
                   id="termsCheck"
                   checked={termsAgreed}
