@@ -9,7 +9,7 @@ export default function NewProject() {
     clientName: "",
     clientEmail: "",
     clientPhone: "",
-    clientCountry: "",
+    clientCountry: "Nigeria",
     projectName: "",
     type: "",
     duration: "",
