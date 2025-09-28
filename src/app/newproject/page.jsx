@@ -164,6 +164,7 @@ export default function NewProject() {
               <input
                 className=" text-center"
                 type="text"
+                disabled
                 name="clientCountry"
                 value={form.clientCountry}
                 onChange={handleChange}
