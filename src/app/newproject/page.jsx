@@ -26,14 +26,55 @@ export default function NewProject() {
     country: "Nigeria",
   };
 
+  // 🔥 Default weeks by project type
+  const getDefaultWeeks = (type) => {
+    switch (type) {
+      case "Machine Learning":
+      case "Deep Learning":
+      case "Website":
+        return 5;
+      case "Web App":
+        return 7;
+      case "Mobile App":
+        return 24;
+      default:
+        return Math.random() > 0.5 ? 2 : 3;
+    }
+  };
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "type") {
+      const defaultWeeks = getDefaultWeeks(value);
+      setForm({ ...form, type: value, duration: defaultWeeks });
+    } else {
+      setForm({ ...form, [name]: value });
+    }
   };
 
   const generatePrice = () => {
-    const base = parseInt(form.duration) || 1;
-    const price = Math.round((Math.random() * 100 + 50) * base * 1000);
-    setSelectedPrice(price);
+    let priceOptions = [];
+
+    switch (form.type) {
+      case "Machine Learning":
+      case "Deep Learning":
+      case "Website":
+        priceOptions = [32000, 37000, 40000];
+        break;
+      case "Web App":
+        priceOptions = [50000, 54000, 57000];
+        break;
+      case "Mobile App":
+        priceOptions = [70000, 80000, 90000];
+        break;
+      default:
+        priceOptions = [30000, 40000, 50000];
+    }
+
+    const randomPrice =
+      priceOptions[Math.floor(Math.random() * priceOptions.length)];
+    setSelectedPrice(randomPrice);
   };
 
   const generatePDF = async () => {
@@ -46,11 +87,10 @@ export default function NewProject() {
 
     const input = document.getElementById("pdf-content");
 
-    // Render canvas at higher resolution
     const canvas = await html2canvas(input, {
-      scale: 3, // sharper text/images
+      scale: 3,
       useCORS: true,
-      backgroundColor: null, // keep CSS background colors
+      backgroundColor: null,
     });
 
     const imgData = canvas.toDataURL("image/png");
@@ -59,7 +99,6 @@ export default function NewProject() {
     const pdfWidth = 210;
     const pdfHeight = 297;
 
-    // Fill entire page
     pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
     pdf.save(`${form.projectName || "project"}_price.pdf`);
 
@@ -77,7 +116,9 @@ export default function NewProject() {
           <div className="card p-4 shadow rounded">
             {/* Client Info */}
             <div className="mb-3">
+            <div className="d-flex justify-content-center">
               <label className="form-label">Client Name</label>
+              </div>
               <input
                 type="text"
                 className=" text-center"
@@ -85,7 +126,7 @@ export default function NewProject() {
                 list="clients"
                 value={form.clientName}
                 onChange={handleChange}
-                placeholder="Bala Jimmy Yakubu"
+              
               />
               <datalist id="clients">
                 <option value="Bala Jimmy Yakubu" />
@@ -94,41 +135,49 @@ export default function NewProject() {
               </datalist>
             </div>
             <div className="mb-3">
+            <div className="d-flex justify-content-center">
               <label className="form-label">Client Email</label>
+              </div>
               <input
                 className=" text-center"
                 type="text"
                 name="clientEmail"
                 value={form.clientEmail}
                 onChange={handleChange}
-                placeholder="jimiyaks3@gmail.com"
+              
               />
             </div>
             <div className="mb-3">
+            <div className="d-flex justify-content-center">
               <label className="form-label">Client Phone</label>
+              </div>
               <input
                 className=" text-center"
                 name="clientPhone"
                 type="text"
                 value={form.clientPhone}
                 onChange={handleChange}
-                placeholder="08056117572"
+              
               />
             </div>
             <div className="mb-3">
+            <div className="d-flex justify-content-center">
               <label className="form-label">Client Country</label>
+              </div>
               <input
                 className=" text-center"
                 type="text"
                 name="clientCountry"
                 value={form.clientCountry}
                 onChange={handleChange}
-                placeholder="Nigeria"
+               
               />
             </div>
             {/* Project Info */}
             <div className="mb-3">
-              <label className="form-label">Project Type</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Project Type</label>
+              </div>
               <select
                 className=" text-center"
                 name="type"
@@ -145,36 +194,43 @@ export default function NewProject() {
               </select>
             </div>
             <div className="mb-3">
+            <div className="d-flex justify-content-center">
               <label className="form-label">Project Name</label>
+              </div>
               <input
                 className=" text-center"
                 type="text"
                 name="projectName"
                 value={form.projectName}
                 onChange={handleChange}
-                placeholder="Awesome Project"
+              
               />
             </div>
             <div className="mb-3">
+            <div className="d-flex justify-content-center">
               <label className="form-label">Duration (weeks)</label>
+              </div>
               <input
                 className=" text-center"
                 type="number"
                 name="duration"
                 value={form.duration}
+                disabled={!!form.type} // disable if project type is selected
                 onChange={handleChange}
-                placeholder="2"
+              
               />
             </div>
             <div className="mb-3">
+            <div className="d-flex justify-content-center">
               <label className="form-label ">Project Description</label>
+              </div>
               <textarea
                 className=" text-center"
                 name="description"
                 value={form.description}
                 onChange={handleChange}
                 rows={4}
-                placeholder="Describe your project..."
+              
               ></textarea>
             </div>
             <div className="d-grid gap-2 mb-3">
@@ -185,29 +241,23 @@ export default function NewProject() {
             <div className="d-grid text-center gap-2 mb-3">
               <strong>Agreed Price:</strong> ₦{selectedPrice?.toLocaleString()}
             </div>
-            {/* PDF Preview */}
 
+            {/* PDF Preview */}
             {selectedPrice && (
               <div id="pdf-preview-container">
                 <div id="pdf-content" className="pdf-wrapper light-theme">
-                  {/* 🔥 Watermark */}
                   <div className="pdf-watermark">SIR JIMMY</div>
-                  {/* Logo */}
                   <div className="pdf-logo">
                     <img src="/imgs/logo1.png" alt="logo" />
                   </div>
-
-                  {/* Header */}
                   <div className="pdf-header">Project Proposal & Pricing</div>
-
-                  {/* Date */}
                   <div className="pdf-date">
                     Date: {new Date().toLocaleDateString()}
                   </div>
 
                   {/* My Info */}
                   <div className="pdf-myinfo">
-                   <h5>My Information</h5>
+                    <h5>My Information</h5>
                     <div className="info-row">
                       <strong>Name:</strong> <span>{myInfo.name}</span>
                     </div>
@@ -263,7 +313,6 @@ export default function NewProject() {
                       <span>₦{selectedPrice?.toLocaleString()}</span>
                     </div>
 
-                    {/* Description separate style */}
                     <div className="description-block">
                       <strong>Description:</strong>
                       <p>{form.description}</p>
@@ -286,7 +335,8 @@ export default function NewProject() {
                 </div>
               </div>
             )}
-            {/* Terms Agreement (After Preview) */}
+
+            {/* Terms Agreement */}
             {selectedPrice && (
               <div className="form-check mt-4">
                 <input
@@ -301,6 +351,7 @@ export default function NewProject() {
                 </label>
               </div>
             )}
+
             {/* Download PDF */}
             {selectedPrice && termsAgreed && (
               <div className="d-grid gap-2 mt-3">
