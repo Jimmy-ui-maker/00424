@@ -37,35 +37,50 @@ export default function NewProject() {
   };
 
   const generatePDF = async () => {
+    const body = document.body;
+    const oldTheme = body.classList.contains("dark-theme") ? "dark" : "light";
+
+    // Force light mode
+    body.classList.remove("dark-theme");
+    body.classList.add("light-theme");
+
     const input = document.getElementById("pdf-content");
+
+    // Render canvas at higher resolution
     const canvas = await html2canvas(input, {
-      scale: 2,
+      scale: 3, // sharper text/images
       useCORS: true,
-      allowTaint: true,
+      backgroundColor: null, // keep CSS background colors
     });
-    const imgData = canvas.toDataURL("image/jpeg", 1.0);
+
+    const imgData = canvas.toDataURL("image/png");
 
     const pdf = new jsPDF("p", "mm", "a4");
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+    const pdfWidth = 210;
+    const pdfHeight = 297;
 
-    pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
+    // Fill entire page
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
     pdf.save(`${form.projectName || "project"}_price.pdf`);
+
+    // Restore theme
+    body.classList.remove("light-theme");
+    if (oldTheme === "dark") body.classList.add("dark-theme");
   };
 
   return (
     <div className="container py-5">
       <h2 className="text-center mb-4">Project Price Generator</h2>
 
-      <div className="row justify-content-center">
-        <div className="col-md-8 col-sm-12">
+      <div className="row justify-content-center ">
+        <div className="col-md-12 col-sm-12">
           <div className="card p-4 shadow rounded">
             {/* Client Info */}
             <div className="mb-3">
               <label className="form-label">Client Name</label>
               <input
                 type="text"
-                className=""
+                className=" text-center"
                 name="clientName"
                 list="clients"
                 value={form.clientName}
@@ -78,11 +93,10 @@ export default function NewProject() {
                 <option value="Michael Johnson" />
               </datalist>
             </div>
-
             <div className="mb-3">
               <label className="form-label">Client Email</label>
               <input
-                className=""
+                className=" text-center"
                 type="text"
                 name="clientEmail"
                 value={form.clientEmail}
@@ -90,11 +104,10 @@ export default function NewProject() {
                 placeholder="jimiyaks3@gmail.com"
               />
             </div>
-
             <div className="mb-3">
               <label className="form-label">Client Phone</label>
               <input
-                className=""
+                className=" text-center"
                 name="clientPhone"
                 type="text"
                 value={form.clientPhone}
@@ -102,11 +115,10 @@ export default function NewProject() {
                 placeholder="08056117572"
               />
             </div>
-
             <div className="mb-3">
               <label className="form-label">Client Country</label>
               <input
-                className=""
+                className=" text-center"
                 type="text"
                 name="clientCountry"
                 value={form.clientCountry}
@@ -114,12 +126,11 @@ export default function NewProject() {
                 placeholder="Nigeria"
               />
             </div>
-
             {/* Project Info */}
             <div className="mb-3">
               <label className="form-label">Project Type</label>
               <select
-                className=""
+                className=" text-center"
                 name="type"
                 type="select"
                 value={form.type}
@@ -133,11 +144,10 @@ export default function NewProject() {
                 <option value="Deep Learning">Deep Learning</option>
               </select>
             </div>
-
             <div className="mb-3">
               <label className="form-label">Project Name</label>
               <input
-                className=""
+                className=" text-center"
                 type="text"
                 name="projectName"
                 value={form.projectName}
@@ -145,11 +155,10 @@ export default function NewProject() {
                 placeholder="Awesome Project"
               />
             </div>
-
             <div className="mb-3">
               <label className="form-label">Duration (weeks)</label>
               <input
-                className=""
+                className=" text-center"
                 type="number"
                 name="duration"
                 value={form.duration}
@@ -157,11 +166,10 @@ export default function NewProject() {
                 placeholder="2"
               />
             </div>
-
             <div className="mb-3">
-              <label className="form-label">Project Description</label>
+              <label className="form-label ">Project Description</label>
               <textarea
-                className=""
+                className=" text-center"
                 name="description"
                 value={form.description}
                 onChange={handleChange}
@@ -169,146 +177,115 @@ export default function NewProject() {
                 placeholder="Describe your project..."
               ></textarea>
             </div>
-
             <div className="d-grid gap-2 mb-3">
               <button className="btn btn-primary" onClick={generatePrice}>
                 Generate Price
               </button>
             </div>
-
+            <div className="d-grid text-center gap-2 mb-3">
+              <strong>Agreed Price:</strong> ₦{selectedPrice?.toLocaleString()}
+            </div>
             {/* PDF Preview */}
+
             {selectedPrice && (
-              <div
-                id="pdf-content"
-                className="p-4 mt-5 rounded position-relative"
-                style={{
-                  background: "#e0e5ec", // PDF light background
-                  fontFamily: "Arial, sans-serif",
-                  maxWidth: "800px",
-                  margin: "0 auto",
-                  padding: "40px",
-                  minHeight: "1120px",
-                  border: "3px solid #24364a",
-                  borderRadius: "16px",
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                  position: "relative",
-                  color: "#24364a", // text color for PDF
-                }}
-              >
-                {/* Logo */}
-                <div
-                  style={{
-                    textAlign: "center",
-                    marginBottom: "25px",
-                    background: "linear-gradient( #24364a 0%, #e0e5ec 100%)",
-                    borderRadius: "8px",
-                  }}
-                >
-                  <img
-                    src="/imgs/logo1.png"
-                    alt="logo"
-                    width={100}
-                    style={{
-                      marginBottom: "10px",
-                      minHeight: "120px",
-                      minWidth: "200px",
-                    }}
-                  />
-                </div>
-
-                {/* Header Box */}
-                <div
-                  style={{
-                    background:
-                      "linear-gradient(90deg, #1c2a3b 0%, #24364a 100%)",
-                    color: "#fff",
-                    textAlign: "center",
-                    padding: "15px 0",
-                    borderRadius: "8px",
-                    marginBottom: "30px",
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                    letterSpacing: "1px",
-                  }}
-                >
-                  Project Proposal & Pricing
-                </div>
-
-                {/* Date */}
-                <div
-                  style={{
-                    textAlign: "center",
-                    marginBottom: "20px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Date: {new Date().toLocaleDateString()}
-                </div>
-
-                {/* My Info */}
-                <div style={{ textAlign: "center", marginBottom: "25px" }}>
-                  <p>
-                    <strong>{myInfo.name}</strong> <br />
-                    {myInfo.email} <br />
-                    {myInfo.phone} <br />
-                    {myInfo.country}
-                  </p>
-                </div>
-
-                <hr style={{ border: "1px solid #24364a", margin: "30px 0" }} />
-
-                {/* Client Info */}
-                <div style={{ textAlign: "center", marginBottom: "25px" }}>
-                  <h5 style={{ color: "#24364a", marginBottom: "10px" }}>
-                    Client Information
-                  </h5>
-                  <p>
-                    <strong>{form.clientName}</strong> <br />
-                    {form.clientEmail} <br />
-                    {form.clientPhone} <br />
-                    {form.clientCountry}
-                  </p>
-                </div>
-
-                <hr style={{ border: "1px solid #24364a", margin: "30px 0" }} />
-
-                {/* Project Info */}
-                <div style={{ textAlign: "center", marginBottom: "30px" }}>
-                  <h5 style={{ color: "#24364a", marginBottom: "10px" }}>
-                    Project Details
-                  </h5>
-                  <p>
-                    <strong>Type:</strong> {form.type} <br />
-                    <strong>Project Name:</strong> {form.projectName} <br />
-                    <strong>Duration:</strong> {form.duration} weeks <br />
-                    <strong>Description:</strong> {form.description} <br />
-                    <strong>Agreed Price:</strong> ₦
-                    {selectedPrice?.toLocaleString()}
-                  </p>
-                </div>
-
-                {/* Divider */}
-                <div
-                  style={{ borderTop: "2px solid #24364a", margin: "40px 0" }}
-                ></div>
-
-                {/* Signatures */}
-                <div
-                  className="d-flex justify-content-between"
-                  style={{ marginTop: "50px" }}
-                >
-                  <div style={{ textAlign: "center" }}>
-                    <p style={{ fontWeight: "bold" }}>Owner Signature</p>
-                    <p style={{ fontWeight: "bold" }}>{myInfo.name}</p>
+              <div id="pdf-preview-container">
+                <div id="pdf-content" className="pdf-wrapper light-theme">
+                  {/* 🔥 Watermark */}
+                  <div className="pdf-watermark">SIR JIMMY</div>
+                  {/* Logo */}
+                  <div className="pdf-logo">
+                    <img src="/imgs/logo1.png" alt="logo" />
                   </div>
-                  <div style={{ textAlign: "center" }}>
-                    <p style={{ fontWeight: "bold" }}>Client Signature</p>
-                    {form.clientName}
+
+                  {/* Header */}
+                  <div className="pdf-header">Project Proposal & Pricing</div>
+
+                  {/* Date */}
+                  <div className="pdf-date">
+                    Date: {new Date().toLocaleDateString()}
+                  </div>
+
+                  {/* My Info */}
+                  <div className="pdf-myinfo">
+                   <h5>My Information</h5>
+                    <div className="info-row">
+                      <strong>Name:</strong> <span>{myInfo.name}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Email:</strong> <span>{myInfo.email}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Phone:</strong> <span>{myInfo.phone}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Country:</strong> <span>{myInfo.country}</span>
+                    </div>
+                  </div>
+
+                  <div className="pdf-divider" />
+
+                  {/* Client Info */}
+                  <div className="pdf-client">
+                    <h5>Client Information</h5>
+                    <div className="info-row">
+                      <strong>Name:</strong> <span>{form.clientName} </span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Email:</strong> <span>{form.clientEmail}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Phone:</strong> <span>{form.clientPhone}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Country:</strong>
+                      <span>{form.clientCountry}</span>
+                    </div>
+                  </div>
+
+                  <div className="pdf-divider" />
+
+                  {/* Project Info */}
+                  <div className="pdf-project">
+                    <h5>Project Details</h5>
+                    <div className="info-row">
+                      <strong>Type:</strong> <span>{form.type}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Project Name:</strong>{" "}
+                      <span>{form.projectName}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Duration:</strong>{" "}
+                      <span>{form.duration} weeks</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Agreed Price:</strong>{" "}
+                      <span>₦{selectedPrice?.toLocaleString()}</span>
+                    </div>
+
+                    {/* Description separate style */}
+                    <div className="description-block">
+                      <strong>Description:</strong>
+                      <p>{form.description}</p>
+                    </div>
+                  </div>
+
+                  <div className="pdf-divider" />
+
+                  {/* Signatures */}
+                  <div className="pdf-signatures">
+                    <div>
+                      <p>Owner Signature</p>
+                      <strong>{myInfo.name}</strong>
+                    </div>
+                    <div>
+                      <p>Client Signature</p>
+                      {form.clientName}
+                    </div>
                   </div>
                 </div>
               </div>
             )}
-
             {/* Terms Agreement (After Preview) */}
             {selectedPrice && (
               <div className="form-check mt-4">
@@ -324,7 +301,6 @@ export default function NewProject() {
                 </label>
               </div>
             )}
-
             {/* Download PDF */}
             {selectedPrice && termsAgreed && (
               <div className="d-grid gap-2 mt-3">

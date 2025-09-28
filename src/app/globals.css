@@ -738,8 +738,7 @@ html body.dark-theme .sudoku-wrapper {
   box-sizing: border-box;
 
   /* Inset shadow for neumorphic effect */
-  box-shadow: inset 3px 3px 6px #c0c8d9,
-              inset -3px -3px 6px #ffffff;
+  box-shadow: inset 3px 3px 6px #c0c8d9, inset -3px -3px 6px #ffffff;
   transition: all 0.3s ease;
 }
 
@@ -758,7 +757,7 @@ html body.dark-theme .sudoku-wrapper {
 /* Dark theme override */
 body.dark-theme .sudoku-cell {
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7),
-              inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+    inset -2px -2px 5px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-theme .sudoku-cell.editable {
@@ -770,7 +769,6 @@ body.dark-theme .sudoku-cell.fixed {
   background: #2f4058;
   color: #fff;
 }
-
 
 body.dark-theme .sudoku-cell.editable {
   background: #24364a !important;
@@ -785,4 +783,139 @@ body.dark-theme .sudoku-cell.fixed {
 body.dark-theme .sudoku-tips {
   background: #1e2a38;
   color: #e2e6ef;
+}
+
+/* ===========================
+   PDF Styling (Global Classes)
+   =========================== */
+/* A4 wrapper fixed size */
+.pdf-wrapper {
+  width: 904px; /* exact A4 width @96dpi */
+  height: 1123px; /* exact A4 height @96dpi */
+  background: hsl(212, 40%, 67%);
+  color: #24364a;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 40px;
+  border: 2px solid #24364a;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Preview container allows scroll/zoom on small screens */
+#pdf-preview-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pdf-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 100px;
+  font-weight: bold;
+  color: rgba(36, 54, 74, 0.08); /* very light */
+  white-space: nowrap;
+  pointer-events: none; /* prevents blocking clicks */
+  z-index: 0;
+}
+
+#pdf-content {
+  position: relative; /* ensures watermark stays inside */
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.info-row strong {
+  font-weight: bold;
+}
+
+.description-block {
+  margin-top: 10px;
+}
+
+.description-block strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.description-block p {
+  margin: 0;
+  line-height: 1.4;
+  text-align: justify; /* nice alignment */
+}
+
+
+.pdf-logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.pdf-logo img {
+  width: 180px;
+  min-height: 120px;
+  object-fit: contain;
+}
+
+.pdf-header {
+  background: linear-gradient(90deg, #1c2a3b 0%, #24364a 100%);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.pdf-date {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.pdf-myinfo,
+.pdf-client,
+.pdf-project {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.pdf-divider {
+  border: 1px solid #24364a;
+  margin: 30px 0;
+}
+
+.pdf-signatures {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* keeps them aligned at the bottom */
+  margin-top: 50px;
+  gap: 20px;
+  flex-wrap: nowrap; /* prevent stacking */
+}
+
+.pdf-signatures div {
+  flex: 1;
+  text-align: center; /* centers text nicely */
+  
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .pdf-wrapper {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .pdf-header {
+    font-size: 18px;
+  }
 }
