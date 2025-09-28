@@ -116,8 +116,8 @@ export default function NewProject() {
           <div className="card p-4 shadow rounded">
             {/* Client Info */}
             <div className="mb-3">
-            <div className="d-flex justify-content-center">
-              <label className="form-label">Client Name</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Client Name</label>
               </div>
               <input
                 type="text"
@@ -126,7 +126,6 @@ export default function NewProject() {
                 list="clients"
                 value={form.clientName}
                 onChange={handleChange}
-              
               />
               <datalist id="clients">
                 <option value="Bala Jimmy Yakubu" />
@@ -135,8 +134,8 @@ export default function NewProject() {
               </datalist>
             </div>
             <div className="mb-3">
-            <div className="d-flex justify-content-center">
-              <label className="form-label">Client Email</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Client Email</label>
               </div>
               <input
                 className=" text-center"
@@ -144,12 +143,11 @@ export default function NewProject() {
                 name="clientEmail"
                 value={form.clientEmail}
                 onChange={handleChange}
-              
               />
             </div>
             <div className="mb-3">
-            <div className="d-flex justify-content-center">
-              <label className="form-label">Client Phone</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Client Phone</label>
               </div>
               <input
                 className=" text-center"
@@ -157,12 +155,11 @@ export default function NewProject() {
                 type="text"
                 value={form.clientPhone}
                 onChange={handleChange}
-              
               />
             </div>
             <div className="mb-3">
-            <div className="d-flex justify-content-center">
-              <label className="form-label">Client Country</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Client Country</label>
               </div>
               <input
                 className=" text-center"
@@ -170,7 +167,6 @@ export default function NewProject() {
                 name="clientCountry"
                 value={form.clientCountry}
                 onChange={handleChange}
-               
               />
             </div>
             {/* Project Info */}
@@ -194,8 +190,8 @@ export default function NewProject() {
               </select>
             </div>
             <div className="mb-3">
-            <div className="d-flex justify-content-center">
-              <label className="form-label">Project Name</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Project Name</label>
               </div>
               <input
                 className=" text-center"
@@ -203,12 +199,11 @@ export default function NewProject() {
                 name="projectName"
                 value={form.projectName}
                 onChange={handleChange}
-              
               />
             </div>
             <div className="mb-3">
-            <div className="d-flex justify-content-center">
-              <label className="form-label">Duration (weeks)</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Duration (weeks)</label>
               </div>
               <input
                 className=" text-center"
@@ -217,12 +212,11 @@ export default function NewProject() {
                 value={form.duration}
                 disabled={!!form.type} // disable if project type is selected
                 onChange={handleChange}
-              
               />
             </div>
             <div className="mb-3">
-            <div className="d-flex justify-content-center">
-              <label className="form-label ">Project Description</label>
+              <div className="d-flex justify-content-center">
+                <label className="form-label ">Project Description</label>
               </div>
               <textarea
                 className=" text-center"
@@ -230,7 +224,6 @@ export default function NewProject() {
                 value={form.description}
                 onChange={handleChange}
                 rows={4}
-              
               ></textarea>
             </div>
             <div className="d-grid gap-2 mb-3">
@@ -314,7 +307,7 @@ export default function NewProject() {
                     </div>
 
                     <div className="description-block">
-                      <strong>Description:</strong>
+                      <strong>Description</strong>
                       <p>{form.description}</p>
                     </div>
                   </div>
