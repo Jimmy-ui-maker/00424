@@ -797,7 +797,7 @@ body.dark-theme .sudoku-tips {
   font-family: Arial, sans-serif;
   margin: 0 auto;
   padding: 40px;
-  border: 2px solid #24364a;
+  border: 2px solid var(--bg);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
