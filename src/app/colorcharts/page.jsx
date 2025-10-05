@@ -98,93 +98,95 @@ export default function ColorCharts() {
   };
 
   return (
-    <div className="min-vh-100 py-5 px-3">
-      <div className="text-center mb-4">
-        <h1 className="fw-bold display-6 mb-3">
-          🎨 My <span className="">Color Charts</span>
-        </h1>
+    <div className="container">
+      <div className="min-vh-100  ">
+        <div className="text-center mb-4">
+          <h1 className="fw-bold display-6 mb-3">
+            🎨 My <span className="">Color Charts</span>
+          </h1>
 
-        <div className="mx-auto" style={{ maxWidth: "400px" }}>
-          <input
-            type="search"
-            className="form-control text-center"
-            placeholder="🔍 Search color name or code"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className="mx-auto" style={{ maxWidth: "400px" }}>
+            <input
+              type="search"
+              className="form-control text-center"
+              placeholder="🔍 Search color name or code"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
 
-          {/* Totals */}
-          <div className="mt-3 fw-semibold ">
-            <p className="mb-1">
-              Total Colors: <span className="">{totalColors}</span>
-            </p>
-            <p className="mb-0">
-              Total Color Groups: <span className="">{totalGroups}</span>
-            </p>
+            {/* Totals */}
+            <div className="mt-3 fw-semibold ">
+              <p className="mb-1">
+                Total Colors: <span className="">{totalColors}</span>
+              </p>
+              <p className="mb-0">
+                Total Color Groups: <span className="">{totalGroups}</span>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="row g-4">
-        {filteredColors.length > 0 ? (
-          filteredColors.map((group, index) => (
-            <div key={index} className="col-12 col-sm-6 col-md-4">
-              <div className="card soft-card color-card text-center p-4 h-100">
-                <h5 className="fw-semibold mb-3">{group.name}</h5>
+        <div className="row g-4">
+          {filteredColors.length > 0 ? (
+            filteredColors.map((group, index) => (
+              <div key={index} className="col-12 col-sm-6 col-md-4">
+                <div className="card soft-card color-card text-center p-4 h-100">
+                  <h5 className="fw-semibold mb-3">{group.name}</h5>
 
-                <div className="d-flex justify-content-center gap-4 flex-wrap">
-                  {group.colors.map((color, i) => {
-                    const { r, g, b } = hexToRgb(color.hex);
-                    const hsl = hexToHsl(color.hex);
-                    const cmyk = hexToCmyk(color.hex);
-                    const rgba = `rgba(${r}, ${g}, ${b}, 1)`;
+                  <div className="d-flex justify-content-center gap-4 flex-wrap">
+                    {group.colors.map((color, i) => {
+                      const { r, g, b } = hexToRgb(color.hex);
+                      const hsl = hexToHsl(color.hex);
+                      const cmyk = hexToCmyk(color.hex);
+                      const rgba = `rgba(${r}, ${g}, ${b}, 1)`;
 
-                    return (
-                      <div
-                        key={i}
-                        className="position-relative group"
-                        onClick={() => handleCopy(color.hex)}
-                      >
+                      return (
                         <div
-                          className="color-circle border border-1"
-                          style={{ backgroundColor: color.hex }}
-                        ></div>
+                          key={i}
+                          className="position-relative group"
+                          onClick={() => handleCopy(color.hex)}
+                        >
+                          <div
+                            className="color-circle border border-1"
+                            style={{ backgroundColor: color.hex }}
+                          ></div>
 
-                        {/* Tooltip */}
-                        <div className="color-tooltip">
-                          <p className="fw-bold mb-1">{color.name}</p>
-                          <p className="mb-0">HEX: {color.hex}</p>
-                          <p className="mb-0">
-                            RGB: ({r}, {g}, {b})
-                          </p>
-                          <p className="mb-0">RGBA: {rgba}</p>
-                          <p className="mb-0">
-                            HSL: ({hsl.h}, {hsl.s}%, {hsl.l}%)
-                          </p>
-                          <p className="mb-0">
-                            CMYK: ({cmyk.c}%, {cmyk.m}%, {cmyk.y}%, {cmyk.k}%)
-                          </p>
+                          {/* Tooltip */}
+                          <div className="color-tooltip">
+                            <p className="fw-bold mb-1">{color.name}</p>
+                            <p className="mb-0">HEX: {color.hex}</p>
+                            <p className="mb-0">
+                              RGB: ({r}, {g}, {b})
+                            </p>
+                            <p className="mb-0">RGBA: {rgba}</p>
+                            <p className="mb-0">
+                              HSL: ({hsl.h}, {hsl.s}%, {hsl.l}%)
+                            </p>
+                            <p className="mb-0">
+                              CMYK: ({cmyk.c}%, {cmyk.m}%, {cmyk.y}%, {cmyk.k}%)
+                            </p>
+                          </div>
+
+                          {/* Copied message */}
+                          {copiedColor === color.hex && (
+                            <div className="copy-toast">Copied!</div>
+                          )}
                         </div>
-
-                        {/* Copied message */}
-                        {copiedColor === color.hex && (
-                          <div className="copy-toast">Copied!</div>
-                        )}
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="text-center mt-5">
+              <p className="text-danger fw-bold">
+                <i className="bi bi-exclamation-triangle"></i> No color match
+                found.
+              </p>
             </div>
-          ))
-        ) : (
-          <div className="text-center mt-5">
-            <p className="text-danger fw-bold">
-              <i className="bi bi-exclamation-triangle"></i> No color match
-              found.
-            </p>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
