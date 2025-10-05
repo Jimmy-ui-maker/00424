@@ -22,7 +22,7 @@ export default function SnakePage() {
     localStorage.setItem("snakegame", JSON.stringify(form));
   };
 
-   // Start game with saved user
+  // Start game with saved user
   const handleQuickStart = () => {
     if (savedUser) setUser(savedUser);
   };
@@ -131,8 +131,8 @@ export default function SnakePage() {
               onClick={handleQuickStart}
               className="btn btn-primary rounded-circle shadow-lg position-absolute"
               style={{
-                top: "-20px",
-                left: "-20px",
+                bottom: "-20px",
+                right: "-20px",
                 width: "60px",
                 height: "60px",
                 fontSize: "22px",

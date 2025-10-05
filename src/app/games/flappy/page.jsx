@@ -105,8 +105,8 @@ export default function FlappyPage() {
               onClick={handleQuickStart}
               className="btn btn-primary rounded-circle shadow-lg position-absolute"
               style={{
-                top: "-20px",
-                left: "-20px",
+                bottom: "-20px",
+                right: "-20px",
                 width: "60px",
                 height: "60px",
                 fontSize: "22px",

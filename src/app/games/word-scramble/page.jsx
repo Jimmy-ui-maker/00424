@@ -1,37 +1,37 @@
 "use client";
-import { useState, useEffect } from "react";
-import RunnerGame from "@/components/GamesComponents/RunnerGame";
+import { useEffect, useState } from "react";
+import WordScrambleGame from "@/components/GamesComponents/WordScrambleGame";
 
-export default function RunnerPage() {
+export default function WordScramblePage() {
   const [user, setUser] = useState(null);
-  const [form, setForm] = useState({ name: "", age: "", difficulty: "simple" });
-  const [savedUser, setSavedUser] = useState(null);
+  const [form, setForm] = useState({ name: "", difficulty: "simple" });
+const [savedUser, setSavedUser] = useState(null);
 
-  // Load saved user from localStorage
+  // Load saved user from localStorage on first render
   useEffect(() => {
-    const stored = localStorage.getItem("runnerUser");
+    const stored = localStorage.getItem("word-scramble");
     if (stored) {
       setSavedUser(JSON.parse(stored));
     }
   }, []);
 
-  // Save user when starting game
+  // Save user to localStorage when starting game
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser(form);
-    localStorage.setItem("runnerUser", JSON.stringify(form));
+    localStorage.setItem("word-scramble", JSON.stringify(form));
   };
 
-  // Quick Start with saved user
+  // Start game with saved user
   const handleQuickStart = () => {
     if (savedUser) setUser(savedUser);
   };
 
   return (
-    <div className="container py-5 d-flex justify-content-center position-relative">
+    <div className="container py-5 d-flex justify-content-center">
       {!user ? (
-        <div className="card col-12 col-md-6 p-4 shadow-lg position-relative">
-          <h2 className="mb-4 text-center">🏃 Start Endless Runner</h2>
+        <div className="card col-12 col-md-6 p-4 shadow-lg">
+          <h2 className="mb-4 text-center">🔤 Start Word Scramble</h2>
           <form onSubmit={handleSubmit}>
             {/* Name */}
             <div className="mb-3">
@@ -45,27 +45,11 @@ export default function RunnerPage() {
               />
             </div>
 
-            {/* Age */}
-            <div className="mb-3">
-              <label className="form-label fw-bold">Age</label>
-              <select
-                value={form.age}
-                required
-                type="select"
-                onChange={(e) => setForm({ ...form, age: e.target.value })}
-              >
-                <option value="">Select Age</option>
-                {[...Array(101).keys()].map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </select>
-            </div>
-
             {/* Difficulty */}
             <div className="mb-3 text-center">
-              <label className="form-label fw-bold d-block">Difficulty</label>
+              <label className="form-label fw-bold d-block">
+                Select Difficulty
+              </label>
               <div className="d-flex justify-content-center gap-3">
                 {["simple", "medium", "hard"].map((level) => (
                   <div className="form-check" key={level}>
@@ -93,13 +77,12 @@ export default function RunnerPage() {
               </div>
             </div>
 
-            {/* Start */}
+            {/* Start button */}
             <div className="text-center">
-              <button className="btn btn-success px-4">Start Game</button>
+              <button className="btn btn-primary px-4">Start Game</button>
             </div>
           </form>
-
-          {/* ✅ Floating Quick Start Button (Top-Left) */}
+           {/* ✅ Floating Quick Start Button (Top-Left) */}
           {savedUser && (
             <button
               onClick={handleQuickStart}
@@ -118,7 +101,7 @@ export default function RunnerPage() {
           )}
         </div>
       ) : (
-        <RunnerGame user={user} />
+        <WordScrambleGame user={user} />
       )}
     </div>
   );
