@@ -8,6 +8,7 @@ export default function GamesPage() {
     { name: "Memory Game", slug: "memory", desc: "Test your memory with card flips." },
     { name: "Endless Runner", slug: "runner", desc: "Run as fast as you can and dodge obstacles." },
     { name: "Word Scramble", slug: "word-scramble", desc: "Unscramble letters to find hidden words. Includes timer and difficulty levels." },
+    { name: "Word Scrabble", slug: "word-scrabble", desc: "Unscrabble letters to find hidden words. Includes timer and difficulty levels." },
     { name: "Quiz Game", slug: "quiz", desc: "Answer trivia questions and test your knowledge." },
     { name: "Pong", slug: "pong", desc: "Classic paddle-and-ball game against AI or a friend." },
     { name: "2048", slug: "2048", desc: "Combine tiles to reach the 2048 number." },
