@@ -10,6 +10,7 @@ export default function NewProject() {
     clientEmail: "",
     clientPhone: "",
     clientCountry: "Nigeria",
+    projectCat: "",
     projectName: "",
     type: "",
     duration: "",
@@ -159,6 +160,22 @@ export default function NewProject() {
             </div>
             <div className="mb-3">
               <div className="d-flex justify-content-center">
+                <label className="form-label">Category</label>
+              </div>
+              <select
+                className=" text-center"
+                name="category"
+                type="select"
+                value={form.category}
+                onChange={handleChange}
+              >
+                <option value="">Select Category</option>
+                <option value="Student">Student</option>
+                <option value="Labor Market">Labor Market</option>
+              </select>
+            </div>
+            <div className="mb-3">
+              <div className="d-flex justify-content-center">
                 <label className="form-label">Client Country</label>
               </div>
               <input
@@ -169,6 +186,25 @@ export default function NewProject() {
                 value={form.clientCountry}
                 onChange={handleChange}
               />
+            </div>
+            {/* Project Info */}
+            <div className="mb-3">
+              <div className="d-flex justify-content-center">
+                <label className="form-label">Project Category</label>
+              </div>
+              <select
+                className=" text-center"
+                name="cat"
+                type="select"
+                value={form.cat}
+                onChange={handleChange}
+              >
+                <option value="">Select Category</option>
+                <option value="Software">Software</option>
+                <option value="Proposal">Proposal</option>
+                <option value="Presentation">Presentation</option>
+                <option value="Documentation">Documentation</option>
+              </select>
             </div>
             {/* Project Info */}
             <div className="mb-3">
@@ -281,6 +317,9 @@ export default function NewProject() {
                       <strong>Phone:</strong> <span>{form.clientPhone}</span>
                     </div>
                     <div className="info-row">
+                      <strong>Category:</strong> <span>{form.category}</span>
+                    </div>
+                    <div className="info-row">
                       <strong>Country:</strong>
                       <span>{form.clientCountry}</span>
                     </div>
@@ -292,7 +331,10 @@ export default function NewProject() {
                   <div className="pdf-project">
                     <h5>Project Details</h5>
                     <div className="info-row">
-                      <strong>Type:</strong> <span>{form.type}</span>
+                      <strong>Project Category:</strong> <span>{form.cat}</span>
+                    </div>
+                    <div className="info-row">
+                      <strong>Project Type:</strong> <span>{form.type}</span>
                     </div>
                     <div className="info-row">
                       <strong>Project Name:</strong>{" "}

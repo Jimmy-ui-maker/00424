@@ -852,7 +852,6 @@ body.dark-theme .sudoku-tips {
   text-align: justify; /* nice alignment */
 }
 
-
 .pdf-logo {
   text-align: center;
   margin-bottom: 25px;
@@ -898,7 +897,7 @@ body.dark-theme .sudoku-tips {
   display: flex;
   justify-content: space-between;
   align-items: flex-end; /* keeps them aligned at the bottom */
-  margin-top: 10px;
+  margin-top: 30px;
   gap: 20px;
   flex-wrap: nowrap; /* prevent stacking */
 }
@@ -906,7 +905,6 @@ body.dark-theme .sudoku-tips {
 .pdf-signatures div {
   flex: 1;
   text-align: center; /* centers text nicely */
-  
 }
 
 /* Responsive tweaks */
@@ -920,3 +918,101 @@ body.dark-theme .sudoku-tips {
     font-size: 18px;
   }
 }
+
+/* =====================================================
+   🎨 Color Chart Styles — Light & Dark Theme Support
+   ===================================================== */
+
+/* ===== Base Circle ===== */
+.color-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* =====================================================
+   Tooltip styling
+   ===================================================== */
+.color-tooltip {
+  position: absolute;
+  bottom: -130px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  width: 190px;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+  box-shadow: var(--shadow-dark);
+}
+
+/* Tooltip hover show */
+.group:hover .color-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(6px);
+}
+
+/* ===== Light Tooltip ===== */
+html body.light-theme .color-tooltip {
+  background: var(--bg);
+  color: #191818;
+}
+
+/* ===== Dark Tooltip ===== */
+html body.dark-theme .color-tooltip {
+ background: #24364a;
+  color: #ffffff;
+  box-shadow: var(--shadow-dark);
+}
+
+/* =====================================================
+   Copy Toast Animation (Copied message)
+   ===================================================== */
+.copy-toast {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background: #198754;
+  color: white;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 8px;
+  animation: fadePop 1s ease forwards;
+  box-shadow: var(--shadow-light);
+}
+
+/* Dark Theme version */
+html body.dark-theme .copy-toast {
+  background: #0d6efd;
+  box-shadow: var(--shadow-dark);
+}
+
+/* Animation */
+@keyframes fadePop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%) scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -120%) scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -120%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100%) scale(0.95);
+  }
+}
+
