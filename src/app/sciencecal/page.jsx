@@ -25,7 +25,7 @@ export default function ScienceCal() {
       const evalResult = evaluate(input);
       setResult(evalResult.toString());
     } catch {
-      setResult("Error");
+      setResult("Math Error");
     }
   };
 
