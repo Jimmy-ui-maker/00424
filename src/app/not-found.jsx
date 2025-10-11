@@ -26,8 +26,8 @@ export default function NotFound() {
         </p>
 
         {/* Link Back */}
-        <Link href="/games" className="btn-back-home">
-          ⬅️ Beam Me Back to Game Dashboard 🎮
+        <Link href="/" className="btn-back-home">
+          ⬅️ Beam Me Back to Main Dashboard 🎮
         </Link>
 
         {/* Extra Funny Footer */}

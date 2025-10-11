@@ -16,7 +16,9 @@ export default function SearchModal() {
     { name: "Teams", url: "/teams" },
     { name: "FAQs", url: "/faqs" },
     { name: "Contact", url: "/contact" },
-    { name: "3d Color Charts", url: "/colorcharts" },
+    { name: "Color Charts", url: "/colorcharts" },
+    { name: "Hyms Songs", url: "/hymns" },
+    { name: "Calculator", url: "/sciencecal" },
   ];
 
   const filteredPages = pages.filter((p) =>

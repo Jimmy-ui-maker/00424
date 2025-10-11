@@ -1016,3 +1016,101 @@ html body.dark-theme .copy-toast {
   }
 }
 
+@import url('https://fonts.cdnfonts.com/css/digital-7-mono');
+
+.calc-body {
+  background: linear-gradient(145deg, #1c1f2a, #10121b);
+  border-radius: 20px;
+  max-width: 400px;
+  padding: 15px;
+  color: #fff;
+}
+
+.calc-display {
+  background: linear-gradient(to bottom, #adbdd6,  #ffffff);
+  border: 2px inset #999;
+  border-radius: 10px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-family: "Digital-7 Mono", monospace;
+  color: #000;
+  box-shadow: inset 0 2px 3px #888;
+}
+
+.calc-top {
+  text-align: left;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.calc-bottom {
+  text-align: right;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.btn-calc {
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 3px 0 #0005;
+}
+
+.btn-calc:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px #0005;
+}
+
+.btn-dark {
+  background: #2d2f3a;
+}
+
+.btn-danger {
+  background: #b30000;
+}
+
+.btn-warning {
+  background: #e67e22;
+  color: white;
+}
+
+.btn-success {
+  background: #00b894;
+}
+
+.btn-shift {
+  background: #f39c12;
+  color: black;
+}
+
+.btn-mode {
+  background: #3498db;
+}
+
+.btn-replay {
+  background: radial-gradient(circle, #4b4f63, #2c2f3c);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  box-shadow: inset 0 2px 5px #0009, 0 2px 3px #0008;
+}
+
+/* Adjust buttons for smaller screens */
+@media (max-width: 768px) {
+  .btn-calc {
+    height: 45px;
+    width: 45px;
+    font-size: 0.8rem;
+  }
+  .calc-body {
+    max-width: 320px;
+  }
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "number": 1,
+    "title": "Ubangiji Allah, Ga Mu Nan Gabanka",
+    "chorus": "",
+    "verses": [
+      "Ubangiji Allah, ga mu nan gabanka,\nTun da farin hasken safe, mu ke nemanka.",
+      "Mu tashi da murna mu roƙe albarka,\nKa ba mu nutsuwa da zaman lafiya.",
+      "Ka tsarkake zukatanmu, ka shiryar da mu,\nMu bi tafarkinka har abada."
+    ],
+    "audio": "/hymntone/coolmusic1.mp3"
+  },
+  {
+    "number": 2,
+    "title": "Mu Yi Sujada Ga Ubangiji",
+    "chorus": "Zan rera waƙa ga Ubangiji,\nMai Ceto, Mai Rahama.",
+    "verses": [
+      "Mu yi sujada ga Ubangiji,\nMai halitta, Mai iko.",
+      "Yana da ikon warkarwa,\nYana ceto masu zunubi."
+    ],
+    "audio": ""
+  },
+  {
+    "number": 3,
+    "title": "Na Ji Kiranka, Yanzu Ya Ubangijina",
+    "chorus": "Na amsa kiranKa, Ubangijina,\nKa jagorance ni, in bi tafarkinka.",
+    "verses": [
+      "Na ji kiranka yanzu, ya Ubangijina,\nKa kira ni in zo gareka da gaskiya.",
+      "Ka tsarkake zuciyata, ka cika da ruhunka,\nDon in yi hidimarka da aminci."
+    ],
+    "audio": ""
+  },
+  {
+    "number": 4,
+    "title": "Ka Kawo Haske Cikin Zuciyata",
+    "chorus": "Haske na gaskiya, ya Ubangiji,\nKa cika ni da farin ciki.",
+    "verses": [
+      "Ka kawo haske cikin zuciyata,\nDon in san hanya mai kyau.",
+      "Ka nuna mini tafarkinka,\nIn bi shi da tsoronka."
+    ],
+    "audio": ""
+  },
+  {
+    "number": 5,
+    "title": "Yabo Ya Tabbata Ga Allah",
+    "chorus": "Yabo ya tabbata ga Allah,\nMai iko, Mai jin ƙai.",
+    "verses": [
+      "Yabo ya tabbata ga Allah,\nMai halitta sama da ƙasa.",
+      "Dukan halittu su yi murna,\nSu rera waƙa ga Ubangiji."
+    ],
+    "audio": ""
+  }
+]
