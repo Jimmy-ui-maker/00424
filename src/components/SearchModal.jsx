@@ -19,6 +19,7 @@ export default function SearchModal() {
     { name: "Color Charts", url: "/colorcharts" },
     { name: "Hyms Songs", url: "/hymns" },
     { name: "Calculator", url: "/sciencecal" },
+    { name: "License Course", url: "/licensecourse" },
   ];
 
   const filteredPages = pages.filter((p) =>

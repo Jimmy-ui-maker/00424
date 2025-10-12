@@ -1,0 +1,37 @@
+[
+  {
+    "courseTitle": "Nursing Science",
+    "campuses": ["University"],
+    "isLicensed": true,
+    "licensingBody": "Nursing and Midwifery Council of Nigeria (NMCN)",
+    "website": "https://www.nmcn.gov.ng"
+  },
+  {
+    "courseTitle": "Computer Science",
+    "campuses": ["University", "Polytechnic"],
+    "isLicensed": true,
+    "licensingBody": "National Universities Commission (NUC) / NBTE",
+    "website": "https://www.nuc.edu.ng"
+  },
+  {
+    "courseTitle": "Public Administration",
+    "campuses": ["University", "Polytechnic", "FCE"],
+    "isLicensed": false,
+    "licensingBody": null,
+    "website": null
+  },
+  {
+    "courseTitle": "Education and Biology",
+    "campuses": ["University", "FCE"],
+    "isLicensed": true,
+    "licensingBody": "Teachers Registration Council of Nigeria (TRCN)",
+    "website": "https://www.trcn.gov.ng"
+  },
+  {
+    "courseTitle": "Mass Communication",
+    "campuses": ["University", "Polytechnic"],
+    "isLicensed": true,
+    "licensingBody": "National Broadcasting Commission (NBC)",
+    "website": "https://www.nbc.gov.ng"
+  }
+]
