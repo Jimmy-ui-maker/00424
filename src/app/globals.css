@@ -1113,8 +1113,6 @@ html body.light-theme .calc-body {
 html body.light-theme .calc-body .btn-dark {
   background: #e0e5ec;
   color: #191818;
-  
-  
 }
 html body.light-theme .calc-body .calc-display {
   background: #e0e5ec;
@@ -1130,7 +1128,6 @@ html body.dark-theme .calc-body {
 html body.dark-theme .calc-body .btn-dark {
   background: #1c2a3b;
   color: #e0e5ec;
-  
 }
 html body.dark-theme .calc-body .calc-display {
   background: #24364a;
@@ -1138,3 +1135,33 @@ html body.dark-theme .calc-body .calc-display {
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7) !important; /* softer inset for dark mode */
 }
 
+/* ====== Love Alerts using your calc colors ====== */
+.custom-alert {
+  background: var(--alert-bg, #e0e5ec);
+  color: var(--alert-text, #191818);
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 2px 2px 5px #babecc, -2px -2px 5px #ffffff;
+  transition: 0.2s;
+}
+
+html body.dark-theme .custom-alert {
+  background: #24364a;
+  color: #e0e5ec;
+  box-shadow: var(--shadow-dark);
+}
+
+.custom-alert:hover {
+  transform: scale(1.02);
+}
+
+/* Reuse your calc theme colors */
+.love-card {
+  border-radius: 15px;
+  background: var(--card-bg, #ffe6ea);
+  border: 2px solid #ffccd5;
+}
+
+.bg-pink {
+  background-color: #ff6b81 !important;
+}
