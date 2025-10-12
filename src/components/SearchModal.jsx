@@ -20,6 +20,7 @@ export default function SearchModal() {
     { name: "Hyms Songs", url: "/hymns" },
     { name: "Calculator", url: "/sciencecal" },
     { name: "License Course", url: "/licensecourse" },
+    { name: "Love Code and Matcher", url: "/lovecodeandmatcher" },
   ];
 
   const filteredPages = pages.filter((p) =>

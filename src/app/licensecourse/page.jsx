@@ -48,7 +48,7 @@ export default function LicenseCoursePage() {
   return (
     <div className="container my-5">
       <h2 className="text-center mb-3 fw-bold text-primary">
-        LicenseCourse Nigeria
+        License Course Nigeria
       </h2>
       <p className="text-center  mb-4">
         Check if your desired course of study is licensed and by which
@@ -105,7 +105,6 @@ export default function LicenseCoursePage() {
                   <h5 className="card-title fw-bold  text-primary">
                     {course.courseTitle}
                   </h5>
-
                   <p className="mb-1">
                     <strong>Campuses:</strong> {course.campuses.join(", ")}
                   </p>
