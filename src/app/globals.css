@@ -1155,12 +1155,6 @@ html body.dark-theme .custom-alert {
   transform: scale(1.02);
 }
 
-/* Reuse your calc theme colors */
-.love-card {
-  border-radius: 15px;
-  background: var(--card-bg, #ffe6ea);
-  border: 2px solid #ffccd5;
-}
 
 .bg-pink {
   background-color: #ff6b81 !important;
